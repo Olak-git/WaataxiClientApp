@@ -1,0 +1,902 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E356F31AD99517003FC87E /* WaataxiClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WaataxiClientTests.m */; };
+		06F1AEF260484C9EA29C4470 /* MontserratAlternates-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5601679B7C24801AA64AFBD /* MontserratAlternates-BlackItalic.ttf */; };
+		0AEC2C58BBBE4B27B880693F /* MontserratAlternates-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E8F217E8AC14296A49C81E8 /* MontserratAlternates-Regular.ttf */; };
+		0C2E5D84F9A94EEC84454537 /* MontserratAlternates-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23FAA7C07052462182B174B2 /* MontserratAlternates-ThinItalic.ttf */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1712745704DD41CDB20BA43A /* MontserratAlternates-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8439726EE6A244A6BA4357DA /* MontserratAlternates-Thin.ttf */; };
+		195AEE9FB0FA4AC2BBB1D619 /* ShadowsIntoLight-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B67188CDCB2748FF8CC54224 /* ShadowsIntoLight-Regular.ttf */; };
+		1D8C3219A7D344A8AA8DF608 /* MontserratAlternates-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06587F96C3B14BCAB989B31A /* MontserratAlternates-ExtraLight.ttf */; };
+		1DF4D8DA5B5240FF9B2D8AA3 /* MontserratAlternates-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F3EAEB63AD64087AF5562B9 /* MontserratAlternates-LightItalic.ttf */; };
+		382676B0396348C09C04468E /* YanoneKaffeesatz-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8704A0A1B86B41DCA4C2D637 /* YanoneKaffeesatz-ExtraLight.ttf */; };
+		3890DD1C1D374AE4B0F63689 /* MontserratAlternates-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACF3A59C4E224F72817667C1 /* MontserratAlternates-Black.ttf */; };
+		393BA190BA2145E7A4A56C04 /* YanoneKaffeesatz-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 899960D371374E4AA8483963 /* YanoneKaffeesatz-Medium.ttf */; };
+		3DDBE79D105A4B1BAA6493E5 /* YanoneKaffeesatz-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 117BDA5E7A6F48EDB54D9DF8 /* YanoneKaffeesatz-Regular.ttf */; };
+		3E938C85740B4B48904618B1 /* MontserratAlternates-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 081440D4BE5F4BD7A8A7B502 /* MontserratAlternates-ExtraBold.ttf */; };
+		468402398584436792E5796E /* IbarraRealNova-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF8697366C124DBDAB47956A /* IbarraRealNova-VariableFont_wght.ttf */; };
+		480A3B06FC0C41088C92C22C /* MontserratAlternates-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C91DA4C7E1345A3ACA19E3B /* MontserratAlternates-ExtraBoldItalic.ttf */; };
+		4A0EA3EA77F1447EA8467D3E /* Rajdhani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FABB044D0F497AB4A11320 /* Rajdhani-Regular.ttf */; };
+		4A3338ACD7D2473A828FF87E /* YanoneKaffeesatz-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B603C81C64DE4D75A686D316 /* YanoneKaffeesatz-Bold.ttf */; };
+		5E1C55A2E65546478089E715 /* MontserratAlternates-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDC8C652C372414BA49EB280 /* MontserratAlternates-ExtraLightItalic.ttf */; };
+		5EBF4923F52E4FDBAD70D50B /* MontserratAlternates-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C727930B6737452F899CE329 /* MontserratAlternates-Italic.ttf */; };
+		78EB93D7645797C96CF528E7 /* libPods-WaataxiClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F10236D5CE0FED559D4C4B /* libPods-WaataxiClient.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8EDE1BDECB0449CFB5B4118D /* Rajdhani-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7950BF5D715441D995C08E71 /* Rajdhani-Light.ttf */; };
+		938C437B170A4A729AB26677 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDBC24ECF5C14EE3AB7BF1A5 /* YanoneKaffeesatz-Light.ttf */; };
+		9D484FD63C8C48F9B4F059A1 /* YanoneKaffeesatz-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0726CE2161A04935A3AE7F73 /* YanoneKaffeesatz-VariableFont_wght.ttf */; };
+		9EF5A8017B9D281E31DA2659 /* libPods-WaataxiClient-WaataxiClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8042E375E4D679D3C87070BE /* libPods-WaataxiClient-WaataxiClientTests.a */; };
+		A5E2F6D8D0994451ADDC5D63 /* Raleway-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58AE396BAFC54EB393C990A7 /* Raleway-VariableFont_wght.ttf */; };
+		AF0D86EE032244F3BB68F3A9 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC46E081B15149528F325EBF /* Itim-Regular.ttf */; };
+		B202D872A6B34E06806E6962 /* MontserratAlternates-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF19EF84C3D442C4A6EA5EB1 /* MontserratAlternates-MediumItalic.ttf */; };
+		B584959867D04FC1BB6F20AD /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6620EEA366F24BE1895466AB /* MontserratAlternates-SemiBold.ttf */; };
+		BEDEAD43F81244498A974005 /* Rajdhani-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF973DC7B38F4EA58338C673 /* Rajdhani-SemiBold.ttf */; };
+		C0D63EB509D34414BE10A563 /* YatraOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D66B5D6BDC84514960F27B1 /* YatraOne-Regular.ttf */; };
+		C4B652057D0F4E86A2026701 /* MontserratAlternates-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F86820A271D14DEFA9FC8CAC /* MontserratAlternates-SemiBoldItalic.ttf */; };
+		C7A453A110084FC8B2D2D04F /* MontserratAlternates-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE96B5334D6F48D482E01FF7 /* MontserratAlternates-Light.ttf */; };
+		D05FA0A3B1DF43B88D825BC7 /* YanoneKaffeesatz-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EB72CB3FC9547DA844D107A /* YanoneKaffeesatz-SemiBold.ttf */; };
+		D2FCC9D01EA546D4AB36B6B1 /* Rajdhani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44D92817D4854F04B9ADDB55 /* Rajdhani-Bold.ttf */; };
+		DDD27836188A4AF5936DEDBD /* PatrickHand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F467D1D204014A288BD7135E /* PatrickHand-Regular.ttf */; };
+		DFEFA121BB5C42F68DBDC1B4 /* Rajdhani-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAB0C8F72A654A18A5F8718F /* Rajdhani-Medium.ttf */; };
+		E1F09C1D33A74CB28C381A75 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00AA488C0EC74871BD1E5CEB /* MontserratAlternates-Medium.ttf */; };
+		FC80CCF583A64311A122A5F9 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 314D05D4073D45B597D81996 /* MontserratAlternates-Bold.ttf */; };
+		FDA14563E620485D96E6C780 /* IndieFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90F744739A5B40799433FE25 /* IndieFlower-Regular.ttf */; };
+		FF6AF819DBB3415E9F506810 /* MontserratAlternates-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F02280D5558467B9A59FC4B /* MontserratAlternates-BoldItalic.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = WaataxiClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00AA488C0EC74871BD1E5CEB /* MontserratAlternates-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Medium.ttf"; path = "../assets/fonts/MontserratAlternates-Medium.ttf"; sourceTree = "<group>"; };
+		00E356EE1AD99517003FC87E /* WaataxiClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaataxiClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* WaataxiClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaataxiClientTests.m; sourceTree = "<group>"; };
+		06587F96C3B14BCAB989B31A /* MontserratAlternates-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-ExtraLight.ttf"; path = "../assets/fonts/MontserratAlternates-ExtraLight.ttf"; sourceTree = "<group>"; };
+		0726CE2161A04935A3AE7F73 /* YanoneKaffeesatz-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-VariableFont_wght.ttf"; path = "../assets/fonts/YanoneKaffeesatz-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		081440D4BE5F4BD7A8A7B502 /* MontserratAlternates-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-ExtraBold.ttf"; path = "../assets/fonts/MontserratAlternates-ExtraBold.ttf"; sourceTree = "<group>"; };
+		0EB72CB3FC9547DA844D107A /* YanoneKaffeesatz-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-SemiBold.ttf"; path = "../assets/fonts/YanoneKaffeesatz-SemiBold.ttf"; sourceTree = "<group>"; };
+		117BDA5E7A6F48EDB54D9DF8 /* YanoneKaffeesatz-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-Regular.ttf"; path = "../assets/fonts/YanoneKaffeesatz-Regular.ttf"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* WaataxiClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaataxiClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = WaataxiClient/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = WaataxiClient/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WaataxiClient/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WaataxiClient/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WaataxiClient/main.m; sourceTree = "<group>"; };
+		16FABB044D0F497AB4A11320 /* Rajdhani-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Regular.ttf"; path = "../assets/fonts/Rajdhani-Regular.ttf"; sourceTree = "<group>"; };
+		1C91DA4C7E1345A3ACA19E3B /* MontserratAlternates-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-ExtraBoldItalic.ttf"; path = "../assets/fonts/MontserratAlternates-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		23FAA7C07052462182B174B2 /* MontserratAlternates-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-ThinItalic.ttf"; path = "../assets/fonts/MontserratAlternates-ThinItalic.ttf"; sourceTree = "<group>"; };
+		2F02280D5558467B9A59FC4B /* MontserratAlternates-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-BoldItalic.ttf"; path = "../assets/fonts/MontserratAlternates-BoldItalic.ttf"; sourceTree = "<group>"; };
+		314D05D4073D45B597D81996 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Bold.ttf"; path = "../assets/fonts/MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-WaataxiClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaataxiClient.debug.xcconfig"; path = "Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient.debug.xcconfig"; sourceTree = "<group>"; };
+		44D92817D4854F04B9ADDB55 /* Rajdhani-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Bold.ttf"; path = "../assets/fonts/Rajdhani-Bold.ttf"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-WaataxiClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaataxiClient.release.xcconfig"; path = "Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient.release.xcconfig"; sourceTree = "<group>"; };
+		58AE396BAFC54EB393C990A7 /* Raleway-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-VariableFont_wght.ttf"; path = "../assets/fonts/Raleway-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-WaataxiClient-WaataxiClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaataxiClient-WaataxiClientTests.debug.xcconfig"; path = "Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E8F217E8AC14296A49C81E8 /* MontserratAlternates-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Regular.ttf"; path = "../assets/fonts/MontserratAlternates-Regular.ttf"; sourceTree = "<group>"; };
+		6620EEA366F24BE1895466AB /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-SemiBold.ttf"; path = "../assets/fonts/MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
+		6D66B5D6BDC84514960F27B1 /* YatraOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YatraOne-Regular.ttf"; path = "../assets/fonts/YatraOne-Regular.ttf"; sourceTree = "<group>"; };
+		7340632C29E9AAB4008AC76C /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		7340632D29E9AAB4008AC76C /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		7340633029E9AAD1008AC76C /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		7340633129E9AAD1008AC76C /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		7340633229E9AAD1008AC76C /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		7340633329E9AAD1008AC76C /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		7340633429E9AAD1008AC76C /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		7340633529E9AAD1008AC76C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		7340633629E9AAD1008AC76C /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		7340633E29E9AAEF008AC76C /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		7340633F29E9AAEF008AC76C /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		7340634029E9AAEF008AC76C /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		7340634129E9AAEF008AC76C /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		7340634229E9AAEF008AC76C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		7340634329E9AAEF008AC76C /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		7340634A29E9AD49008AC76C /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		7950BF5D715441D995C08E71 /* Rajdhani-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Light.ttf"; path = "../assets/fonts/Rajdhani-Light.ttf"; sourceTree = "<group>"; };
+		7F3EAEB63AD64087AF5562B9 /* MontserratAlternates-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-LightItalic.ttf"; path = "../assets/fonts/MontserratAlternates-LightItalic.ttf"; sourceTree = "<group>"; };
+		8042E375E4D679D3C87070BE /* libPods-WaataxiClient-WaataxiClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaataxiClient-WaataxiClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WaataxiClient/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8439726EE6A244A6BA4357DA /* MontserratAlternates-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Thin.ttf"; path = "../assets/fonts/MontserratAlternates-Thin.ttf"; sourceTree = "<group>"; };
+		8704A0A1B86B41DCA4C2D637 /* YanoneKaffeesatz-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-ExtraLight.ttf"; path = "../assets/fonts/YanoneKaffeesatz-ExtraLight.ttf"; sourceTree = "<group>"; };
+		899960D371374E4AA8483963 /* YanoneKaffeesatz-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-Medium.ttf"; path = "../assets/fonts/YanoneKaffeesatz-Medium.ttf"; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-WaataxiClient-WaataxiClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaataxiClient-WaataxiClientTests.release.xcconfig"; path = "Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		90F744739A5B40799433FE25 /* IndieFlower-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IndieFlower-Regular.ttf"; path = "../assets/fonts/IndieFlower-Regular.ttf"; sourceTree = "<group>"; };
+		ACF3A59C4E224F72817667C1 /* MontserratAlternates-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Black.ttf"; path = "../assets/fonts/MontserratAlternates-Black.ttf"; sourceTree = "<group>"; };
+		AF8697366C124DBDAB47956A /* IbarraRealNova-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IbarraRealNova-VariableFont_wght.ttf"; path = "../assets/fonts/IbarraRealNova-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		B4F10236D5CE0FED559D4C4B /* libPods-WaataxiClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WaataxiClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5601679B7C24801AA64AFBD /* MontserratAlternates-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-BlackItalic.ttf"; path = "../assets/fonts/MontserratAlternates-BlackItalic.ttf"; sourceTree = "<group>"; };
+		B603C81C64DE4D75A686D316 /* YanoneKaffeesatz-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-Bold.ttf"; path = "../assets/fonts/YanoneKaffeesatz-Bold.ttf"; sourceTree = "<group>"; };
+		B67188CDCB2748FF8CC54224 /* ShadowsIntoLight-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ShadowsIntoLight-Regular.ttf"; path = "../assets/fonts/ShadowsIntoLight-Regular.ttf"; sourceTree = "<group>"; };
+		BC46E081B15149528F325EBF /* Itim-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Itim-Regular.ttf"; path = "../assets/fonts/Itim-Regular.ttf"; sourceTree = "<group>"; };
+		BE96B5334D6F48D482E01FF7 /* MontserratAlternates-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Light.ttf"; path = "../assets/fonts/MontserratAlternates-Light.ttf"; sourceTree = "<group>"; };
+		BF19EF84C3D442C4A6EA5EB1 /* MontserratAlternates-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-MediumItalic.ttf"; path = "../assets/fonts/MontserratAlternates-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C571D6C7126A19C6B54E02D6 /* Pods-WaataxiClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaataxiClientTests.release.xcconfig"; path = "Target Support Files/Pods-WaataxiClientTests/Pods-WaataxiClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		C727930B6737452F899CE329 /* MontserratAlternates-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-Italic.ttf"; path = "../assets/fonts/MontserratAlternates-Italic.ttf"; sourceTree = "<group>"; };
+		CDC8C652C372414BA49EB280 /* MontserratAlternates-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-ExtraLightItalic.ttf"; path = "../assets/fonts/MontserratAlternates-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		DAB0C8F72A654A18A5F8718F /* Rajdhani-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-Medium.ttf"; path = "../assets/fonts/Rajdhani-Medium.ttf"; sourceTree = "<group>"; };
+		DDBC24ECF5C14EE3AB7BF1A5 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "YanoneKaffeesatz-Light.ttf"; path = "../assets/fonts/YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
+		E3B52E5D7B27FBAD885F298C /* Pods-WaataxiClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaataxiClientTests.debug.xcconfig"; path = "Target Support Files/Pods-WaataxiClientTests/Pods-WaataxiClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		EF973DC7B38F4EA58338C673 /* Rajdhani-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Rajdhani-SemiBold.ttf"; path = "../assets/fonts/Rajdhani-SemiBold.ttf"; sourceTree = "<group>"; };
+		F467D1D204014A288BD7135E /* PatrickHand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PatrickHand-Regular.ttf"; path = "../assets/fonts/PatrickHand-Regular.ttf"; sourceTree = "<group>"; };
+		F86820A271D14DEFA9FC8CAC /* MontserratAlternates-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MontserratAlternates-SemiBoldItalic.ttf"; path = "../assets/fonts/MontserratAlternates-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EF5A8017B9D281E31DA2659 /* libPods-WaataxiClient-WaataxiClientTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78EB93D7645797C96CF528E7 /* libPods-WaataxiClient.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* WaataxiClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* WaataxiClientTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = WaataxiClientTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* WaataxiClient */ = {
+			isa = PBXGroup;
+			children = (
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB71A68108700A75B9A /* main.m */,
+			);
+			name = WaataxiClient;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				B4F10236D5CE0FED559D4C4B /* libPods-WaataxiClient.a */,
+				8042E375E4D679D3C87070BE /* libPods-WaataxiClient-WaataxiClientTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7340632B29E9AA5F008AC76C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7340634A29E9AD49008AC76C /* AntDesign.ttf */,
+				7340634129E9AAEF008AC76C /* Ionicons.ttf */,
+				7340633E29E9AAEF008AC76C /* MaterialCommunityIcons.ttf */,
+				7340634029E9AAEF008AC76C /* MaterialIcons.ttf */,
+				7340633F29E9AAEF008AC76C /* Octicons.ttf */,
+				7340634229E9AAEF008AC76C /* SimpleLineIcons.ttf */,
+				7340634329E9AAEF008AC76C /* Zocial.ttf */,
+				7340633329E9AAD1008AC76C /* Feather.ttf */,
+				7340633229E9AAD1008AC76C /* FontAwesome.ttf */,
+				7340633129E9AAD1008AC76C /* FontAwesome5_Brands.ttf */,
+				7340633529E9AAD1008AC76C /* FontAwesome5_Regular.ttf */,
+				7340633429E9AAD1008AC76C /* FontAwesome5_Solid.ttf */,
+				7340633629E9AAD1008AC76C /* Fontisto.ttf */,
+				7340633029E9AAD1008AC76C /* Foundation.ttf */,
+				7340632C29E9AAB4008AC76C /* Entypo.ttf */,
+				7340632D29E9AAB4008AC76C /* EvilIcons.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				7340632B29E9AA5F008AC76C /* Fonts */,
+				13B07FAE1A68108700A75B9A /* WaataxiClient */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* WaataxiClientTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				BDF38B43A8E841F9851CF9C9 /* Resources */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* WaataxiClient.app */,
+				00E356EE1AD99517003FC87E /* WaataxiClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B4392A12AC88292D35C810B /* Pods-WaataxiClient.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-WaataxiClient.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-WaataxiClient-WaataxiClientTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-WaataxiClient-WaataxiClientTests.release.xcconfig */,
+				E3B52E5D7B27FBAD885F298C /* Pods-WaataxiClientTests.debug.xcconfig */,
+				C571D6C7126A19C6B54E02D6 /* Pods-WaataxiClientTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BDF38B43A8E841F9851CF9C9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF8697366C124DBDAB47956A /* IbarraRealNova-VariableFont_wght.ttf */,
+				90F744739A5B40799433FE25 /* IndieFlower-Regular.ttf */,
+				F467D1D204014A288BD7135E /* PatrickHand-Regular.ttf */,
+				44D92817D4854F04B9ADDB55 /* Rajdhani-Bold.ttf */,
+				7950BF5D715441D995C08E71 /* Rajdhani-Light.ttf */,
+				DAB0C8F72A654A18A5F8718F /* Rajdhani-Medium.ttf */,
+				16FABB044D0F497AB4A11320 /* Rajdhani-Regular.ttf */,
+				EF973DC7B38F4EA58338C673 /* Rajdhani-SemiBold.ttf */,
+				58AE396BAFC54EB393C990A7 /* Raleway-VariableFont_wght.ttf */,
+				B67188CDCB2748FF8CC54224 /* ShadowsIntoLight-Regular.ttf */,
+				B603C81C64DE4D75A686D316 /* YanoneKaffeesatz-Bold.ttf */,
+				8704A0A1B86B41DCA4C2D637 /* YanoneKaffeesatz-ExtraLight.ttf */,
+				DDBC24ECF5C14EE3AB7BF1A5 /* YanoneKaffeesatz-Light.ttf */,
+				899960D371374E4AA8483963 /* YanoneKaffeesatz-Medium.ttf */,
+				117BDA5E7A6F48EDB54D9DF8 /* YanoneKaffeesatz-Regular.ttf */,
+				0EB72CB3FC9547DA844D107A /* YanoneKaffeesatz-SemiBold.ttf */,
+				0726CE2161A04935A3AE7F73 /* YanoneKaffeesatz-VariableFont_wght.ttf */,
+				BC46E081B15149528F325EBF /* Itim-Regular.ttf */,
+				ACF3A59C4E224F72817667C1 /* MontserratAlternates-Black.ttf */,
+				B5601679B7C24801AA64AFBD /* MontserratAlternates-BlackItalic.ttf */,
+				314D05D4073D45B597D81996 /* MontserratAlternates-Bold.ttf */,
+				2F02280D5558467B9A59FC4B /* MontserratAlternates-BoldItalic.ttf */,
+				081440D4BE5F4BD7A8A7B502 /* MontserratAlternates-ExtraBold.ttf */,
+				1C91DA4C7E1345A3ACA19E3B /* MontserratAlternates-ExtraBoldItalic.ttf */,
+				06587F96C3B14BCAB989B31A /* MontserratAlternates-ExtraLight.ttf */,
+				CDC8C652C372414BA49EB280 /* MontserratAlternates-ExtraLightItalic.ttf */,
+				C727930B6737452F899CE329 /* MontserratAlternates-Italic.ttf */,
+				BE96B5334D6F48D482E01FF7 /* MontserratAlternates-Light.ttf */,
+				7F3EAEB63AD64087AF5562B9 /* MontserratAlternates-LightItalic.ttf */,
+				00AA488C0EC74871BD1E5CEB /* MontserratAlternates-Medium.ttf */,
+				BF19EF84C3D442C4A6EA5EB1 /* MontserratAlternates-MediumItalic.ttf */,
+				5E8F217E8AC14296A49C81E8 /* MontserratAlternates-Regular.ttf */,
+				6620EEA366F24BE1895466AB /* MontserratAlternates-SemiBold.ttf */,
+				F86820A271D14DEFA9FC8CAC /* MontserratAlternates-SemiBoldItalic.ttf */,
+				8439726EE6A244A6BA4357DA /* MontserratAlternates-Thin.ttf */,
+				23FAA7C07052462182B174B2 /* MontserratAlternates-ThinItalic.ttf */,
+				6D66B5D6BDC84514960F27B1 /* YatraOne-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00E356ED1AD99517003FC87E /* WaataxiClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WaataxiClientTests" */;
+			buildPhases = (
+				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+				C79FC9C52342404239F782B5 /* [CP] Embed Pods Frameworks */,
+				A49FBF34CE866F00C3BDAAA1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = WaataxiClientTests;
+			productName = WaataxiClientTests;
+			productReference = 00E356EE1AD99517003FC87E /* WaataxiClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13B07F861A680F5B00A75B9A /* WaataxiClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WaataxiClient" */;
+			buildPhases = (
+				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				FD10A7F022414F080027D42C /* Start Packager */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				B637DF3C2B9AF2B203C9495B /* [CP] Embed Pods Frameworks */,
+				3F47222694C4D189378E2C16 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaataxiClient;
+			productName = WaataxiClient;
+			productReference = 13B07F961A680F5B00A75B9A /* WaataxiClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "WaataxiClient" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* WaataxiClient */,
+				00E356ED1AD99517003FC87E /* WaataxiClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				468402398584436792E5796E /* IbarraRealNova-VariableFont_wght.ttf in Resources */,
+				FDA14563E620485D96E6C780 /* IndieFlower-Regular.ttf in Resources */,
+				DDD27836188A4AF5936DEDBD /* PatrickHand-Regular.ttf in Resources */,
+				D2FCC9D01EA546D4AB36B6B1 /* Rajdhani-Bold.ttf in Resources */,
+				8EDE1BDECB0449CFB5B4118D /* Rajdhani-Light.ttf in Resources */,
+				DFEFA121BB5C42F68DBDC1B4 /* Rajdhani-Medium.ttf in Resources */,
+				4A0EA3EA77F1447EA8467D3E /* Rajdhani-Regular.ttf in Resources */,
+				BEDEAD43F81244498A974005 /* Rajdhani-SemiBold.ttf in Resources */,
+				A5E2F6D8D0994451ADDC5D63 /* Raleway-VariableFont_wght.ttf in Resources */,
+				195AEE9FB0FA4AC2BBB1D619 /* ShadowsIntoLight-Regular.ttf in Resources */,
+				4A3338ACD7D2473A828FF87E /* YanoneKaffeesatz-Bold.ttf in Resources */,
+				382676B0396348C09C04468E /* YanoneKaffeesatz-ExtraLight.ttf in Resources */,
+				938C437B170A4A729AB26677 /* YanoneKaffeesatz-Light.ttf in Resources */,
+				393BA190BA2145E7A4A56C04 /* YanoneKaffeesatz-Medium.ttf in Resources */,
+				3DDBE79D105A4B1BAA6493E5 /* YanoneKaffeesatz-Regular.ttf in Resources */,
+				D05FA0A3B1DF43B88D825BC7 /* YanoneKaffeesatz-SemiBold.ttf in Resources */,
+				9D484FD63C8C48F9B4F059A1 /* YanoneKaffeesatz-VariableFont_wght.ttf in Resources */,
+				AF0D86EE032244F3BB68F3A9 /* Itim-Regular.ttf in Resources */,
+				3890DD1C1D374AE4B0F63689 /* MontserratAlternates-Black.ttf in Resources */,
+				06F1AEF260484C9EA29C4470 /* MontserratAlternates-BlackItalic.ttf in Resources */,
+				FC80CCF583A64311A122A5F9 /* MontserratAlternates-Bold.ttf in Resources */,
+				FF6AF819DBB3415E9F506810 /* MontserratAlternates-BoldItalic.ttf in Resources */,
+				3E938C85740B4B48904618B1 /* MontserratAlternates-ExtraBold.ttf in Resources */,
+				480A3B06FC0C41088C92C22C /* MontserratAlternates-ExtraBoldItalic.ttf in Resources */,
+				1D8C3219A7D344A8AA8DF608 /* MontserratAlternates-ExtraLight.ttf in Resources */,
+				5E1C55A2E65546478089E715 /* MontserratAlternates-ExtraLightItalic.ttf in Resources */,
+				5EBF4923F52E4FDBAD70D50B /* MontserratAlternates-Italic.ttf in Resources */,
+				C7A453A110084FC8B2D2D04F /* MontserratAlternates-Light.ttf in Resources */,
+				1DF4D8DA5B5240FF9B2D8AA3 /* MontserratAlternates-LightItalic.ttf in Resources */,
+				E1F09C1D33A74CB28C381A75 /* MontserratAlternates-Medium.ttf in Resources */,
+				B202D872A6B34E06806E6962 /* MontserratAlternates-MediumItalic.ttf in Resources */,
+				0AEC2C58BBBE4B27B880693F /* MontserratAlternates-Regular.ttf in Resources */,
+				B584959867D04FC1BB6F20AD /* MontserratAlternates-SemiBold.ttf in Resources */,
+				C4B652057D0F4E86A2026701 /* MontserratAlternates-SemiBoldItalic.ttf in Resources */,
+				1712745704DD41CDB20BA43A /* MontserratAlternates-Thin.ttf in Resources */,
+				0C2E5D84F9A94EEC84454537 /* MontserratAlternates-ThinItalic.ttf in Resources */,
+				C0D63EB509D34414BE10A563 /* YatraOne-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		3F47222694C4D189378E2C16 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A49FBF34CE866F00C3BDAAA1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WaataxiClient-WaataxiClientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B637DF3C2B9AF2B203C9495B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient/Pods-WaataxiClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WaataxiClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C79FC9C52342404239F782B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WaataxiClient-WaataxiClientTests/Pods-WaataxiClient-WaataxiClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD10A7F022414F080027D42C /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E356F31AD99517003FC87E /* WaataxiClientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* WaataxiClient */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00E356F61AD99517003FC87E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-WaataxiClient-WaataxiClientTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WaataxiClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaataxiClient.app/WaataxiClient";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-WaataxiClient-WaataxiClientTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = WaataxiClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaataxiClient.app/WaataxiClient";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-WaataxiClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 14;
+				DEVELOPMENT_TEAM = 4783G6TLDG;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = WaataxiClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.4;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.digitgroupafrica.waataxi;
+				PRODUCT_NAME = WaataxiClient;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-WaataxiClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 14;
+				DEVELOPMENT_TEAM = 4783G6TLDG;
+				INFOPLIST_FILE = WaataxiClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.4;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.digitgroupafrica.waataxi;
+				PRODUCT_NAME = WaataxiClient;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WaataxiClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WaataxiClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "WaataxiClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}

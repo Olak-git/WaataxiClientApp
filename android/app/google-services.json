@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "231050488024",
+    "project_id": "waa-authentication-otp",
+    "storage_bucket": "waa-authentication-otp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231050488024:android:8a07978c343ae73f540fad",
+        "android_client_info": {
+          "package_name": "com.waataxiclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231050488024-3ltecd7tipec2t69tpt61egug7l131db.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOSpgMBklQE-10pH1VjrpyN8yVqn3kSm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "231050488024-3ltecd7tipec2t69tpt61egug7l131db.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
