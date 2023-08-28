@@ -98,6 +98,7 @@
 		<string>MontserratAlternates-Thin.ttf</string>
 		<string>MontserratAlternates-ThinItalic.ttf</string>
 		<string>YatraOne-Regular.ttf</string>
+		<string>times-new-roman.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
