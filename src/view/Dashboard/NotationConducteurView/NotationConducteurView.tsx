@@ -16,6 +16,7 @@ import { setReload } from '../../../feature/reload.slice';
 import { RNPModal } from '../../../components/RNPModal';
 import { ImageSource } from 'react-native-vector-icons/Icon';
 import ImageView from 'react-native-image-viewing';
+import { polices } from '../../../data/data';
 
 const SectionData: React.FC<{
     iconType?: string,
@@ -26,7 +27,7 @@ const SectionData: React.FC<{
     return (
         <View style={tw`flex-row mb-3 pb-2 border-b border-gray-200`}>
             <Icon type={iconType} name={iconName} size={iconSize} />
-            <Text style={tw`text-black ml-2`}>{text}</Text>
+            <Text style={[tw`text-black ml-2`, {fontFamily: polices.times_new_roman}]}>{text}</Text>
         </View>  
     )
 }
@@ -202,7 +203,7 @@ const NotationConducteurView: React.FC<NotationConducteurViewProps> = ({ navigat
                         <Pressable
                             onPress={onHandle}
                             style={[tw`rounded-lg border border-orange-600 py-2 px-3`, {borderColor: ColorsEncr.main, minWidth: 100}]}>
-                            <Text style={[tw`text-center text-lg`, {color: ColorsEncr.main}]}>VALIDER</Text>
+                            <Text style={[tw`text-center text-lg`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman}]}>VALIDER</Text>
                         </Pressable>
                     </View>
 

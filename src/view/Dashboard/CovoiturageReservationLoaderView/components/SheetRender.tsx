@@ -4,6 +4,7 @@ import InputForm from '../../../../components/InputForm';
 import { RNDivider } from '../../../../components/RNDivider';
 import tw from 'twrnc';
 import { RenderItem } from './RenderItem';
+import { polices } from '../../../../data/data';
 
 interface SheetRenderProps {
     data: any,
@@ -17,7 +18,7 @@ export const SheetRender: React.FC<SheetRenderProps> = ({ data, getApproximative
     return (
         <>
             <View>
-                <Text style={[ tw`text-black text-base text-center font-bold` ]}>Sélectionner un tye de voiture</Text>
+                <Text style={[ tw`text-black text-base text-center font-bold`, {fontFamily: polices.times_new_roman} ]}>Sélectionner un tye de voiture</Text>
                 <View style={[ tw`items-center px-30` ]}>
                     <RNDivider size={2} color={'grey'} />
                 </View>
@@ -30,7 +31,7 @@ export const SheetRender: React.FC<SheetRenderProps> = ({ data, getApproximative
                 <View style={[ tw`items-center px-30` ]}>
                     <RNDivider size={2} color={'grey'} />
                 </View>
-                <Text style={[ tw`text-black text-sm text-center font-bold` ]}>Combien voulez-vous de places ?</Text>
+                <Text style={[ tw`text-black text-sm text-center font-bold`, {fontFamily: polices.times_new_roman} ]}>Combien voulez-vous de places ?</Text>
                 <View style={[ tw`items-center px-30` ]}>
                     <RNDivider size={2} color={'grey'} />
                 </View>
@@ -45,8 +46,8 @@ export const SheetRender: React.FC<SheetRenderProps> = ({ data, getApproximative
                         inputContainerStyle={[ tw`border rounded border-gray-300 border-b-gray-300`, {height: 45} ]}
                         constructHelper={
                             <View style={[ tw`flex-row justify-between items-center mt-1` ]}>
-                                <Text style={[ tw`text-gray-600` ]}>Minimum:</Text>
-                                <Text style={[ tw`text-gray-600` ]}>1</Text>
+                                <Text style={[ tw`text-gray-600`, {fontFamily: polices.times_new_roman} ]}>Minimum:</Text>
+                                <Text style={[ tw`text-gray-600`, {fontFamily: polices.times_new_roman} ]}>1</Text>
                             </View>
                         } 
                     />

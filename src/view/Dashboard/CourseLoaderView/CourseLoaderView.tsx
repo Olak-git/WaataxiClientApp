@@ -17,6 +17,7 @@ import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { setRefreshCoursesInstantanees, setRefreshReservations, setStopped } from '../../../feature/init.slice';
 import { BottomSheetRender } from '../../../components/BottomSheetRender';
 import Pubs from '../../../components/Pubs';
+import { polices } from '../../../data/data';
 
 const timer = require('react-native-timer');
 
@@ -185,15 +186,15 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                             <View style={[ tw`flex-row items-start mb-2` ]}>
                                 <Icon type='font-awesome' name='circle-thin' size={18} containerStyle={tw`pt-1 pl-1 pr-2`} />
                                 <View style={[ tw`ml-2` ]}>
-                                    <Text style={tw`text-gray-500`}>Point de départ</Text>
-                                    <Text style={[ tw`text-black`, {} ]}>{adresse_depart}</Text>
+                                    <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point de départ</Text>
+                                    <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{adresse_depart}</Text>
                                 </View>
                             </View>
                             <View style={[ tw`flex-row items-start mb-2` ]}>
                                 <Icon type='material-community' name='map-marker-outline' size={25} color={'red'} containerStyle={tw`pt-1`} />
                                 <View style={[ tw`ml-2` ]}>
-                                    <Text style={tw`text-gray-500`}>Point d'arrivé</Text>
-                                    <Text style={[ tw`text-black`, {} ]}>{adresse_arrive}</Text>
+                                    <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point d'arrivé</Text>
+                                    <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{adresse_arrive}</Text>
                                 </View>
                             </View>
                         </View>
@@ -202,12 +203,12 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                             <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                                 <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                                <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{nb_km_prov}</Text>
+                                <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{nb_km_prov}</Text>
                             </View>
                             <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                                 <Icon type='material-community' name='clock' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                                <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main} ]}>{duration}</Text>
+                                <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{duration}</Text>
                             </View>
                         </View>
 
@@ -222,14 +223,14 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                                 <View style={tw`flex-row mt-10 mb-5 justify-between border-b border-t border-gray-200 px-3 py-4`}>
 
                                     <View style={tw`flex-1 justify-between items-center`}>
-                                        <Text style={tw`text-black font-bold`}>{ nb_place } Passager(s)</Text>
+                                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{ nb_place } Passager(s)</Text>
                                         <Icon type='ant-design' name='user' color={ColorsEncr.main} />
                                     </View>
 
                                     <Divider orientation='vertical' />
 
                                     <View style={tw`flex-1 justify-between items-center`}>
-                                        <Text style={tw`text-black font-bold text-center`}>{ date_depart } { heure_depart }</Text>
+                                        <Text style={[tw`text-black font-bold text-center`, {fontFamily: polices.times_new_roman}]}>{ date_depart } { heure_depart }</Text>
                                         <Icon type='font-awesome-5' name='history' color={ColorsEncr.main} />
                                     </View>
 
@@ -238,10 +239,10 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                                     <View style={tw`flex-1 justify-between items-center`}>
                                         <View style={[ tw`flex-row justify-center items-center` ]}>
                                             <Icon type='material-community' name='approximately-equal' containerStyle={[ tw`mr-1` ]} />
-                                            <Text style={tw`text-black font-bold`}>Prix</Text>
+                                            <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Prix</Text>
                                         </View>
                                         {/* <Text style={tw`text-black font-bold`}>Prix</Text> */}
-                                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main} ]}>{ getCurrency(mnt) } XOF</Text>
+                                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{ getCurrency(mnt) } XOF</Text>
                                     </View>
 
                                 </View>
@@ -250,13 +251,13 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                             action == 'course' && (
                                 <>
                                     <View style={tw`items-center mt-2`}>
-                                        <Text style={[tw`text-black font-bold`,{fontFamily: 'Times New Roman'}]}>{ nb_place } Passager(s)</Text>
+                                        <Text style={[tw`text-black font-bold`,{fontFamily: polices.times_new_roman}]}>{ nb_place } Passager(s)</Text>
                                         <Icon type='ant-design' name='user' color={ColorsEncr.main} />
                                     </View>
 
                                     <View style={[ tw`flex-row mt-10 mb-3 justify-center items-center border-t border-b border-slate-300 rounded-2xl py-1 px-3` ]}>
                                         <Icon type='material-community' name='approximately-equal' size={40} color={ColorsEncr.main} containerStyle={[ tw`mr-1` ]} />
-                                        <Text style={[ tw`text-black text-lg font-bold` ]}>{ getCurrency(mnt) } XOF</Text>
+                                        <Text style={[ tw`text-black text-lg font-bold`, {fontFamily: polices.times_new_roman} ]}>{ getCurrency(mnt) } XOF</Text>
                                     </View>
                                 </>
                             )
@@ -268,19 +269,19 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                                 ?
                                     <View style={[ tw`justify-center mt-3` ]}>
                                         <TouchableOpacity activeOpacity={0.5} onPress={onHandle} style={[ tw`justify-center items-center bg-neutral-50 rounded py-4 px-5 mb-2` ]}>
-                                            <Text style={[ tw`uppercase text-center font-medium text-black` ]}>Valider</Text>
+                                            <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: polices.times_new_roman} ]}>Valider</Text>
                                         </TouchableOpacity>
         
                                         <TouchableOpacity activeOpacity={0.5} onPress={()=>setItemSelected(null)} style={tw`justify-center items-center bg-red-600 rounded py-4 px-5`}>
-                                            <Text style={[ tw`uppercase text-center font-medium text-white` ]}>Annuler</Text>
+                                            <Text style={[ tw`uppercase text-center font-medium text-white`, {fontFamily: polices.times_new_roman} ]}>Annuler</Text>
                                         </TouchableOpacity>
                                     </View>
                                 :
                                 <>
                                     <View style={tw`items-center mt-3`}>
-                                        <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}]}>Recherche de Taxi...</Text>
+                                        <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>Recherche de Taxi...</Text>
                                         <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' />
-                                        <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}]}>
+                                        <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}, {fontFamily: polices.times_new_roman}]}>
                                             {action == 'reservation'
                                             ?
                                                 `Votre réservation a bien été enregistrée. Vous serez notifié sur les différentes étapes d'exécution de celle-ci`
@@ -308,18 +309,18 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                                             />
                                             <View style={tw`flex-row items-center`}>
                                                 <Icon type="feather" name="phone" reverse size={12} color="#bbb" />
-                                                <Text style={tw`text-black text-base`} onPress={() => callPhoneNumber(course.conducteur.tel)}>{course.conducteur.tel}</Text>
+                                                <Text style={[tw`text-black text-base`, {fontFamily: polices.times_new_roman}]} onPress={() => callPhoneNumber(course.conducteur.tel)}>{course.conducteur.tel}</Text>
                                             </View>
                                         </View>
-                                        <Text style={tw`text-center text-black text-lg`}>Un taxi a accepté votre course.</Text>
+                                        <Text style={[tw`text-center text-black text-lg`, {fontFamily: polices.times_new_roman}]}>Un taxi a accepté votre course.</Text>
                                         {/* <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' /> */}
-                                        <Text style={tw`text-center text-gray-500 mb-3`}>Veuillez accéder à l'historique de vos courses, puis aux détails de votre course pour suivre les différents évènements relatifs à votre course.</Text>
-                                        <Text style={tw`text-center text-gray-500 mb-3`}>Merci.</Text>
+                                        <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Veuillez accéder à l'historique de vos courses, puis aux détails de votre course pour suivre les différents évènements relatifs à votre course.</Text>
+                                        <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Merci.</Text>
                                     </View>
                                 : state == 10
                                     ?
                                         <>
-                                            <Text style={tw`text-center text-black`}>Course en cours...</Text>
+                                            <Text style={[tw`text-center text-black`, {fontFamily: polices.times_new_roman}]}>Course en cours...</Text>
                                             <View style={[tw`items-center mb-3`, {}]}>
                                                 <Image resizeMode='contain' source={require('../../../assets/images/gifs/icons8-fiat-500.gif')} style={[tw``, {width: 200, height: 100}]} />
                                             </View>
@@ -330,14 +331,14 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                                                     <Image
                                                         source={require('../../../assets/images/itineraire.png')}
                                                         style={{width: 30, height: 30 }} />
-                                                    <Text style={tw`ml-2 text-gray-500 text-base text-center`}>Suivre la course</Text>
+                                                    <Text style={[tw`ml-2 text-gray-500 text-base text-center`, {fontFamily: polices.times_new_roman}]}>Suivre la course</Text>
                                                 </Pressable>
                                             </View>
                                         </>
                                     : state == 11
                                         ?
                                             <>
-                                                <Text style={tw`text-center font-black text-black mt-3`}>Course Terminée</Text>
+                                                <Text style={[tw`text-center font-black text-black mt-3`, {fontFamily: polices.times_new_roman}]}>Course Terminée</Text>
                                                 <View style={[tw`items-center`, {}]}>
                                                     {/* <Image resizeMode='contain' source={require('../../../assets/images/gifs/icons8-voiture.gif')} style={[tw``, {width: 200, height: 100}]} /> */}
                                                     <Image resizeMode='contain' source={require('../../../assets/images/icons8-taxi-stop-100.png')} style={[tw``, {width: 200, height: 100}]} />
@@ -346,16 +347,16 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
                                                     <TouchableOpacity
                                                         onPress={() => navigation.navigate('DashFinition', {course: course, category: 'ci'})}
                                                         style={[ tw`bg-orange-100 rounded-2xl py-1 px-3`, {width: 150} ]}>
-                                                        <Text style={[ tw`text-lg text-center font-bold`, {color: ColorsEncr.main} ]}>Facture</Text>
+                                                        <Text style={[ tw`text-lg text-center font-bold`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>Facture</Text>
                                                     </TouchableOpacity>
                                                 </View>
                                             </>
                                         :
                                             <View style={tw`items-center mt-3`}>
-                                                <Text style={tw`text-center text-black text-lg`}>[Timeout]: course annulée.</Text>
+                                                <Text style={[tw`text-center text-black text-lg`, {fontFamily: polices.times_new_roman}]}>[Timeout]: course annulée.</Text>
                                                 <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' />
-                                                <Text style={tw`text-center text-gray-500 mb-3`}>Veuillez accéder à l'historique de vos courses, puis aux détails de votre course pour suivre les différents évènements relatifs à votre course.</Text>
-                                                <Text style={tw`text-center text-gray-500 mb-3`}>Merci.</Text>
+                                                <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Veuillez accéder à l'historique de vos courses, puis aux détails de votre course pour suivre les différents évènements relatifs à votre course.</Text>
+                                                <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Merci.</Text>
                                             </View>
                         }
 

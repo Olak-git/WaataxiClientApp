@@ -20,6 +20,7 @@ import { getErrorsToString, getSqlFormatDate, getSqlFormatDateTime, getSqlFormat
 import { setUser } from '../../../feature/user.slice';
 import { setRefreshCoursesInstantanees, setRefreshReservations } from '../../../feature/init.slice';
 import moment from 'moment';
+import { polices } from '../../../data/data';
 
 const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
 
@@ -351,7 +352,7 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                 isVisible={visibleDialog}
                 onBackdropPress={toggleDialog}
             >
-                <Text style={tw`text-black text-base`}>Le tarif est calculé en fonction du kilomètrage. Celui indiqué est provisoire. La course terminée, vous pouvez payer moins ou plus selon le kilométrage effectué.</Text>
+                <Text style={[tw`text-black text-base`, {fontFamily: polices.times_new_roman}]}>Le tarif est calculé en fonction du kilomètrage. Celui indiqué est provisoire. La course terminée, vous pouvez payer moins ou plus selon le kilométrage effectué.</Text>
             </Dialog>
             {endFetch
             ?
@@ -365,15 +366,15 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                             <View style={[ tw`flex-row items-start mb-2` ]}>
                                 <Icon type='font-awesome' name='circle-thin' size={18} containerStyle={tw`pt-1 pl-1 pr-2`} />
                                 <View style={[ tw`ml-2` ]}>
-                                    <Text style={tw`text-gray-500`}>Point de départ</Text>
-                                    <Text style={[ tw`text-black`, {} ]}>{start_address}</Text>
+                                    <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point de départ</Text>
+                                    <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{start_address}</Text>
                                 </View>
                             </View>
                             <View style={[ tw`flex-row items-start mb-2` ]}>
                                 <Icon type='material-community' name='map-marker-outline' size={25} color={'red'} containerStyle={tw`pt-1`} />
                                 <View style={[ tw`ml-2` ]}>
-                                    <Text style={tw`text-gray-500`}>Point d'arrivé</Text>
-                                    <Text style={[ tw`text-black`, {} ]}>{end_address}</Text>
+                                    <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point d'arrivé</Text>
+                                    <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{end_address}</Text>
                                 </View>
                             </View>
                         </View>
@@ -382,12 +383,12 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                             <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                                 <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                                <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{distance}</Text>
+                                <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{distance}</Text>
                             </View>
                             <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                                 <Icon type='material-community' name='clock' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                                <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main} ]}>{duration}</Text>
+                                <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{duration}</Text>
                             </View>
                         </View>
 
@@ -400,15 +401,15 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                                 <View style={[tw`mt-6`]}>
                                     <View style={tw`flex-row justify-between items-start`}>
                                         <View style={tw``}>
-                                            <Text onPress={() => setOpenDatePicker(!openDatePicker)} style={tw`border border-gray-400 rounded-lg p-3 text-black`}>Date de départ</Text>
+                                            <Text onPress={() => setOpenDatePicker(!openDatePicker)} style={[tw`border border-gray-400 rounded-lg p-3 text-black`, {fontFamily: polices.times_new_roman}]}>Date de départ</Text>
                                             {course.date_depart && (
-                                                <Text style={tw`mt-1 text-black font-bold text-center border-b border-gray-300`}>{ moment(course.date_depart).format('DD/MM/YYYY') }</Text>
+                                                <Text style={[tw`mt-1 text-black font-bold text-center border-b border-gray-300`, {fontFamily: polices.times_new_roman}]}>{ moment(course.date_depart).format('DD/MM/YYYY') }</Text>
                                             )}
                                         </View>
                                         <View style={tw``}>
-                                            <Text onPress={() => setOpenTimePicker(!openTimePicker)} style={tw`border border-gray-400 rounded-lg p-3 text-black`}>Heure de départ</Text>
+                                            <Text onPress={() => setOpenTimePicker(!openTimePicker)} style={[tw`border border-gray-400 rounded-lg p-3 text-black`, {fontFamily: polices.times_new_roman}]}>Heure de départ</Text>
                                             {course.heure_depart && (
-                                                <Text style={tw`mt-1 text-black font-bold text-center border-b border-gray-300`}>{ moment(course.heure_depart).format('HH:mm') }</Text>
+                                                <Text style={[tw`mt-1 text-black font-bold text-center border-b border-gray-300`, {fontFamily: polices.times_new_roman}]}>{ moment(course.heure_depart).format('HH:mm') }</Text>
                                             )}
                                         </View>
                                     </View>
@@ -449,10 +450,10 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                                     </View> */}
 
                                     <View style={tw`mt-4 flex-row items-center`}>
-                                        <Text style={tw`text-gray-500`}>Frais de réservation: </Text>
+                                        <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Frais de réservation: </Text>
                                         {(itemSelected !== null && course.type_voiture) && (
                                             // @ts-ignore
-                                            <Text style={tw`text-black font-bold`}>{ getCurrency(course.type_voiture?.frais_reservation) } XOF</Text>
+                                            <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{ getCurrency(course.type_voiture?.frais_reservation) } XOF</Text>
                                         )}
                                     </View>
 
@@ -464,15 +465,15 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                                         <>
                                             <View style={[ tw`flex-row mt-4 items-center` ]}>
                                                 <View style={tw`flex-row items-center`}>
-                                                    <Text style={tw`text-gray-500`}>Tarif course</Text>
+                                                    <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Tarif course</Text>
                                                     <Pressable onPress={toggleDialog}>
                                                         <Icon type='material-community' name='chat-question' size={25} />
                                                     </Pressable>
-                                                    <Text style={tw`text-gray-500 ml-1`}>:</Text>
+                                                    <Text style={[tw`text-gray-500 ml-1`, {fontFamily: polices.times_new_roman}]}>:</Text>
                                                 </View>
                                                 <View style={tw`flex-row items-center`}>
                                                     <Icon type='material-community' name='approximately-equal' size={30} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                                                    <Text style={[ tw`text-black text-lg font-bold` ]}>{ getCurrency(mnt) } XOF</Text>
+                                                    <Text style={[ tw`text-black text-lg font-bold`, {fontFamily: polices.times_new_roman} ]}>{ getCurrency(mnt) } XOF</Text>
                                                 </View>
                                             </View>
                                             <View style={tw`mt-5 px-10`}>
@@ -508,7 +509,7 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                                             <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: 'MontserratAlternates-SemiBold'} ]}>Valider ma course</Text>
                                         </TouchableOpacity>
                                     </View>
-                                    <Text style={tw`text-center text-gray-600`}>Après validation, il vous sera prélevé les frais de réservation de votre portefeuille.</Text>
+                                    <Text style={[tw`text-center text-gray-600`, {fontFamily: polices.times_new_roman}]}>Après validation, il vous sera prélevé les frais de réservation de votre portefeuille.</Text>
                                 </>
                             )
                         :
@@ -516,14 +517,14 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                                 <>
                                 <View style={[ tw`flex-row mt-10 mb-3 justify-center items-center border-t border-b border-slate-800 rounded-2xl py-1 px-3` ]}>
                                     <Icon type='material-community' name='approximately-equal' size={40} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                                    <Text style={[ tw`text-black text-lg font-bold` ]}>{ getCurrency(mnt) } XOF</Text>
+                                    <Text style={[ tw`text-black text-lg font-bold`, {fontFamily: polices.times_new_roman} ]}>{ getCurrency(mnt) } XOF</Text>
                                 </View>
                                 <View style={[ tw`justify-center`, {height: 80} ]}>
                                     <TouchableOpacity
                                         onPress={onHandle}
                                         style={[ tw`justify-center items-center bg-orange-100 rounded py-4 px-5`, {height: 60} ]}
                                     >
-                                        <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: 'MontserratAlternates-SemiBold'} ]}>Valider ma course</Text>
+                                        <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: 'MontserratAlternates-SemiBold'}, {fontFamily: polices.times_new_roman} ]}>Valider ma course</Text>
                                     </TouchableOpacity>
                                 </View>
                                 </>

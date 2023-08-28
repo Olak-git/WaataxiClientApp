@@ -11,7 +11,7 @@ import { setUser } from '../../../../feature/user.slice';
 import { getErrorsToString } from '../../../../functions/helperFunction';
 import CountryPicker, { Country, CountryCode } from 'react-native-country-picker-modal'
 import { Icon } from '@rneui/base';
-import { account } from '../../../../data/data';
+import { account, polices } from '../../../../data/data';
 
 interface AuthTelNumberViewProps {
     navigation: any,
@@ -130,7 +130,7 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ navigation, setVis
                         {/* <Logo /> */}
                         <Text style={[tw`text-black uppercase`, {fontSize: 45, fontFamily: Platform.OS == 'android' ? 'ShadowsIntoLight-Regular' : 'PatrickHand-Regular'}]}>waa<Text style={{color: ColorsEncr.main}}>taxi</Text></Text>
                     </View>
-                    <Text style={[ tw`text-lg text-black text-center px-5` ]}>Veuillez entrer un nouveau numéro de téléphone mobile</Text>
+                    <Text style={[ tw`text-lg text-black text-center px-5`, {fontFamily: polices.times_new_roman} ]}>Veuillez entrer un nouveau numéro de téléphone mobile</Text>
                     <View style={[ tw`mt-5 mb-4` ]}>
                         
                         <InputForm 
@@ -172,7 +172,7 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ navigation, setVis
                                 onPress={onHandleValidateTelNumber}
                                 style={[ tw`flex-1 flex-row justify-center items-center rounded py-4 px-5`, {backgroundColor: disable ? 'rgb(229, 231, 235)' : ColorsEncr.main} ]}
                             >
-                                <Text style={[ tw`uppercase text-center font-medium text-black`, {color: disable ? 'silver' : '#000'} ]}>valider</Text>
+                                <Text style={[ tw`uppercase text-center font-medium text-black`, {color: disable ? 'silver' : '#000', fontFamily: polices.times_new_roman} ]}>valider</Text>
                             </TouchableOpacity>
                         </View>
 

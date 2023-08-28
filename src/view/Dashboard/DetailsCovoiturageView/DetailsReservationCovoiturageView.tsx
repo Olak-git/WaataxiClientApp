@@ -32,9 +32,9 @@ const Row: React.FC<RowProps> = ({ iconType, iconName, iconSize = 30, textStyle 
                     color='#666'
                     size={iconSize} />
             </View>
-            <Text style={[ tw`text-gray-600 font-semibold text-lg mx-2` ]}>:</Text>
+            <Text style={[ tw`text-gray-600 font-semibold text-lg mx-2`, {fontFamily: polices.times_new_roman} ]}>:</Text>
             <View style={[ tw`flex-1` ]}>
-                <Text style={[ tw`text-black font-medium text-lg`, ...textStyle ]}>{ text }{_text}</Text>
+                <Text style={[ tw`text-black font-medium text-lg`, {fontFamily: polices.times_new_roman}, ...textStyle ]}>{ text }{_text}</Text>
             </View>
         </View>
     )
@@ -164,8 +164,8 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
                         />
                     </TouchableOpacity>
                     <View style={tw`flex-1 pt-1 justify-between`}>
-                        <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}]}>{conducteur.nom.toUpperCase() + ' ' + conducteur.prenom}</Text>
-                        <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}]} onPress={() => openUrl(`tel:${conducteur.tel}`)}>{conducteur.tel}</Text>
+                        <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>{conducteur.nom.toUpperCase() + ' ' + conducteur.prenom}</Text>
+                        <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}, {fontFamily: polices.times_new_roman}]} onPress={() => openUrl(`tel:${conducteur.tel}`)}>{conducteur.tel}</Text>
                     </View>
                     <Rating
                         readonly
@@ -181,23 +181,23 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
                 <View style={tw`border-b border-gray-200 px-3 py-4`}>
                     <View style={[ tw`flex-row items-center mb-3` ]}>
                         <Icon type='font-awesome-5' name='map-marker-alt' color='green' containerStyle={tw`mr-2 self-start`} />
-                        <Text style={[ tw`flex-1 text-gray-400` ]}>{course.adresse_depart}</Text>
+                        <Text style={[ tw`flex-1 text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_depart}</Text>
                     </View>
                     <View style={[ tw`flex-row items-center` ]}>
                         <Icon type='font-awesome-5' name='map-marker-alt' color={ColorsEncr.main} containerStyle={tw`mr-2 self-start`} />
-                        <Text style={[ tw`flex-1 text-gray-400` ]}>{course.adresse_arrive}</Text>
+                        <Text style={[ tw`flex-1 text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_arrive}</Text>
                     </View>
 
                     <View style={[ tw`flex-row justify-between px-2 mt-5` ]}>
                         <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{course.nb_km} km</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{course.nb_km} km</Text>
                         </View>
                         {/* <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             <Icon type='material-community' name='run' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{'1h 45m'}</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{'1h 45m'}</Text>
                         </View> */}
                     </View>
                 </View>
@@ -205,29 +205,29 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
                 <View style={tw`flex-row justify-between border-b border-gray-200 px-3 py-4`}>
                     <View style={tw`flex-1 justify-between items-center`}>
                         <Icon type='font-awesome-5' name='calendar-alt' color={ColorsEncr.main} />
-                        <Text style={tw`text-black font-bold`}>{ covoiturage.date_course}</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{ covoiturage.date_course}</Text>
                     </View>
 
                     <Divider orientation='vertical' />
 
                     <View style={tw`flex-1 justify-between items-center`}>
                         <Icon type='font-awesome-5' name='history' color={ColorsEncr.main} />
-                        <Text style={tw`text-black font-bold`}>{ covoiturage.heure_course}</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{ covoiturage.heure_course}</Text>
                     </View>
                 </View>
 
                 <View style={tw`flex-row justify-between border-b border-gray-200 px-3 py-4`}>
 
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold`}>{course.nb_place} Passager(s)</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{course.nb_place} Passager(s)</Text>
                         <Icon type='ant-design' name='user' color={ColorsEncr.main} />
                     </View>
 
                     <Divider orientation='vertical' />
 
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold`}>Prix</Text>
-                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main} ]}>{getCurrency(course.prix)} XOF</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Prix</Text>
+                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{getCurrency(course.prix)} XOF</Text>
                     </View>
 
                 </View>
@@ -237,9 +237,9 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
                     ?
                         <>
                             <View style={tw`items-center`}>
-                                <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}]}>En attente de votre Taxi...</Text>
+                                <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>En attente de votre Taxi...</Text>
                                 <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' />
-                                {/* <Text style={tw`text-center text-gray-500 mb-3`}>Veuillez patienter! Un taxi plus proche de vous acceptera votre course et se rendra au point de départ.</Text> */}
+                                {/* <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Veuillez patienter! Un taxi plus proche de vous acceptera votre course et se rendra au point de départ.</Text> */}
                             </View>
                             <View style={tw`flex-1 justify-center items-center py-10`}>
                                 <Spinner isVisible={true} size={100} color={ColorsEncr.main} type='WanderingCubes' />
@@ -249,21 +249,21 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
                         course.etat_course == 1
                         ?
                             <>
-                                <Text style={[tw`text-center text-black text-lg`, {fontFamily: 'Itim-Regular'}]}>Course en cours...</Text>
+                                <Text style={[tw`text-center text-black text-lg`, {fontFamily: 'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>Course en cours...</Text>
                                 <View style={[tw`items-center mb-3`, {}]}>
                                     <Image resizeMode='contain' source={require('../../../assets/images/gifs/icons8-fiat-500.gif')} style={[tw``, {width: 200, height: 100}]} />
                                 </View>
                                 <View style={tw`items-center`}>
-                                    {/* <Text style={tw`text-center text-black text-lg`}>Votre taxi arrive.</Text> */}
+                                    {/* <Text style={[tw`text-center text-black text-lg`, {fontFamily: polices.times_new_roman}]}>Votre taxi arrive.</Text> */}
                                     {/* <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' /> */}
-                                    <Text style={tw`text-center text-gray-500 mb-3`}>Votre taxi est déjà en route. Soyez à l'heure sur le point de départ.</Text>
+                                    <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}, {fontFamily: polices.times_new_roman}]}>Votre taxi est déjà en route. Soyez à l'heure sur le point de départ.</Text>
                                 </View>
                             </>
                         :
                             course.etat_course == 10
                             ?
                                 <>
-                                    <Text style={tw`text-center font-black text-black`}>Course Terminée</Text>
+                                    <Text style={[tw`text-center font-black text-black`, {fontFamily: polices.times_new_roman}, {fontFamily: polices.times_new_roman}]}>Course Terminée</Text>
                                     <View style={[tw`items-center mb-3`, {}]}>
                                         <Image resizeMode='contain' source={require('../../../assets/images/icons8-taxi-stop-100.png')} style={[tw``, {width: 200, height: 100}]} />
                                     </View>
@@ -274,7 +274,7 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
                                             <Image
                                                 source={require('../../../assets/images/itineraire.png')}
                                                 style={{width: 30, height: 30 }} />
-                                            <Text style={tw`ml-2 text-gray-500 text-base text-center`}>Suivre la course</Text>
+                                            <Text style={[tw`ml-2 text-gray-500 text-base text-center`, {fontFamily: polices.times_new_roman}]}>Suivre la course</Text>
                                         </Pressable>
                                     </View> */}
                                 </>
@@ -291,7 +291,7 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
                         onPress={onCancel}
                         style={[ tw`justify-center items-center border rounded px-5`, {backgroundColor: ColorsEncr.main, height: 45, borderColor: ColorsEncr.main} ]}
                     >
-                        <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: polices.font1} ]}>Annuler</Text>
+                        <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: polices.font1}, {fontFamily: polices.times_new_roman} ]}>Annuler</Text>
                     </TouchableOpacity>
                 </View>
             )}

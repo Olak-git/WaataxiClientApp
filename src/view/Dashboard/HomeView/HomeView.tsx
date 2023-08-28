@@ -11,7 +11,7 @@ import { deleteIndex, setUser } from '../../../feature/user.slice';
 import { Accueil, LogoDark, Wallet, WtCar } from '../../../assets';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { clone } from '../../../functions/helperFunction';
-import { statusBarHeight } from '../../../data/data';
+import { polices, statusBarHeight } from '../../../data/data';
 import { setCount } from '../../../feature/notifications.slice';
 import { setStopped } from '../../../feature/init.slice';
 import { setWithPortefeuille } from '../../../feature/init.slice';
@@ -39,7 +39,7 @@ const timer = require('react-native-timer');
 //                         style={[tw`rounded-full`, {height: 70, width: 70}]}
 //                     />
 //                 </Pressable>
-//                 <Text style={[ tw`text-white font-semibold text-center px-3`, {width: '100%'} ]} numberOfLines={1} ellipsizeMode='tail' >{user.nom.toUpperCase() + ' ' + user.prenom}</Text>
+//                 <Text style={[ tw`text-white font-semibold text-center px-3`, {width: '100%', fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail' >{user.nom.toUpperCase() + ' ' + user.prenom}</Text>
 //                 <Pressable onPress={closeDrawer} style={[tw`absolute right-0 top-0`, {}]}>
 //                     <Icon type='ionicon' name='close' size={30} />
 //                 </Pressable>
@@ -55,8 +55,8 @@ const timer = require('react-native-timer');
 //                             size={25}
 //                             color={ ColorsEncr.main }/>
 //                         <View style={[ tw`px-4` ]}>
-//                             <Text style={[ tw`text-gray-800` ]}>Portefeuille</Text>
-//                             <Text style={[ tw`text-black font-bold text-xl` ]}>{ getCurrency(user.portefeuille) } F</Text>
+//                             <Text style={[ tw`text-gray-800`, {fontFamily: polices.times_new_roman} ]}>Portefeuille</Text>
+//                             <Text style={[ tw`text-black font-bold text-xl`, {fontFamily: polices.times_new_roman} ]}>{ getCurrency(user.portefeuille) } F</Text>
 //                         </View>
 //                     </TouchableOpacity>
 //                     <DrawerMenu navigation={navigation} screenName='DashMyAccount' iconType='material' iconName='account-circle' textMenu='Mon compte' />
@@ -254,10 +254,10 @@ const HomeView: React.FC<HomeViewProps> = ({navigation}) => {
                             <Pubs annonces={annonces} images={images} />
                         :
                             <View style={tw`flex-1 my-10 px-5`}>
-                                <Text style={tw`text-black mb-2 text-lg font-bold`}>Vous êtes sur <Text style={{color: ColorsEncr.main}}>Waataxi</Text>,</Text>
-                                <Text style={tw`text-black mb-2`}>Votre application VTC. Nous mettons à votre disposition des conducteurs/chauffeurs professionnels pour vous aider dans vos différentes courses.</Text>
-                                <Text style={tw`text-black mb-2`}>Vous pouvez faire une réservation de course ou soliciter une course instantanée.</Text>
-                                <Text style={tw`text-black font-semibold`}>Nous oeuvrons pour votre satisfaction.</Text>
+                                <Text style={[tw`text-black mb-2 text-lg font-bold`, {fontFamily: polices.times_new_roman} ]}>Vous êtes sur <Text style={{color: ColorsEncr.main}}>Waataxi</Text>,</Text>
+                                <Text style={[tw`text-black mb-2`, {fontFamily: polices.times_new_roman}]}>Votre application VTC. Nous mettons à votre disposition des conducteurs/chauffeurs professionnels pour vous aider dans vos différentes courses.</Text>
+                                <Text style={[tw`text-black mb-2`, {fontFamily: polices.times_new_roman}]}>Vous pouvez faire une réservation de course ou soliciter une course instantanée.</Text>
+                                <Text style={[tw`text-black font-semibold`, {fontFamily: polices.times_new_roman}]}>Nous oeuvrons pour votre satisfaction.</Text>
                             </View>
                     }
 

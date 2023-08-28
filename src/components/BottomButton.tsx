@@ -2,6 +2,7 @@ import React from "react"
 import { View, Pressable, Text, StyleProp, ViewStyle, TextStyle } from "react-native"
 import { ColorsEncr } from "../assets/styles"
 import tw from 'twrnc'
+import { polices } from "../data/data"
 
 interface BottomButton {
     navigation: any,
@@ -30,7 +31,7 @@ const BottomButton: React.FC<BottomButton> = ({ navigation, route, params, conta
                 onPress={onPress}
                 style={[ tw`justify-center items-center border rounded px-5`, {backgroundColor: reverse ? '#FFFFFF' : ColorsEncr.main, height: 45, borderColor: ColorsEncr.main}, buttonStyle ]}
             >
-                <Text style={[ tw`uppercase text-center font-medium`, {color: reverse ? ColorsEncr.main : 'black'}, titleStyle ]}>{ title }</Text>
+                <Text style={[ tw`uppercase text-center font-medium`, {color: reverse ? ColorsEncr.main : 'black'}, titleStyle, {fontFamily: polices.times_new_roman} ]}>{ title }</Text>
             </Pressable>
         </View>
     )

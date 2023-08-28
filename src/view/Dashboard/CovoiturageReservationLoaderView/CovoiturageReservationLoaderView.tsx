@@ -9,6 +9,7 @@ import Spinner from 'react-native-spinkit';
 import { RNDivider } from '../../../components/RNDivider';
 import { CommonActions } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
+import { polices } from '../../../data/data';
 
 const timer = require('react-native-timer');
 
@@ -91,15 +92,15 @@ const CovoiturageReservationLoaderView: React.FC<CovoiturageReservationLoaderVie
                         <View style={[ tw`flex-row items-start mb-2` ]}>
                             <Icon type='font-awesome' name='circle-thin' size={18} containerStyle={tw`pt-1 pl-1 pr-2`} />
                             <View style={[ tw`ml-2` ]}>
-                                <Text style={tw`text-gray-500`}>Point de départ</Text>
-                                <Text style={[ tw`text-black`, {} ]}>{course.adresse_depart}</Text>
+                                <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point de départ</Text>
+                                <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_depart}</Text>
                             </View>
                         </View>
                         <View style={[ tw`flex-row items-start mb-2` ]}>
                             <Icon type='material-community' name='map-marker-outline' size={25} color={'red'} containerStyle={tw`pt-1`} />
                             <View style={[ tw`ml-2` ]}>
-                                <Text style={tw`text-gray-500`}>Point d'arrivé</Text>
-                                <Text style={[ tw`text-black`, {} ]}>{course.adresse_arrive}</Text>
+                                <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point d'arrivé</Text>
+                                <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_arrive}</Text>
                             </View>
                         </View>
                     </View>
@@ -108,33 +109,33 @@ const CovoiturageReservationLoaderView: React.FC<CovoiturageReservationLoaderVie
                         <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{course.nb_km}</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{course.nb_km}</Text>
                         </View>
                         <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             <Icon type='material-community' name='clock' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main} ]}>{duration}</Text>
+                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{duration}</Text>
                         </View>
                     </View>
 
                     <View style={tw`items-center mt-2`}>
-                        <Text style={tw`text-black font-bold`}>{ nb_place } Passager(s)</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{ nb_place } Passager(s)</Text>
                         <Icon type='ant-design' name='user' color={ColorsEncr.main} />
                     </View>
 
                     <View style={[ tw`flex-row mt-10 mb-3 justify-center items-center border-t border-b border-slate-300 rounded-2xl py-1 px-3` ]}>
                         <Icon type='material-community' name='approximately-equal' size={40} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                        <Text style={[ tw`text-black text-lg font-bold` ]}>{ getCurrency(course.prix) } XOF</Text>
+                        <Text style={[ tw`text-black text-lg font-bold`, {fontFamily: polices.times_new_roman} ]}>{ getCurrency(course.prix) } XOF</Text>
                     </View>
 
                     {course.etat_course == 0
                         ?
                             <>
                             <View style={tw`items-center`}>
-                                <Text style={tw`text-center text-black text-lg`}>Veuillez patienter</Text>
+                                <Text style={[tw`text-center text-black text-lg`, {fontFamily: polices.times_new_roman}]}>Veuillez patienter</Text>
                                 <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' />
-                                <Text style={tw`text-center text-gray-500 mb-3`}>Soyez à l'heure au point de départ pour ne pas manquer votre taxi.</Text>
-                                <Text style={tw`text-center text-gray-500 mb-3`}>Cependant, vous pouvez toujours manquer votre taxi si votre itinéraire n'est pas sur l'axe définit par le chauffeur.</Text>
+                                <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Soyez à l'heure au point de départ pour ne pas manquer votre taxi.</Text>
+                                <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Cependant, vous pouvez toujours manquer votre taxi si votre itinéraire n'est pas sur l'axe définit par le chauffeur.</Text>
                             </View>
                             <View style={tw`flex-1 justify-center items-center py-10`}>
                                 <Spinner isVisible={true} size={100} color={ColorsEncr.main} type='WanderingCubes' />
@@ -144,21 +145,21 @@ const CovoiturageReservationLoaderView: React.FC<CovoiturageReservationLoaderVie
                             course.etat_course == 1
                             ?
                                 <>
-                                    <Text style={tw`text-center text-black mt-4`}>Course en cours...</Text>
+                                    <Text style={[tw`text-center text-black mt-4`, {fontFamily: polices.times_new_roman}]}>Course en cours...</Text>
                                     <View style={[tw`items-center mb-3`, {}]}>
                                         <Image resizeMode='contain' source={require('../../../assets/images/gifs/icons8-fiat-500.gif')} style={[tw``, {width: 200, height: 100}]} />
                                     </View>
                                     <View style={tw`items-center`}>
                                         {/* <Text style={tw`text-center text-black text-lg`}>Votre taxi arrive.</Text> */}
                                         {/* <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' /> */}
-                                        <Text style={tw`text-center text-gray-500 mb-3`}>Votre taxi est déjà en route. Soyez à l'heure sur le point de départ.</Text>
+                                        <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: polices.times_new_roman}]}>Votre taxi est déjà en route. Soyez à l'heure sur le point de départ.</Text>
                                     </View>
                                 </>
                             :
                             course.etat_course == 10
                             ?
                                 <>
-                                    <Text style={tw`text-center font-black text-black mt-4`}>Course Terminée</Text>
+                                    <Text style={[tw`text-center font-black text-black mt-4`, {fontFamily: polices.times_new_roman}]}>Course Terminée</Text>
                                     <View style={[tw`items-center mb-3`, {}]}>
                                         <Image resizeMode='contain' source={require('../../../assets/images/icons8-taxi-stop-100.png')} style={[tw``, {width: 200, height: 100}]} />
                                     </View>

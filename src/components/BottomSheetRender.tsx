@@ -4,6 +4,7 @@ import InputForm from './InputForm';
 import { RNDivider } from './RNDivider';
 import tw from 'twrnc';
 import { BottomSheetRenderItem } from './BottomSheetRenderItem';
+import { polices } from '../data/data';
 
 interface BottomSheetRenderProps {
     data: any,
@@ -21,7 +22,7 @@ export const BottomSheetRender: React.FC<BottomSheetRenderProps> = ({ data, onSe
     return (
         <>
             <View>
-                <Text style={[ tw`text-black text-base text-center font-bold`, textStyle ]}>{text||'Sélectionner un tye de voiture'}</Text>
+                <Text style={[ tw`text-black text-base text-center font-bold`, {fontFamily: polices.times_new_roman}, textStyle ]}>{text||'Sélectionner un tye de voiture'}</Text>
                 <View style={[ tw`items-center px-30` ]}>
                     <RNDivider size={2} color={'grey'} />
                 </View>

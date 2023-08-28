@@ -7,6 +7,7 @@ import { openUrl } from '../functions/helperFunction';
 import tw from 'twrnc'
 import ImageView from 'react-native-image-viewing';
 import { ImageSource } from 'react-native-vector-icons/Icon';
+import { polices } from '../data/data';
 
 interface ItemProps {
     item: any,
@@ -96,7 +97,7 @@ const Pubs : React.FC<{ annonces: Array<any>, images?: Array<any>, containerStyl
             <View style={[tw`flex-1 my-10 px-5`, {}]}>
                 <View style={[tw`flex-row items-center`, {}]}>
                     <View style={[tw`flex-1 bg-black`, { height: 1 }]}></View>
-                    <Text style={[tw`text-black text-lg font-bold px-4`, {fontFamily: 'MontserratAlternates-Regular'}]}>Bons Plans</Text>
+                    <Text style={[tw`text-black text-lg font-bold px-4`, {fontFamily: 'MontserratAlternates-Regular'}, {fontFamily: polices.times_new_roman}]}>Bons Plans</Text>
                     <View style={[tw`flex-1 bg-black`, { height: 1 }]}></View>
                 </View>
                 <SwiperFlatList

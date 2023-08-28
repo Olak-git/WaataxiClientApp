@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Platform, Pressable, S
 import Base from '../../../components/Base';
 import MapView, { AnimatedRegion, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA } from '../../../data/data';
+import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA, polices } from '../../../data/data';
 import tw from 'twrnc';
 import { locationPermission, getCurrentLocation } from '../../../functions/helperFunction';
 import { ActivityLoading } from '../../../components/ActivityLoading';
@@ -40,7 +40,7 @@ const BottomButton: React.FC<{buttonTitle: string, pressAction?: any, headerSect
                 <TouchableOpacity
                     onPress={pressAction}
                     style={[ tw`p-2 rounded-md border border-slate-300`, {}]}>
-                    <Text style={[ tw`text-center font-semibold text-black text-lg` ]}>{buttonTitle}</Text>
+                    <Text style={[ tw`text-center font-semibold text-black text-lg`, {fontFamily: polices.times_new_roman} ]}>{buttonTitle}</Text>
                 </TouchableOpacity>
             </View>    
         </View>
@@ -341,10 +341,10 @@ const CurrentPositionView: React.FC<CurrentPositionViewProps> = ({ navigation, r
                             </View>
                             <View style={[ tw`flex-1` ]}>
                                 <View style={[ tw`border border-slate-200 rounded-md mb-2 bg-gray-200` ]}>
-                                    <Text style={[ tw`p-3 text-slate-600`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{startAddress}</Text>
+                                    <Text style={[ tw`p-3 text-slate-600`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{startAddress}</Text>
                                 </View>
                                 <View style={[ tw`border border-slate-200 rounded-md bg-gray-200` ]}>
-                                    <Text style={[ tw`p-3 text-slate-600`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{endAddress}</Text>
+                                    <Text style={[ tw`p-3 text-slate-600`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{endAddress}</Text>
                                 </View>
                             </View>
                         </View>
@@ -356,14 +356,14 @@ const CurrentPositionView: React.FC<CurrentPositionViewProps> = ({ navigation, r
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             )}
                             <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{distance}</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{distance}</Text>
                         </View>
                         <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             {endFetch && startFetch && (
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             )}
                             <Icon type='material-community' name='clock' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main} ]}>{duration}</Text>
+                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{duration}</Text>
                         </View>
                     </View>
                 </View>
@@ -481,7 +481,7 @@ const CurrentPositionView: React.FC<CurrentPositionViewProps> = ({ navigation, r
                 ?
                     course.nb_km_parcouru != null
                     ?
-                        <BottomButton buttonTitle={'Facture'} pressAction={factScreen} headerSection={<Text style={tw`px-3 text-center text-base text-black`}>Course Terminée</Text>} />
+                        <BottomButton buttonTitle={'Facture'} pressAction={factScreen} headerSection={<Text style={[tw`px-3 text-center text-base text-black`, {fontFamily: polices.times_new_roman}]}>Course Terminée</Text>} />
                     : null
                 : <BottomButton buttonTitle={'Facture'} pressAction={factScreen} />
                 }

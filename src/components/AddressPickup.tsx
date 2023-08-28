@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { ColorsEncr } from '../assets/styles';
-import { google_maps_apikey } from '../data/data';
+import { google_maps_apikey, polices } from '../data/data';
 import tw from 'twrnc';
 
 interface AddressPickupProps {
@@ -33,7 +33,7 @@ const AddressPickup: React.FC<AddressPickupProps> = ({ placeholderText = 'Search
     return (
         <>
             {label && (
-                <Text style={tw`text-slate-600 font-semibold text-lg mb-2`}>{ placeholderText }</Text>
+                <Text style={[tw`text-slate-600 font-semibold text-lg mb-2`, {fontFamily: polices.times_new_roman}]}>{ placeholderText }</Text>
             )}
             <View style={[ tw`flex-row mb-3` ]}>
                 <GooglePlacesAutocomplete
@@ -50,7 +50,7 @@ const AddressPickup: React.FC<AddressPickupProps> = ({ placeholderText = 'Search
                     listEmptyComponent={() => (
                         <View>
                             {/* @ts-ignore */}
-                            <Text style={tw`text-gray-600`}>0 adresse trouvée {refGooglePlace.current?.getAddressText() ? 'pour ' + refGooglePlace.current?.getAddressText() : ''}</Text>
+                            <Text style={[tw`text-gray-600`, {fontFamily: polices.times_new_roman}]}>0 adresse trouvée {refGooglePlace.current?.getAddressText() ? 'pour ' + refGooglePlace.current?.getAddressText() : ''}</Text>
                         </View>
                     )}
                     onFail={(error) => console.error(error)}

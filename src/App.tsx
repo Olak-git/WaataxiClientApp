@@ -23,7 +23,7 @@ import { Button } from 'react-native-paper';
 import { getVersion, useManufacturer } from 'react-native-device-info';
 import tw from 'twrnc'
 import { openUrl } from './functions/helperFunction';
-import { app_links } from './data/data';
+import { app_links, polices } from './data/data';
 import { Icon } from '@rneui/base';
 
 // ignoreLogs();
@@ -94,19 +94,20 @@ const App: React.FC<AppProps> = () => {
 
                   <View style={tw`flex-row items-center mt-10`}>
                     <Icon type="entypo" name={Platform.OS=='ios'?'app-store':'google-play'} containerStyle={tw``} />
-                    <Text style={tw`flex-1 text-black ml-2`}>{Platform.OS=='ios'?'App Store':'Google Play'}</Text>
+                    <Text style={[tw`flex-1 text-black ml-2`, {fontFamily: polices.times_new_roman}]}>{Platform.OS=='ios'?'App Store':'Google Play'}</Text>
                   </View>
 
                   <Icon onPress={onClose} type='evilicon' name='close' size={30} containerStyle={tw`self-end mt-3 mr-0`} />
                             
                   <View style={tw`mt-4`}>
-                    <Text style={tw`text-black font-black text-lg`}>Mise à jour disponible</Text>
-                    <Text style={tw`text-black mt-3`}>Pour utiliser votre application, téléchargez la dernière version disponible.</Text>
+                    <Text style={[tw`text-black font-black text-lg`, {fontFamily: polices.times_new_roman}]}>Mise à jour disponible</Text>
+                    <Text style={[tw`text-black mt-3`, {fontFamily: polices.times_new_roman}]}>Pour utiliser votre application, téléchargez la dernière version disponible.</Text>
                     <Button 
                       mode='contained'
                       // @ts-ignore
                       onPress={()=>openUrl(app_links[Platform.OS])}
                       style={tw`bg-black rounded-3xl mt-5`}
+                      labelStyle={{ fontFamily: polices.times_new_roman }}
                     >
                       Mettre à jour
                     </Button>

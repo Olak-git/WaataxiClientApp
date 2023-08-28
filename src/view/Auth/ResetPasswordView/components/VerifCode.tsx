@@ -6,6 +6,7 @@ import { Divider, Icon } from '@rneui/base'
 import tw from 'twrnc'
 import { Button } from 'react-native-paper'
 import { account, fetchUri, toast } from '../../../../functions/functions'
+import { polices } from '../../../../data/data'
 
 interface VerifCodeProps {
     inputs: any,
@@ -97,9 +98,9 @@ const VerifCode: React.FC<VerifCodeProps> = ({inputs, handleOnChange, pin_count,
 
             <KeyboardAvoidingView behavior={Platform.OS=='ios'?'padding':'height'} style={tw`flex-1`}>
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={tw`pb-10`}>
-                    <Text style={[ tw`text-center text-base text-gray-500 mt-20 mb-2` ]}>CODE</Text>
+                    <Text style={[ tw`text-center text-base text-gray-500 mt-20 mb-2`, {fontFamily: polices.times_new_roman} ]}>CODE</Text>
                     
-                    <Text style={[ tw`text-center text-base text-black mb-5` ]}>Veuillez entrer le code ici</Text>
+                    <Text style={[ tw`text-center text-base text-black mb-5`, {fontFamily: polices.times_new_roman} ]}>Veuillez entrer le code ici</Text>
                     
                     <View style={[tw`px-10`, {} ]}>
                         <OTPInputView
@@ -119,11 +120,11 @@ const VerifCode: React.FC<VerifCodeProps> = ({inputs, handleOnChange, pin_count,
                         />
 
                         <Divider color={ColorsEncr.main_sm} style={[tw`mb-1 mt-5`]} />
-                        <Button onPress={onHandle} mode='outlined' loading={loading1} disabled={disabled} contentStyle={tw`p-2`} color={ColorsEncr.main_sm}>
+                        <Button onPress={onHandle} mode='outlined' loading={loading1} disabled={disabled} contentStyle={tw`p-2`} labelStyle={{ fontFamily: polices.times_new_roman }} color={ColorsEncr.main_sm}>
                             Valider
                         </Button>
 
-                        <Button onPress={resendCode} mode='text' loading={loading2} disabled={loading2} style={tw`mt-4`}>Renvoyer le code</Button>
+                        <Button onPress={resendCode} mode='text' loading={loading2} disabled={loading2} style={tw`mt-4`} labelStyle={{ fontFamily: polices.times_new_roman }}>Renvoyer le code</Button>
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Platform, Pressable, S
 import Base from '../../../components/Base';
 import MapView, { AnimatedRegion, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA } from '../../../data/data';
+import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA, polices } from '../../../data/data';
 import tw from 'twrnc';
 import { locationPermission, getCurrentLocation } from '../../../functions/helperFunction';
 import { ActivityLoading } from '../../../components/ActivityLoading';
@@ -41,11 +41,11 @@ const RenderItembuttonChoiceLocation: React.FC<RenderItembuttonChoiceLocationPro
                         containerStyle={[ tw`mr-1` ]}
                     />
                 )}
-                <Text style={[ tw`text-black` ]}>{ data.label }</Text>
+                <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{ data.label }</Text>
             </View>
             <TouchableOpacity onPress={callAction}
                 style={[ tw`bg-white p-3 rounded-lg mt-2 border border-gray-200` ]}>
-                <Text style={[ tw`text-center text-black` ]}>{ data.buttonText }</Text>
+                <Text style={[ tw`text-center text-black`, {fontFamily: polices.times_new_roman} ]}>{ data.buttonText }</Text>
             </TouchableOpacity>
         </View>
     )
@@ -196,9 +196,11 @@ const ProgramCovoiturageView: React.FC<ProgramCovoiturageViewProps> = ({ navigat
     const onHandleItineraire = () => {
         navigation.navigate('DashCourseCovoiturageInfos', {
             course: course,
-            start_address: startAddress, 
+            start_address: startAddress,
+            // @ts-ignore 
             latlng_depart: {latitude: startingCords.latitude, longitude: startingCords.longitude},
             end_address: endAddress,
+            // @ts-ignore
             latlng_arrive:  {latitude: destinationCords.latitude, longitude: destinationCords.longitude}, 
             distance: distance, 
             duration: duration
@@ -306,10 +308,10 @@ const ProgramCovoiturageView: React.FC<ProgramCovoiturageViewProps> = ({ navigat
                             </View>
                             <View style={[ tw`flex-1` ]}>
                                 <View style={[ tw`mb-2` ]}>
-                                    <Text onPress={getStartingLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{startAddress}</Text>
+                                    <Text onPress={getStartingLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{startAddress}</Text>
                                 </View>
                                 <View style={[ tw`` ]}>
-                                    <Text onPress={getDestinationLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{endAddress}</Text>
+                                    <Text onPress={getDestinationLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{endAddress}</Text>
                                 </View>
                             </View>
                         </View>
@@ -318,7 +320,7 @@ const ProgramCovoiturageView: React.FC<ProgramCovoiturageViewProps> = ({ navigat
                                 <TouchableOpacity
                                     onPress={onHandleItineraire}
                                     style={[ tw`p-2 rounded-md border border-slate-300`, {}]}>
-                                    <Text style={[ tw`text-center font-semibold text-black text-lg` ]}>Valider</Text>
+                                    <Text style={[ tw`text-center font-semibold text-black text-lg`, {fontFamily: polices.times_new_roman} ]}>Valider</Text>
                                 </TouchableOpacity>
                             </View>
                         )}
@@ -330,14 +332,14 @@ const ProgramCovoiturageView: React.FC<ProgramCovoiturageViewProps> = ({ navigat
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             )}
                             <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{distance}</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{distance}</Text>
                         </View>
                         <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             {endFetch && startFetch && (
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             )}
                             <Icon type='material-community' name='clock' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main} ]}>{duration}</Text>
+                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{duration}</Text>
                         </View>
                     </View>
                 </View>
@@ -459,12 +461,12 @@ const ProgramCovoiturageView: React.FC<ProgramCovoiturageViewProps> = ({ navigat
                             <View style={[ tw`px-30 my-3` ]}>
                                 <Divider />
                             </View>
-                            <Text style={tw`px-8 text-center mb-1 text-xs text-gray-500`}>Si vos adresses départ et arrivée sont les mêmes que celles de la course, cliquer directement sur continuer</Text>
+                            <Text style={[tw`px-8 text-center mb-1 text-xs text-gray-500`, {fontFamily: polices.times_new_roman}]}>Si vos adresses départ et arrivée sont les mêmes que celles de la course, cliquer directement sur continuer</Text>
                             <View style={[ tw`px-8` ]}>
                                 <TouchableOpacity
                                     onPress={onHandleItineraire}
                                     style={[ tw`p-2 rounded-md border border-slate-300`, {}]}>
-                                    <Text style={[ tw`text-center font-semibold text-black text-lg` ]}>Continuer</Text>
+                                    <Text style={[ tw`text-center font-semibold text-black text-lg`, {fontFamily: polices.times_new_roman} ]}>Continuer</Text>
                                 </TouchableOpacity>
                             </View>    
                         </View>
@@ -492,7 +494,7 @@ const ProgramCovoiturageView: React.FC<ProgramCovoiturageViewProps> = ({ navigat
                             <Icon type='ant-design' name='close' size={40} color='black' />
                         </Pressable>
 
-                        <Text style={tw`text-gray-600  text-center text-base`}>Entrer votre point de départ et votre point d'arrivé si différents de ceux indiqués par le chauffeur. Mais assurez-vous d'être sur l'axe définit par celui-ci.</Text>
+                        <Text style={[tw`text-gray-600 text-center text-base`, {fontFamily: polices.times_new_roman}]}>Entrer votre point de départ et votre point d'arrivé si différents de ceux indiqués par le chauffeur. Mais assurez-vous d'être sur l'axe définit par celui-ci.</Text>
                     </View>
                 </View>
             </RNPModal>

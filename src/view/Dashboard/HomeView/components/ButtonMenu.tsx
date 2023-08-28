@@ -3,6 +3,7 @@ import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import { ColorsEncr } from '../../../../assets/styles';
 import tw from 'twrnc';
+import { polices } from '../../../../data/data';
 
 interface ButtonMenuProps {
     navigation: any,
@@ -21,7 +22,7 @@ const ButtonMenu: React.FC<ButtonMenuProps> = ({ navigation, route, iconName, ca
                     name={iconName}
                     color={ColorsEncr.main}
                     size={60} />
-                <Text style={[ tw`text-center text-black` ]}>{ caption }</Text>
+                <Text style={[ tw`text-center text-black`, {fontFamily: polices.times_new_roman} ]}>{ caption }</Text>
             </View>
         </TouchableOpacity>
     )

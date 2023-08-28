@@ -5,6 +5,7 @@ import tw from 'twrnc';
 import { ColorsEncr } from '../assets/styles';
 import Base from './Base';
 import { Icon } from '@rneui/base';
+import { polices } from '../data/data';
 
 interface ActivityLoadingProps {
     loadingText?: string,
@@ -27,7 +28,7 @@ export const ActivityLoading: React.FC<ActivityLoadingProps> = ({ loadingText, n
                     animating /> */}
                 <Spinner type='Pulse' color={ColorsEncr.main} size={60} />
                 {loadingText && (
-                    <Text style={[ tw`text-gray-400` ]}>{ loadingText }</Text>
+                    <Text style={[ tw`text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{ loadingText }</Text>
                 )}
             </View>
         </Base>

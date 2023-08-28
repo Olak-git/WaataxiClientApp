@@ -18,6 +18,7 @@ import { setStopped } from '../../../feature/init.slice';
 import { setStoreCovoiturage, setStoreReservationCovoiturage } from '../../../feature/courses.slice';
 import { RNSpinner } from '../../../components/RNSpinner';
 import { useNavigation } from '@react-navigation/native';
+import { polices } from '../../../data/data';
 
 const timer = require('react-native-timer');
 
@@ -59,7 +60,7 @@ const Body: React.FC<{spinner?: boolean, reservation: any, onReservationRefresh:
                             keyboardDismissMode='none'
                             ListEmptyComponent={ 
                                 <View>
-                                    <Text style={tw`text-gray-400`}>{reservation.empty}</Text>
+                                    <Text style={[tw`text-gray-400`, {fontFamily: polices.times_new_roman}]}>{reservation.empty}</Text>
                                 </View>
                             }
                             data={reservation.data}
@@ -97,7 +98,7 @@ const Body: React.FC<{spinner?: boolean, reservation: any, onReservationRefresh:
                                     ListHeaderComponent={
                                         <>
                                             <View style={tw``}>
-                                                <Text style={[ tw`text-black text-base text-center font-bold` ]}>Prochaines courses disponibles</Text>
+                                                <Text style={[ tw`text-black text-base text-center font-bold`, {fontFamily: polices.times_new_roman} ]}>Prochaines courses disponibles</Text>
                                                 <View style={[ tw`items-center px-30` ]}>
                                                     <RNDivider size={2} color={'grey'} />
                                                 </View>
@@ -110,7 +111,7 @@ const Body: React.FC<{spinner?: boolean, reservation: any, onReservationRefresh:
                                     keyboardDismissMode='none'
                                     ListEmptyComponent={ 
                                         <View>
-                                            <Text style={tw`text-gray-400`}>{covoiturage.empty}</Text>
+                                            <Text style={[tw`text-gray-400`, {fontFamily: polices.times_new_roman}]}>{covoiturage.empty}</Text>
                                         </View>
                                     }
                                     data={covoiturage.data}
@@ -158,21 +159,21 @@ const Body: React.FC<{spinner?: boolean, reservation: any, onReservationRefresh:
                             {spinner && (<RNSpinner visible={!endFetch} />)}
                             {covoiturage.data.length == 0 && (
                                 <View>
-                                    <Text style={tw`text-gray-400`}>{covoiturage.empty}</Text>
+                                    <Text style={[tw`text-gray-400`, {fontFamily: polices.times_new_roman}]}>{covoiturage.empty}</Text>
                                 </View>
                             )}
                             {covoiturage.data.map((item: any, index: number) => <RenderNewItemCourseCovoiturage key={index.toString()} item={item} navigation={navigation} />)}
 
                             <View style={[ tw`flex-row items-center my-3`, {}]}>
                                 <View style={[ tw`flex-1 bg-black`, {height: 1} ]}></View>
-                                <Text style={[ tw`text-black text-xs font-bold px-4 py-1 border rounded-2xl` ]}>Historique</Text>
+                                <Text style={[ tw`text-black text-xs font-bold px-4 py-1 border rounded-2xl`, {fontFamily: polices.times_new_roman} ]}>Historique</Text>
                                 <View style={[ tw`flex-1 bg-black`, {height: 1} ]}></View>
                             </View>
 
                             {spinner && (<RNSpinner visible={!endFetch} />)}
                             {reservation.data.length == 0 && (
                                 <View>
-                                    <Text style={tw`text-gray-400`}>{reservation.empty}</Text>
+                                    <Text style={[tw`text-gray-400`, {fontFamily: polices.times_new_roman}]}>{reservation.empty}</Text>
                                 </View>
                             )}
                             {reservation.data.map((item: any, index: number) => <RenderItemCourseCovoiturage key={index.toString()} item={item} navigation={navigation} />)}

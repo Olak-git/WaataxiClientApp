@@ -4,6 +4,7 @@ import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import tw from 'twrnc';
 import { ColorsEncr } from '../assets/styles';
+import { polices } from '../data/data';
 
 const BottomLink: React.FC<{ iconType?: string, iconName: string, screen: string, navigation?: any, path?: string, params?: any, resetHistory?: boolean, active?: boolean }> = ({ iconType = 'font-awesome-5', iconName, screen, navigation, path, params, resetHistory, active }) => {
 
@@ -29,7 +30,7 @@ const BottomLink: React.FC<{ iconType?: string, iconName: string, screen: string
     return (
         <Pressable onPress={onHandleNavigation} style={tw``}>
             <Icon type={iconType} name={iconName} color={active ? ColorsEncr.main : '#FFFFFF'} size={30} />
-            <Text style={[ tw`text-white text-xs`, {} ]}>{ screen }</Text>
+            <Text style={[ tw`text-white text-xs`, {fontFamily: polices.times_new_roman} ]}>{ screen }</Text>
         </Pressable>
     )
 }

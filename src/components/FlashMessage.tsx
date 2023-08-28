@@ -5,6 +5,7 @@ import { Animated, Platform, Pressable, StatusBar, StyleProp, Text, TextStyle, V
 import tw from 'twrnc';
 import { ColorsEncr } from '../assets/styles';
 import { windowHeight, windowWidth } from '../functions/functions';
+import { polices } from '../data/data';
 
 interface FlashMessageProps {
     containerStyle?: StyleProp<ViewStyle>,
@@ -118,9 +119,9 @@ const FlashMessage: React.FC<FlashMessageProps> = ({
                             )}
                             <View style={tw`flex-1`}>
                                 {title && (
-                                    <Text style={[tw``, titleStyle]}>{title}</Text>
+                                    <Text style={[tw``, {fontFamily: polices.times_new_roman}, titleStyle]}>{title}</Text>
                                 )}
-                                <Text style={[ tw`text-sm text-white`, textStyle ]}>{text}</Text>
+                                <Text style={[ tw`text-sm text-white`, {fontFamily: polices.times_new_roman}, textStyle ]}>{text}</Text>
                             </View>
 
                         </View>

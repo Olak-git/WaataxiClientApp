@@ -4,6 +4,7 @@ import InputForm from '../../../../components/InputForm';
 import { RNDivider } from '../../../../components/RNDivider';
 import tw from 'twrnc';
 import { RenderItem } from './RenderItem';
+import { polices } from '../../../../data/data';
 
 interface SheetRenderProps {
     data: any,
@@ -18,7 +19,7 @@ export const SheetRender: React.FC<SheetRenderProps> = ({ data, getApproximative
     return (
         <>
             <View>
-                <Text style={[ tw`text-black text-base text-center font-bold` ]}>Sélectionner un tye de voiture</Text>
+                <Text style={[ tw`text-black text-base text-center font-bold`, {fontFamily: polices.times_new_roman} ]}>Sélectionner un tye de voiture</Text>
                 <View style={[ tw`items-center px-30` ]}>
                     <RNDivider size={2} color={'grey'} />
                 </View>

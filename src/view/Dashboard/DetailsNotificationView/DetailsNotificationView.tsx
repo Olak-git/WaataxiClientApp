@@ -10,6 +10,7 @@ import { Rating } from 'react-native-ratings';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocalDate, getLocalTime, getLocalTimeStr } from '../../../functions/helperFunction';
 import { setReload } from '../../../feature/reload.slice';
+import { polices } from '../../../data/data';
 
 interface DetailsNotificationViewProps {
     navigation: any,
@@ -31,12 +32,12 @@ const DetailsNotificationView: React.FC<DetailsNotificationViewProps> = (props) 
         <Base>
             <Header navigation={navigation} headerTitle='Notification' />
             <ScrollView contentContainerStyle={tw`px-4`}>
-                <Text style={[tw`text-black text-center text-base`]}>{notification.intituler}</Text>
-                <View style={tw`d-flex mb-4`}>
+                <Text style={[tw`text-black text-center text-base`, {fontFamily: polices.times_new_roman}]}>{notification.intituler}</Text>
+                <View style={tw`mb-4`}>
                     <Icon type='font-awesome' color={ColorsEncr.main} size={28} reverse name='envelope-open' containerStyle={tw`mx-auto`} />
                 </View>
-                <Text style={tw`text-black text-justify`}>{notification.passager}</Text>
-                <Text style={tw`text-gray-400 mt-4 text-right`}>{getLocalDate(notification.dat)} à {getLocalTime(notification.dat)}</Text>
+                <Text style={[tw`text-black text-justify`, {fontFamily: polices.times_new_roman}]}>{notification.passager}</Text>
+                <Text style={[tw`text-gray-400 mt-4 text-right`, {fontFamily: polices.times_new_roman}]}>{getLocalDate(notification.dat)} à {getLocalTime(notification.dat)}</Text>
 
             </ScrollView>
 

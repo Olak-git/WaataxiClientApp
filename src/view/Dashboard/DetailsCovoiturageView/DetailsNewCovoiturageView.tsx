@@ -13,6 +13,7 @@ import BottomButton from '../../../components/BottomButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../../feature/user.slice';
 import { ActivityIndicator } from 'react-native-paper';
+import { polices } from '../../../data/data';
 
 interface RowProps {
     iconType: string,
@@ -32,9 +33,9 @@ const Row: React.FC<RowProps> = ({ iconType, iconName, iconSize = 30, textStyle 
                     color='#666'
                     size={iconSize} />
             </View>
-            <Text style={[ tw`text-gray-600 font-semibold text-lg mx-2` ]}>:</Text>
+            <Text style={[ tw`text-gray-600 font-semibold text-lg mx-2`, {fontFamily: polices.times_new_roman} ]}>:</Text>
             <View style={[ tw`flex-1` ]}>
-                <Text style={[ tw`text-black font-medium text-lg`, ...textStyle ]}>{ text }{_text}</Text>
+                <Text style={[ tw`text-black font-medium text-lg`, {fontFamily: polices.times_new_roman}, ...textStyle ]}>{ text }{_text}</Text>
             </View>
         </View>
     )
@@ -128,8 +129,8 @@ const DetailsNewCovoiturageView: React.FC<DetailsNewCovoiturageViewProps> = (pro
                         />
                     </TouchableOpacity>
                     <View style={tw`flex-1 pt-1 justify-between`}>
-                        <Text style={tw`text-black`}>{conducteur.nom.toUpperCase() + ' ' + conducteur.prenom}</Text>
-                        <Text style={tw`text-black`} onPress={() => callPhoneNumber(conducteur.tel)}>{conducteur.tel}</Text>
+                        <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}]}>{conducteur.nom.toUpperCase() + ' ' + conducteur.prenom}</Text>
+                        <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}]} onPress={() => callPhoneNumber(conducteur.tel)}>{conducteur.tel}</Text>
                     </View>
                     <Rating
                         readonly
@@ -144,23 +145,23 @@ const DetailsNewCovoiturageView: React.FC<DetailsNewCovoiturageViewProps> = (pro
                 <View style={tw`border-b border-gray-200 px-3 py-4`}>
                     <View style={[ tw`flex-row items-center mb-3` ]}>
                         <Icon type='font-awesome-5' name='map-marker-alt' color='green' containerStyle={tw`mr-2 self-start`} />
-                        <Text style={[ tw`flex-1 text-gray-400` ]}>{course.adresse_depart}</Text>
+                        <Text style={[ tw`flex-1 text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_depart}</Text>
                     </View>
                     <View style={[ tw`flex-row items-center` ]}>
                         <Icon type='font-awesome-5' name='map-marker-alt' color={ColorsEncr.main} containerStyle={tw`mr-2 self-start`} />
-                        <Text style={[ tw`flex-1 text-gray-400` ]}>{course.adresse_arrive}</Text>
+                        <Text style={[ tw`flex-1 text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_arrive}</Text>
                     </View>
 
                     <View style={[ tw`flex-row justify-between px-2 mt-5` ]}>
                         <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{course.nb_km} km</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{course.nb_km} km</Text>
                         </View>
                         {/* <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             <Icon type='material-community' name='run' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{'1h 45m'}</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{'1h 45m'}</Text>
                         </View> */}
                     </View>
                 </View>
@@ -168,29 +169,29 @@ const DetailsNewCovoiturageView: React.FC<DetailsNewCovoiturageViewProps> = (pro
                 <View style={tw`flex-row justify-between border-b border-gray-200 px-3 py-4`}>
                     <View style={tw`flex-1 justify-between items-center`}>
                         <Icon type='font-awesome-5' name='calendar-alt' color={ColorsEncr.main} />
-                        <Text style={tw`text-black font-bold`}>{ course.date_course}</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{ course.date_course}</Text>
                     </View>
 
                     <Divider orientation='vertical' />
 
                     <View style={tw`flex-1 justify-between items-center`}>
                         <Icon type='font-awesome-5' name='history' color={ColorsEncr.main} />
-                        <Text style={tw`text-black font-bold`}>{getLocalTimeStr(course.heure_course)}</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{getLocalTimeStr(course.heure_course)}</Text>
                     </View>
                 </View>
 
                 <View style={tw`flex-row justify-between border-b border-gray-200 px-3 py-4`}>
 
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold`}>{course.nb_place_restante} Place(s) disponible(s)</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{course.nb_place_restante} Place(s) disponible(s)</Text>
                         <Icon type='ant-design' name='user' color={ColorsEncr.main} />
                     </View>
 
                     <Divider orientation='vertical' />
 
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold`}>Prix</Text>
-                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main} ]}>{getCurrency(course.mnt)} XOF</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Prix</Text>
+                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{getCurrency(course.mnt)} XOF</Text>
                     </View>
 
                 </View>
@@ -209,7 +210,7 @@ const DetailsNewCovoiturageView: React.FC<DetailsNewCovoiturageViewProps> = (pro
                     parseInt(user.portefeuille) < ((course.mnt * configuration.commission_covoiturage) / 100)
                     ?
                         <View style={tw`bg-slate-900 rounded-lg p-3 mx-1 mb-1`}>
-                            <Text style={tw`text-white`}>Veuillez recharger votre portefeuille pour réserver une place.</Text>
+                            <Text style={[tw`text-white`, {fontFamily: polices.times_new_roman}]}>Veuillez recharger votre portefeuille pour réserver une place.</Text>
                         </View>
                     :
                         <BottomButton reverse title='Réserver une place' navigation={navigation} route='DashProgramCovoiturage' params={{course: course}} />

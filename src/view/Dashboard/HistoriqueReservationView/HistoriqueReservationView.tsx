@@ -17,6 +17,7 @@ import { setRefreshReservations, setStopped } from '../../../feature/init.slice'
 import { setStoreReservation } from '../../../feature/courses.slice';
 import { RNSpinner } from '../../../components/RNSpinner';
 import { useNavigation } from '@react-navigation/native';
+import { polices } from '../../../data/data';
 
 const timer = require('react-native-timer');
 
@@ -44,7 +45,7 @@ const Body: React.FC<{spinner?: boolean, refreshing: boolean, onRefresh: ()=>voi
                 keyboardDismissMode='none'
                 ListEmptyComponent={ 
                     <View>
-                        <Text style={tw`text-gray-400`}>{ reservationEmptyText }</Text>
+                        <Text style={[tw`text-gray-400`, {fontFamily: polices.times_new_roman}]}>{ reservationEmptyText }</Text>
                     </View>
                 }
                 data={reservations}
@@ -57,7 +58,7 @@ const Body: React.FC<{spinner?: boolean, refreshing: boolean, onRefresh: ()=>voi
             {parseInt(user.portefeuille) < minTarif
                 ?
                     <View style={tw`bg-slate-900 rounded-lg p-3 mx-1 mb-1`}>
-                        <Text style={tw`text-white`}>CCompte insuffisant. Veuillez recharger votre portefeuille pour faire une réservation de course.</Text>
+                        <Text style={[tw`text-white`, {fontFamily: polices.times_new_roman}]}>Compte insuffisant. Veuillez recharger votre portefeuille pour faire une réservation de course.</Text>
                     </View>
                 :
                     <BottomButton reverse navigation={navigation} route='DashProgramItineraire' params={{action: 'reservation'}} title='Faire une réservation' containerStyle={[tw`border-t-0`]} titleStyle={{ fontFamily: 'MontserratAlternates-SemiBold' }} />

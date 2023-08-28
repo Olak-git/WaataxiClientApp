@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TextInput, View, Text, StyleSheet, Keyboard, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import tw from 'twrnc';
+import { polices } from '../data/data';
 
 interface TextareaFormProps {
     containerStyle?: StyleProp<ViewStyle>,
@@ -30,7 +31,7 @@ const TextareaForm: React.FC<TextareaFormProps> = ({ containerStyle, label, labe
     return (
         <View style={[ tw`mb-2`, containerStyle ]}>
             {label && (
-                <Text style={[ styles.label, labelStyle ]}>{label}</Text>
+                <Text style={[ styles.label, {fontFamily: polices.times_new_roman}, labelStyle ]}>{label}</Text>
             )}
             <View style={[ tw`border bg-white`, styles.inputContainer, { borderColor: error ? '#ff2222' : isFocused ? '#f4f4f4' : formColor }, inputContainerStyle ]}>
                 <TextInput 
@@ -44,17 +45,17 @@ const TextareaForm: React.FC<TextareaFormProps> = ({ containerStyle, label, labe
                         setIsFocused(true)
                     }}
                     onBlur={() => setIsFocused(false)}
-                    style={[ tw`flex-1 border-0 text-slate-500`, {textAlignVertical: 'top', justifyContent: 'flex-start', height: '100%'}, inputStyle]}
+                    style={[ tw`flex-1 border-0 text-slate-500`, {textAlignVertical: 'top', justifyContent: 'flex-start', height: '100%', fontFamily: polices.times_new_roman}, inputStyle]}
                     {...props} />
             </View>
             { helper
                 ?
-                <Text style={ helperStyle }>{ helper }</Text>
+                <Text style={[ {fontFamily: polices.times_new_roman}, helperStyle ]}>{ helper }</Text>
                 :
                 constructHelper
             }
             { error && (
-                <Text style={[ tw`text-orange-700 text-sm` ]}>{ error }</Text>
+                <Text style={[ tw`text-orange-700 text-sm`, {fontFamily: polices.times_new_roman} ]}>{ error }</Text>
             )}
         </View>
     )

@@ -2,6 +2,7 @@ import { View, Text, Modal, Pressable, TouchableOpacity, StatusBar, Platform } f
 import React from 'react'
 import { Icon } from '@rneui/base'
 import tw from 'twrnc'
+import { polices } from '../../../../data/data'
 
 interface DelAccountProps {
     visible: boolean,
@@ -20,8 +21,8 @@ const DelAccount: React.FC<DelAccountProps> = ({visible, setVisible, onDelete}) 
                 </Pressable>
                 <View style={[ tw`bg-white justify-center items-center rounded-2xl p-3`, {height: 300, width: 300} ]}>
                     <View style={tw``}>
-                        <Text style={[ tw`text-center px-10 text-gray-700 font-normal text-sm mb-5` ]}>Souhaitez-vous supprimer votre compte ?</Text>
-                        <Text style={[tw`text-black mb-5`, {textAlign: 'center'}]}>La suppression de votre compte entraînera la suppression de vos données. Aucun autre compte ne pourra se créer avec vos références.</Text>
+                        <Text style={[ tw`text-center px-10 text-gray-700 font-normal text-sm mb-5`, {fontFamily: polices.times_new_roman} ]}>Souhaitez-vous supprimer votre compte ?</Text>
+                        <Text style={[tw`text-black mb-5`, {textAlign: 'center', fontFamily: polices.times_new_roman}]}>La suppression de votre compte entraînera la suppression de vos données. Aucun autre compte ne pourra se créer avec vos références.</Text>
                         
                         <View style={[ tw`flex-row justify-between items-center`, {} ]}>
 
@@ -29,14 +30,14 @@ const DelAccount: React.FC<DelAccountProps> = ({visible, setVisible, onDelete}) 
                                 onPress={onDelete}
                                 style={[tw`rounded border py-2 px-3 border-red-600`, {width: 100}]}
                             >
-                                <Text style={tw`text-red-600 text-center`}>Oui</Text>
+                                <Text style={[tw`text-red-600 text-center`, {fontFamily: polices.times_new_roman}]}>Oui</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity
                                 onPress={() => setVisible(false)}
                                 style={[tw`rounded border border-blue-600 py-2 px-3`, {width: 100}]}
                             >
-                                <Text style={tw`text-black text-center`}>Annuler</Text>
+                                <Text style={[tw`text-black text-center`, {fontFamily: polices.times_new_roman}]}>Annuler</Text>
                             </TouchableOpacity>
 
                         </View>

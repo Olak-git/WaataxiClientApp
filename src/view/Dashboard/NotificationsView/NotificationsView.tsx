@@ -13,6 +13,7 @@ import SearchBar from '../../../components/SearchBar';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import { addNotification } from '../../../feature/notifications.slice';
 import { Divider } from '@rneui/base';
+import { polices } from '../../../data/data';
 
 interface NotificationsViewProps {
     navigation: any
@@ -117,9 +118,9 @@ const NotificationsView: React.FC<NotificationsViewProps> = ({ navigation }) => 
                 style={[ tw`flex-row mb-3` ]}>
                 <Icon type='font-awesome' color={ColorsEncr.main} size={18} reverse reverseColor={notifies.indexOf(item.id) === -1 ? '#000000' : '#FFFFFF'} name={notifies.indexOf(item.id) === -1 ? 'envelope' : 'envelope-open'} />
                 <View style={tw`ml-3 flex-1`}>
-                    <Text style={[tw`${notifies.indexOf(item.id) === -1 ? 'font-black text-black' : 'font-bold text-gray-600'}`, {fontFamily: 'YatraOne-Regular'}]} numberOfLines={1} ellipsizeMode='tail'>{item.intituler}</Text>
-                    <Text style={tw`${notifies.indexOf(item.id) === -1 ? 'font-semibold text-black' : 'text-gray-600'}`} numberOfLines={2} ellipsizeMode='tail'>{item.passager}</Text>
-                    <Text style={tw`mt-2 text-gray-400`}>{getLocalDate(item.dat)}</Text>
+                    <Text style={[tw`${notifies.indexOf(item.id) === -1 ? 'font-black text-black' : 'font-bold text-gray-600'}`, {fontFamily: 'YatraOne-Regular'}, {fontFamily: polices.times_new_roman}]} numberOfLines={1} ellipsizeMode='tail'>{item.intituler}</Text>
+                    <Text style={[tw`${notifies.indexOf(item.id) === -1 ? 'font-semibold text-black' : 'text-gray-600'}`, {fontFamily: polices.times_new_roman}]} numberOfLines={2} ellipsizeMode='tail'>{item.passager}</Text>
+                    <Text style={[tw`mt-2 text-gray-400`, {fontFamily: polices.times_new_roman}]}>{getLocalDate(item.dat)}</Text>
                 </View>
             </TouchableOpacity>
         )
@@ -184,7 +185,7 @@ const NotificationsView: React.FC<NotificationsViewProps> = ({ navigation }) => 
                 }
                 ListEmptyComponent={ 
                     <View>
-                        <Text style={tw`text-gray-400`}>{notificationEmptyText}</Text>
+                        <Text style={[tw`text-gray-400`, {fontFamily: polices.times_new_roman}]}>{notificationEmptyText}</Text>
                     </View>
                 }
                 data={notifications}

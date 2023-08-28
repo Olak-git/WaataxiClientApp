@@ -15,6 +15,7 @@ import { ActivityLoading } from '../../../components/ActivityLoading';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import FlashMessage from '../../../components/FlashMessage';
 import { getErrorsToString } from '../../../functions/helperFunction';
+import { polices } from '../../../data/data';
 
 interface PortefeuilleViewProps {
     navigation: any
@@ -142,7 +143,7 @@ const PortefeuilleView: React.FC<PortefeuilleViewProps> = ({ navigation }) => {
                                 onPress={() => setShowGateway(false)}>
                                 <Icon type='feather' name='x' color='#000000' size={24} />
                             </TouchableOpacity>
-                            <Text style={{ flex: 1, textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: '#00457C' }}>GateWay</Text>
+                            <Text style={{ flex: 1, textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: '#00457C', fontFamily: polices.times_new_roman }}>GateWay</Text>
                             <View style={{ padding: 13, opacity: prog ? 1 : 0 }}>
                                 <ActivityIndicator size={24} color={ progClr } />
                             </View>
@@ -186,13 +187,13 @@ const PortefeuilleView: React.FC<PortefeuilleViewProps> = ({ navigation }) => {
                         <View style={[ tw`flex-row justify-center items-center border-b border-gray-100`, {height: 120} ]}>
                             <Wallet width={70} height={70} />
                             <View style={[ tw`ml-3` ]}>
-                                <Text style={[ tw`text-gray-500` ]}>Solde actuel</Text>
-                                <Text style={[ tw`text-black font-bold text-3xl`, {color: ColorsEncr.main} ]}>{ getCurrency(user.portefeuille) } F</Text>
+                                <Text style={[ tw`text-gray-500`, {fontFamily: polices.times_new_roman} ]}>Solde actuel</Text>
+                                <Text style={[ tw`text-black font-bold text-3xl`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{ getCurrency(user.portefeuille) } F</Text>
                             </View>
                         </View>
 
                         <View style={[ tw`my-3` ]}>
-                            <Text style={[ tw`text-center font-semibold text-black text-xl mb-10` ]}>Recharger votre compte</Text>
+                            <Text style={[ tw`text-center font-semibold text-black text-xl mb-10`, {fontFamily: polices.times_new_roman} ]}>Recharger votre compte</Text>
                             
                             <InputForm
                                 containerStyle={tw`px-10`}
@@ -207,8 +208,8 @@ const PortefeuilleView: React.FC<PortefeuilleViewProps> = ({ navigation }) => {
                                 inputContainerStyle={[ tw`border rounded`, {height: 45} ]}
                                 constructHelper={
                                     <View style={[ tw`flex-row justify-between items-center mt-1` ]}>
-                                        <Text style={[ tw`text-gray-600` ]}>Recharge minimale:</Text>
-                                        <Text style={[ tw`text-gray-600` ]}>500 F</Text>
+                                        <Text style={[ tw`text-gray-600`, {fontFamily: polices.times_new_roman} ]}>Recharge minimale:</Text>
+                                        <Text style={[ tw`text-gray-600`, {fontFamily: polices.times_new_roman} ]}>500 F</Text>
                                     </View>
                                 } 
                             />
@@ -219,7 +220,7 @@ const PortefeuilleView: React.FC<PortefeuilleViewProps> = ({ navigation }) => {
                                 onPress={onHandleMontant}
                                 activeOpacity={0.5}
                                 style={[ tw`py-3 px-4 rounded`, {backgroundColor: ColorsEncr.main} ]}>
-                                <Text style={[ tw`ml-2 text-black text-base text-center` ]}>Recharger</Text>
+                                <Text style={[ tw`ml-2 text-black text-base text-center`, {fontFamily: polices.times_new_roman} ]}>Recharger</Text>
                             </TouchableOpacity>
                         </View>
                     </ScrollView>

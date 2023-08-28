@@ -16,6 +16,7 @@ import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { baseUri, fetchUri, format_size, toast, validateEmail } from '../../../functions/functions';
 import { clone, storagePermission } from '../../../functions/helperFunction';
 import FlashMessage from '../../../components/FlashMessage';
+import { polices } from '../../../data/data';
 
 const SectionData: React.FC<{
     iconType?: string,
@@ -26,7 +27,7 @@ const SectionData: React.FC<{
     return (
         <View style={tw`flex-row mb-3 pb-2 border-b border-gray-200`}>
             <Icon type={iconType} name={iconName} size={iconSize} />
-            <Text style={tw`text-black ml-2`}>{text}</Text>
+            <Text style={[tw`text-black ml-2`, {fontFamily: polices.times_new_roman}]}>{text}</Text>
         </View>  
     )
 }
@@ -217,7 +218,7 @@ const EditMyAccountView: React.FC<EditMyAccountViewProps> = ({ navigation }) => 
 
                     <View style={[ tw`mt-8 mb-3 px-5` ]}>
 
-                        <Text style={tw`text-black text-center text-lg mb-8`}>Editer votre compte</Text>
+                        <Text style={[tw`text-black text-center text-lg mb-8`, {fontFamily: polices.times_new_roman}]}>Editer votre compte</Text>
 
                         <InputForm
                             containerStyle={tw`mb-4`}
@@ -253,16 +254,16 @@ const EditMyAccountView: React.FC<EditMyAccountViewProps> = ({ navigation }) => 
 
                         <View style={[tw`flex-row justify-between items-center mt-3`]}>
                             <View style={tw`flex-1 mr-1`}>
-                                <Text style={tw`text-gray-500 text-lg`}>Photo de profil</Text>
+                                <Text style={[tw`text-gray-500 text-lg`, {fontFamily: polices.times_new_roman}]}>Photo de profil</Text>
                                 {avatar && (
                                     <Text onPress={() => {
                                         setAvatar(null);
                                         handleOnChange('img', {});
                                         handleError('img', null);
-                                    }} style={[tw`text-center text-xs text-gray-400 border border-red-500 rounded-2xl p-1`, {width: 70}]}>annuler</Text>
+                                    }} style={[tw`text-center text-xs text-gray-400 border border-red-500 rounded-2xl p-1`, {width: 70, fontFamily: polices.times_new_roman}]}>annuler</Text>
                                 )}
                                 {errors.img && (
-                                    <Text style={tw`text-orange-700 text-sm`}>{errors.img}</Text>
+                                    <Text style={[tw`text-orange-700 text-sm`, {fontFamily: polices.times_new_roman}]}>{errors.img}</Text>
                                 )}
                             </View>
                             <Pressable
@@ -282,7 +283,7 @@ const EditMyAccountView: React.FC<EditMyAccountViewProps> = ({ navigation }) => 
                                 onPress={onHandle}
                                 style={[ tw`justify-center items-center rounded border border-gray-300 py-4 px-5` ]}
                             >
-                                <Text style={[ tw`uppercase text-center font-medium text-black` ]}>Enregistrer</Text>
+                                <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: polices.times_new_roman} ]}>Enregistrer</Text>
                             </TouchableOpacity>
                         </View>
 

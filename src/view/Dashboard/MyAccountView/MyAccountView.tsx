@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { baseUri, fetchUri } from '../../../functions/functions';
 import { ImageSource } from 'react-native-vector-icons/Icon';
 import ImageView from 'react-native-image-viewing';
+import { polices } from '../../../data/data';
 
 const SectionData: React.FC<{
     iconType?: string,
@@ -22,7 +23,7 @@ const SectionData: React.FC<{
     return (
         <View style={tw`flex-row mb-3 pb-2 border-b border-gray-200`}>
             <Icon type={iconType} name={iconName} size={iconSize} />
-            <Text style={tw`text-black ml-2`}>{text}</Text>
+            <Text style={[tw`text-black ml-2`, {fontFamily: polices.times_new_roman}]}>{text}</Text>
         </View>  
     )
 }

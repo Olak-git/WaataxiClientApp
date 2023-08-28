@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ImageStyle } from 'react-native';
-import { imageMapPath } from '../data/data';
+import { imageMapPath, polices } from '../data/data';
 import { windowWidth } from '../functions/functions';
 import tw from 'twrnc';
 
@@ -17,8 +17,8 @@ const RNMarker: React.FC<RNMarkerProps> = ({visible, title, description, src = r
             {visible && (
                 <View style={{}}>
                     <View style={[tw`bg-white p-2 rounded-lg`]}>
-                        <Text style={tw`text-black text-xs font-bold mb-1`}>{title}</Text>
-                        <Text style={[tw`text-black text-xs`, {maxWidth: windowWidth / 2, lineHeight: 13}]}>{description}</Text>
+                        <Text style={[tw`text-black text-xs font-bold mb-1`, {fontFamily: polices.times_new_roman}]}>{title}</Text>
+                        <Text style={[tw`text-black text-xs`, {fontFamily: polices.times_new_roman}, {maxWidth: windowWidth / 2, lineHeight: 13}]}>{description}</Text>
                     </View>
                     <View style={[tw`flex-row justify-center`]}>
                         <View style={[tw``, styles.triangle]}></View>

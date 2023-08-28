@@ -15,6 +15,7 @@ import Signout from './components/Signout';
 import { setStopped } from '../../../feature/init.slice';
 import DelAccount from './components/DelAccount';
 import { clearStoreCourses } from '../../../feature/courses.slice';
+import { polices } from '../../../data/data';
 
 interface ParametresViewProps {
     navigation: any
@@ -120,12 +121,12 @@ const ParametresView: React.FC<ParametresViewProps> = ({ navigation }) => {
                             style={tw`p-3`}
                         >
                             <View style={tw`flex-row`}>
-                                <Text style={tw`text-base mb-1 text-gray-500`}>Changer mon numéro</Text>
+                                <Text style={[tw`text-base mb-1 text-gray-500`, {fontFamily: polices.times_new_roman}]}>Changer mon numéro</Text>
                                 {progress && (
                                     <ActivityIndicator color={ColorsEncr.main} size='small' style={tw`ml-2`} />
                                 )}
                             </View>
-                            <Text style={tw`text-xs text-slate-500`}>Procéder au changement de votre numéro de téléphone.</Text>
+                            <Text style={[tw`text-xs text-slate-500`, {fontFamily: polices.times_new_roman}]}>Procéder au changement de votre numéro de téléphone.</Text>
                         </TouchableOpacity>
                         <View style={tw`px-5 my-3`}><Divider /></View>
 
@@ -137,12 +138,12 @@ const ParametresView: React.FC<ParametresViewProps> = ({ navigation }) => {
                             style={tw`p-3`}
                         >
                             <View style={tw`flex-row`}>
-                                <Text style={tw`text-base mb-1 text-gray-500`}>Modifier mon mot de passe</Text>
+                                <Text style={[tw`text-base mb-1 text-gray-500`, {fontFamily: polices.times_new_roman}]}>Modifier mon mot de passe</Text>
                                 {progress && (
                                     <ActivityIndicator color={ColorsEncr.main} size='small' style={tw`ml-2`} />
                                 )}
                             </View>
-                            <Text style={tw`text-xs text-slate-500`}>Pour des raisons de sécurité, mettez à jour votre mot de passe.</Text>
+                            <Text style={[tw`text-xs text-slate-500`, {fontFamily: polices.times_new_roman}]}>Pour des raisons de sécurité, mettez à jour votre mot de passe.</Text>
                         </TouchableOpacity>
                         <View style={tw`px-5 my-3`}><Divider /></View>
 
@@ -151,8 +152,8 @@ const ParametresView: React.FC<ParametresViewProps> = ({ navigation }) => {
                             activeOpacity={0.5}
                             style={tw`p-3`}
                         >
-                            <Text style={tw`text-base mb-1 text-gray-500`}>Me déconnecter</Text>
-                            <Text style={tw`text-xs text-slate-500`}>Procéder à la déconnexion de votre compte. Par mesure de sécurité, il est important de vous déconnecter avant de changer votre téléphone portable.</Text>
+                            <Text style={[tw`text-base mb-1 text-gray-500`, {fontFamily: polices.times_new_roman}]}>Me déconnecter</Text>
+                            <Text style={[tw`text-xs text-slate-500`, {fontFamily: polices.times_new_roman}]}>Procéder à la déconnexion de votre compte. Par mesure de sécurité, il est important de vous déconnecter avant de changer votre téléphone portable.</Text>
                         </TouchableOpacity>
                         <View style={tw`px-5 my-3`}><Divider /></View>
 
@@ -161,8 +162,8 @@ const ParametresView: React.FC<ParametresViewProps> = ({ navigation }) => {
                             activeOpacity={0.5}
                             style={tw`p-3`}
                         >
-                            <Text style={tw`text-base mb-1 text-gray-500`}>Supprimer mon compte</Text>
-                            {/*<Text style={tw`text-xs text-slate-500`}>La suppression de votre compte</Text>*/}
+                            <Text style={[tw`text-base mb-1 text-gray-500`, {fontFamily: polices.times_new_roman}]}>Supprimer mon compte</Text>
+                            {/*<Text style={[tw`text-xs text-slate-500`, {fontFamily: polices.times_new_roman}]}>La suppression de votre compte</Text>*/}
                         </TouchableOpacity>
 
                     </View>

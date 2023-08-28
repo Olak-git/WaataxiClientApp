@@ -7,6 +7,7 @@ import { baseUri, fetchUri, toast } from '../../../../functions/functions';
 import { useDispatch } from 'react-redux';
 import CountryPicker, { Country, CountryCode } from 'react-native-country-picker-modal'
 import { Icon } from '@rneui/base';
+import { polices } from '../../../../data/data';
 
 interface AuthTelNumberViewProps {
     setConfirm: any,
@@ -125,7 +126,7 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ setConfirm = ()=>{
                     <View style={[ tw`items-center mt-10 mb-15` ]}>
                         <Text style={[tw`text-black uppercase`, {fontSize: 45, fontFamily: Platform.OS == 'android' ? 'ShadowsIntoLight-Regular' : 'PatrickHand-Regular'}]}>waa<Text style={{color: ColorsEncr.main}}>taxi</Text></Text>
                     </View>
-                    <Text style={[ tw`text-lg text-black text-center px-5 mt-2 mb-5` ]}>Veuillez entrer votre numéro de téléphone mobile</Text>
+                    <Text style={[ tw`text-lg text-black text-center px-5 mt-2 mb-5`, {fontFamily: polices.times_new_roman} ]}>Veuillez entrer votre numéro de téléphone mobile</Text>
                     <View style={[ tw`mt-8 mb-4` ]}>
                         <InputForm 
                             placeholder='Numero de téléphone'
@@ -168,7 +169,7 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ setConfirm = ()=>{
                                 {progress && (
                                     <ActivityIndicator color='#000000' size='small' style={tw`mr-2`} />
                                 )}
-                                <Text style={[ tw`uppercase text-center font-medium text-black`, {color: disable ? 'silver' : '#000'} ]}>valider</Text>
+                                <Text style={[ tw`uppercase text-center font-medium text-black`, {color: disable ? 'silver' : '#000', fontFamily: polices.times_new_roman} ]}>valider</Text>
                             </TouchableOpacity>
                         </View>
                     </View>    

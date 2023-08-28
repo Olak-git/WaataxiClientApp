@@ -15,7 +15,7 @@ import { Image } from '@rneui/themed/dist/Image';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { setUser } from '../../../feature/user.slice';
 import { Logo } from '../../../assets';
-import { otp_authentication } from '../../../data/data';
+import { otp_authentication, polices } from '../../../data/data';
 import { setStopped, setWithPortefeuille } from '../../../feature/init.slice';
 
 interface RegisterViewProps {
@@ -293,7 +293,7 @@ const RegisterView:React.FC<RegisterViewProps> = ({ navigation, route }) => {
             </View>
             <KeyboardAvoidingView behavior={Platform.OS=='ios'?'padding':'height'} style={tw`flex-1`}>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <Text style={[ tw`text-center text-lg text-black mb-5` ]}>Veuillez renseigner votre compte</Text>
+                    <Text style={[ tw`text-center text-lg text-black mb-5`, {fontFamily: polices.times_new_roman} ]}>Veuillez renseigner votre compte</Text>
                     
                     <View style={[ tw`px-10 mt-5`, {width: width} ]}>
                         <InputForm
@@ -344,16 +344,16 @@ const RegisterView:React.FC<RegisterViewProps> = ({ navigation, route }) => {
                         )}
                         <View style={[tw`flex-row justify-between items-center mt-3`]}>
                             <View style={tw`flex-1 mr-1`}>
-                                <Text style={tw`text-gray-500 text-lg`}>Photo de profil</Text>
+                                <Text style={[tw`text-gray-500 text-lg`, {fontFamily: polices.times_new_roman}]}>Photo de profil</Text>
                                 {avatar && (
                                     <Text onPress={() => {
                                         setAvatar(null)
                                         handleOnChange('profil', {});
                                         handleError('img', null);
-                                    }} style={[tw`text-center text-xs text-gray-400 border border-red-500 rounded-2xl p-1`, {width: 70}]}>annuler</Text>
+                                    }} style={[tw`text-center text-xs text-gray-400 border border-red-500 rounded-2xl p-1`, {width: 70, fontFamily: polices.times_new_roman}]}>annuler</Text>
                                 )}
                                 {errors.profil && (
-                                    <Text style={tw`text-orange-700 text-sm`}>{errors.profil}</Text>
+                                    <Text style={[tw`text-orange-700 text-sm`, {fontFamily: polices.times_new_roman}]}>{errors.profil}</Text>
                                 )}
                             </View>
                             <Pressable
@@ -375,12 +375,12 @@ const RegisterView:React.FC<RegisterViewProps> = ({ navigation, route }) => {
                             onPress={onHandle}
                             style={[ tw`justify-center items-center rounded py-4 px-5`, {backgroundColor: ColorsEncr.main, height: 60} ]}
                         >
-                            <Text style={[ tw`uppercase text-center font-medium text-black` ]}>finaliser mon compte</Text>
+                            <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: polices.times_new_roman} ]}>finaliser mon compte</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={tw`flex-row px-10 mt-2`}>
                         <TouchableOpacity onPress={goBack} style={tw``}>
-                            <Text style={tw`text-gray-600`}>Autre numéro de téléphone ?</Text>
+                            <Text style={[tw`text-gray-600`, {fontFamily: polices.times_new_roman}]}>Autre numéro de téléphone ?</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

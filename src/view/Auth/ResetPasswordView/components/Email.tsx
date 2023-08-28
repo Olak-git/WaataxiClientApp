@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ModalValidationForm } from '../../../../components/ModalValidationForm';
 import { Button, TextInput } from 'react-native-paper';
 import { customGenerateRandomNumber } from '../../../../functions/helperFunction';
+import { polices } from '../../../../data/data';
 
 interface EmailProps {
     inputs: any,
@@ -117,10 +118,10 @@ const Email:React.FC<EmailProps> = ({ inputs, errors, handleOnChange, handleErro
             </View>
             <KeyboardAvoidingView behavior={Platform.OS=='ios'?'padding':'height'} style={tw`flex-1`}>
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={tw`pb-10`}>
-                    <Text style={[ tw`text-center text-base text-gray-500 mt-20 mb-2` ]}>Rénitialisation du mot de passe de</Text>
-                    <Text style={[ tw`text-center text-base text-black mb-5` ]}>{inputs.tel}</Text>
+                    <Text style={[ tw`text-center text-base text-gray-500 mt-20 mb-2`, {fontFamily: polices.times_new_roman} ]}>Rénitialisation du mot de passe de</Text>
+                    <Text style={[ tw`text-center text-base text-black mb-5`, {fontFamily: polices.times_new_roman} ]}>{inputs.tel}</Text>
                     
-                    <Text style={[ tw`text-center text-base text-black mb-5` ]}>Veuillez entrer votre adresse email</Text>
+                    <Text style={[ tw`text-center text-base text-black mb-5`, {fontFamily: polices.times_new_roman} ]}>Veuillez entrer votre adresse email</Text>
                     
                     <View style={[ tw`px-10`, {width: width} ]}>
                         <InputForm
@@ -136,7 +137,7 @@ const Email:React.FC<EmailProps> = ({ inputs, errors, handleOnChange, handleErro
                         />
 
                         <Divider color={ColorsEncr.main_sm} style={[tw`mb-1 mt-5`]} />
-                        <Button onPress={onHandle} mode='outlined' loading={loading} disabled={loading} contentStyle={tw`p-2`} color={ColorsEncr.main_sm}>
+                        <Button onPress={onHandle} mode='outlined' loading={loading} disabled={loading} contentStyle={tw`p-2`} labelStyle={{ fontFamily: polices.times_new_roman }} color={ColorsEncr.main_sm}>
                             Valider
                         </Button>
                     </View>

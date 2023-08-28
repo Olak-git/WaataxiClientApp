@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../../feature/user.slice';
 import { getErrorsToString } from '../../../functions/helperFunction';
 import { Root } from 'react-native-alert-notification';
+import { polices } from '../../../data/data';
 
 const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
 
@@ -253,7 +254,7 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                         <View style={tw``}>
                             <View style={tw`flex-row items-center mb-2`}>
                                 <RNDivider containerSize={90} size={1} color='red' />
-                                <Text style={[ tw`flex-1 mx-1 border rounded-2xl text-center text-gray-500`, {borderColor: ColorsEncr.main} ]}>{ course.adresse_depart !== start_address || course.adresse_arrive !== end_address ? 'Itinéraire Chauffeur' : 'Itinéraire' }</Text>
+                                <Text style={[ tw`flex-1 mx-1 border rounded-2xl text-center text-gray-500`, {borderColor: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{ course.adresse_depart !== start_address || course.adresse_arrive !== end_address ? 'Itinéraire Chauffeur' : 'Itinéraire' }</Text>
                                 <RNDivider containerSize={90} size={1} color='red' />
                             </View>
 
@@ -261,15 +262,15 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                                 <View style={[ tw`flex-row items-start mb-2` ]}>
                                     <Icon type='font-awesome' name='circle-thin' size={18} containerStyle={tw`pt-1 pl-1 pr-2`} />
                                     <View style={[ tw`ml-2` ]}>
-                                        <Text style={tw`text-gray-500`}>Point de départ</Text>
-                                        <Text style={[ tw`text-black`, {} ]}>{course.adresse_depart}</Text>
+                                        <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point de départ</Text>
+                                        <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_depart}</Text>
                                     </View>
                                 </View>
                                 <View style={[ tw`flex-row items-start mb-2` ]}>
                                     <Icon type='material-community' name='map-marker-outline' size={25} color={'red'} containerStyle={tw`pt-1`} />
                                     <View style={[ tw`ml-2` ]}>
-                                        <Text style={tw`text-gray-500`}>Point d'arrivé</Text>
-                                        <Text style={[ tw`text-black`, {} ]}>{course.adresse_arrive}</Text>
+                                        <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point d'arrivé</Text>
+                                        <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_arrive}</Text>
                                     </View>
                                 </View>
                             </View>
@@ -279,7 +280,7 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                             <View style={tw`mt-5`}>
                                 <View style={tw`flex-row items-center mb-2`}>
                                     <RNDivider containerSize={90} size={1} color='red' />
-                                    <Text style={[ tw`flex-1 mx-1 border rounded-2xl text-center text-gray-500`, {borderColor: ColorsEncr.main} ]}>Votre itinéraire</Text>
+                                    <Text style={[ tw`flex-1 mx-1 border rounded-2xl text-center text-gray-500`, {borderColor: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>Votre itinéraire</Text>
                                     <RNDivider containerSize={90} size={1} color='red' />
                                 </View>
 
@@ -287,15 +288,15 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                                     <View style={[ tw`flex-row items-start mb-2` ]}>
                                         <Icon type='font-awesome' name='circle-thin' size={18} containerStyle={tw`pt-1 pl-1 pr-2`} />
                                         <View style={[ tw`ml-2` ]}>
-                                            <Text style={tw`text-gray-500`}>Point de départ</Text>
-                                            <Text style={[ tw`text-black`, {} ]}>{start_address}</Text>
+                                            <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point de départ</Text>
+                                            <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{start_address}</Text>
                                         </View>
                                     </View>
                                     <View style={[ tw`flex-row items-start mb-2` ]}>
                                         <Icon type='material-community' name='map-marker-outline' size={25} color={'red'} containerStyle={tw`pt-1`} />
                                         <View style={[ tw`ml-2` ]}>
-                                            <Text style={tw`text-gray-500`}>Point d'arrivé</Text>
-                                            <Text style={[ tw`text-black`, {} ]}>{end_address}</Text>
+                                            <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point d'arrivé</Text>
+                                            <Text style={[ tw`text-black`, {fontFamily: polices.times_new_roman} ]}>{end_address}</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -306,19 +307,19 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                             <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                                 <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                                <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{distance}</Text>
+                                <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{distance}</Text>
                             </View>
                             <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                                 <Icon type='material-community' name='clock' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                                <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main} ]}>{duration}</Text>
+                                <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{duration}</Text>
                             </View>
                         </View>
 
                         <View style={tw`mt-6`}>
                             <View style={tw`flex-row items-center mb-2`}>
                                 <RNDivider containerSize={100} size={1} color='red' />
-                                <Text style={[ tw`flex-1 mx-1 border rounded-2xl text-center text-gray-500`, {borderColor: ColorsEncr.main} ]}>Passager</Text>
+                                <Text style={[ tw`flex-1 mx-1 border rounded-2xl text-center text-gray-500`, {borderColor: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>Passager</Text>
                                 <RNDivider containerSize={100} size={1} color='red' />
                             </View>
 
@@ -337,7 +338,7 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                                 </Picker>
                             </View>
                             {errors.place && (
-                                <Text style={[ tw`text-orange-700 text-sm` ]}>{ errors.place }</Text>
+                                <Text style={[ tw`text-orange-700 text-sm`, {fontFamily: polices.times_new_roman} ]}>{ errors.place }</Text>
                             )}
                         </View>
 
@@ -346,21 +347,21 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                                 <Divider />
                             </View>
                             {/* @ts-ignore */}
-                            <Text style={tw`text-black font-bold`}>Pour garantir votre place vous payez des frais de réservation s'élevant à: <Text style={[tw`underline`, {color: ColorsEncr.main}]}>{frais_reservation} XOF</Text></Text>
+                            <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Pour garantir votre place vous payez des frais de réservation s'élevant à: <Text style={[tw`underline`, {color: ColorsEncr.main}]}>{frais_reservation} XOF</Text></Text>
                             <View style={[ tw`px-10 my-3` ]}>
                                 <Divider />
                             </View>
-                            <Text style={tw`text-center text-black mb-2`}>Tarif Course</Text>
+                            <Text style={[tw`text-center text-black mb-2`, {fontFamily: polices.times_new_roman}]}>Tarif Course</Text>
                             <View style={[ tw`flex-row mb-3 justify-center items-center border-t border-b border-slate-800 rounded-2xl py-1 px-3` ]}>
                                 <Icon type='material-community' name='approximately-equal' size={40} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                                <Text style={[ tw`text-black text-lg font-bold` ]}>{getCurrency(reservationCourse.prix)} XOF</Text>
+                                <Text style={[ tw`text-black text-lg font-bold`, {fontFamily: polices.times_new_roman} ]}>{getCurrency(reservationCourse.prix)} XOF</Text>
                             </View>
                             <View style={[ tw`justify-center mt-4`, {height: 80} ]}>
                                 <TouchableOpacity
                                     onPress={onHandle}
                                     style={[ tw`justify-center items-center bg-orange-100 rounded py-4 px-5`, {height: 60} ]}
                                 >
-                                    <Text style={[ tw`uppercase text-center font-medium text-black` ]}>Valider ma course</Text>
+                                    <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: polices.times_new_roman} ]}>Valider ma course</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

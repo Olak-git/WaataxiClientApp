@@ -15,6 +15,7 @@ import { setRefreshCoursesInstantanees, setStopped } from '../../../feature/init
 import { clearStoreCourses, setStoreCourseInstantanee } from '../../../feature/courses.slice';
 import { RNSpinner } from '../../../components/RNSpinner';
 import { useNavigation } from '@react-navigation/native';
+import { polices } from '../../../data/data';
 
 const timer = require('react-native-timer');
 
@@ -36,7 +37,7 @@ const Body: React.FC<{spinner?: boolean, refreshing: boolean, onRefresh: ()=>voi
                 keyboardDismissMode='none'
                 ListEmptyComponent={ 
                     <View>
-                        <Text style={tw`text-gray-400`}>{ courseEmptyText }</Text>
+                        <Text style={[tw`text-gray-400`, {fontFamily: polices.times_new_roman}]}>{ courseEmptyText }</Text>
                     </View>
                 }
                 data={courses}

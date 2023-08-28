@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Platform, Pressable, S
 import Base from '../../../components/Base';
 import MapView, { AnimatedRegion, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA } from '../../../data/data';
+import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA, polices } from '../../../data/data';
 import tw from 'twrnc';
 import { locationPermission, getCurrentLocation } from '../../../functions/helperFunction';
 import { ActivityLoading } from '../../../components/ActivityLoading';
@@ -158,6 +158,7 @@ const ProgramItineraireView: React.FC<ProgramItineraireViewProps> = ({ navigatio
                 start_address: startAddress, 
                 latlng_depart: {latitude: startingCords.latitude, longitude: startingCords.longitude},
                 end_address: endAddress,
+                // @ts-ignore
                 latlng_arrive:  {latitude: destinationCords.latitude, longitude: destinationCords.longitude},
                 distance: distance, 
                 duration: duration,
@@ -274,10 +275,10 @@ const ProgramItineraireView: React.FC<ProgramItineraireViewProps> = ({ navigatio
                             </View>
                             <View style={[ tw`flex-1` ]}>
                                 <View style={[ tw`mb-2` ]}>
-                                    <Text onPress={getStartingLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{startAddress}</Text>
+                                    <Text onPress={getStartingLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{startAddress}</Text>
                                 </View>
                                 <View style={[ tw`` ]}>
-                                    <Text onPress={getDestinationLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{endAddress}</Text>
+                                    <Text onPress={getDestinationLocation} style={[ tw`border border-slate-200 rounded-md p-3 text-black`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{endAddress}</Text>
                                 </View>
                             </View>
                         </View>
@@ -286,7 +287,7 @@ const ProgramItineraireView: React.FC<ProgramItineraireViewProps> = ({ navigatio
                                 <TouchableOpacity
                                     onPress={onHandleItineraire}
                                     style={[ tw`p-2 rounded-md border border-slate-300`, {}]}>
-                                    <Text style={[ tw`text-center font-semibold text-black text-lg` ]}>Valider</Text>
+                                    <Text style={[ tw`text-center font-semibold text-black text-lg`, {fontFamily: polices.times_new_roman} ]}>Valider</Text>
                                 </TouchableOpacity>
                             </View>
                         )}
@@ -298,14 +299,14 @@ const ProgramItineraireView: React.FC<ProgramItineraireViewProps> = ({ navigatio
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             )}
                             <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{distance}</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{distance}</Text>
                         </View>
                         <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             {endFetch && (
                                 <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             )}
                             <Icon type='material-community' name='clock' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main} ]}>{duration}</Text>
+                            <Text style={[ tw`text-xs ml-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{duration}</Text>
                         </View>
                     </View>
                 </View>
@@ -428,7 +429,7 @@ const ProgramItineraireView: React.FC<ProgramItineraireViewProps> = ({ navigatio
                             <TouchableOpacity
                                 onPress={onHandleItineraire}
                                 style={[ tw`p-2 rounded-md border border-slate-300`, {}]}>
-                                <Text style={[ tw`text-center font-semibold text-black text-lg` ]}>Valider</Text>
+                                <Text style={[ tw`text-center font-semibold text-black text-lg`, {fontFamily: polices.times_new_roman} ]}>Valider</Text>
                             </TouchableOpacity>
                         </View>    
                     </View>

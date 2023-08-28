@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Platform, Pressable, S
 import Base from '../../../components/Base';
 import MapView, { AnimatedRegion, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA } from '../../../data/data';
+import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA, polices } from '../../../data/data';
 import tw from 'twrnc';
 import { locationPermission, getCurrentLocation } from '../../../functions/helperFunction';
 import { ActivityLoading } from '../../../components/ActivityLoading';
@@ -129,7 +129,7 @@ const FinitionView: React.FC<FinitionViewProps> = ({ navigation, route }) => {
                 <>
                 <ScrollView contentContainerStyle={tw`px-5 pt-5`}>
                     <View style={tw`mb-5`}>
-                        <Text style={tw`font-black text-center text-black`}>Course Terminée</Text>
+                        <Text style={[tw`font-black text-center text-black`, {fontFamily: polices.times_new_roman}]}>Course Terminée</Text>
                         <View style={tw`mt-2 px-10`}>
                             <Divider color='gray' />
                         </View>
@@ -138,15 +138,15 @@ const FinitionView: React.FC<FinitionViewProps> = ({ navigation, route }) => {
                         <View style={[tw`flex-row items-start mb-2`]}>
                             <Icon type='font-awesome' name='circle-thin' size={22} containerStyle={[tw``, {width: 30}]} />
                             <View style={[tw`ml-2`]}>
-                                <Text style={tw`text-gray-500`}>Point de départ</Text>
-                                <Text style={[tw`text-black`, {}]}>{course.adresse_depart}</Text>
+                                <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point de départ</Text>
+                                <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}]}>{course.adresse_depart}</Text>
                             </View>
                         </View>
                         <View style={[tw`flex-row items-start mb-2`]}>
                             <Icon type='font-awesome-5' name='map-marker-alt' color={'red'} containerStyle={[tw``, {width: 30}]} />
                             <View style={[tw`ml-2`]}>
-                                <Text style={tw`text-gray-500`}>Point d'arrivé</Text>
-                                <Text style={[tw`text-black`, {}]}>{course.adresse_arrive}</Text>
+                                <Text style={[tw`text-gray-500`, {fontFamily: polices.times_new_roman}]}>Point d'arrivé</Text>
+                                <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}]}>{course.adresse_arrive}</Text>
                             </View>
                         </View>
                     </View>
@@ -154,8 +154,8 @@ const FinitionView: React.FC<FinitionViewProps> = ({ navigation, route }) => {
                     {distance && (
                         <View style={tw`items-center mt-5`}>
                             <Icon type='font-awesome-5' name='car-alt' size={35} reverse />
-                            <Text style={tw`mb-2 text-black`}>Distance du trajet parcouru</Text>
-                            <Text style={[ tw`text-black text-xl font-bold` ]}>{distance} km</Text>
+                            <Text style={[tw`mb-2 text-black`, {fontFamily: polices.times_new_roman}]}>Distance du trajet parcouru</Text>
+                            <Text style={[ tw`text-black text-xl font-bold`, {fontFamily: polices.times_new_roman} ]}>{distance} km</Text>
                         </View>
                     )}
 
@@ -164,13 +164,13 @@ const FinitionView: React.FC<FinitionViewProps> = ({ navigation, route }) => {
                     </View>
 
                     <View style={tw`items-center mt-2`}>
-                        <Text style={tw`mb-2 text-black`}>Tarif de la course</Text>
-                        <Text style={[ tw`text-black text-2xl font-black bg-gray-100 p-4` ]}>{getCurrency(course.prix)} FCFA</Text>
+                        <Text style={[tw`mb-2 text-black`, {fontFamily: polices.times_new_roman}]}>Tarif de la course</Text>
+                        <Text style={[ tw`text-black text-2xl font-black bg-gray-100 p-4`, {fontFamily: polices.times_new_roman} ]}>{getCurrency(course.prix)} FCFA</Text>
                     </View>
 
                     {/* <View style={tw`items-center mt-4`}>
                         <Icon type='material-community' name='chat-question' size={25} />
-                        <Text style={tw`mb-2 text-black`}>Il sera prélevé de votre portefeuille {configuration ? configuration.commission_course : 0} % du tarif de la course.</Text>
+                        <Text style={[tw`mb-2 text-black`, {fontFamily: polices.times_new_roman}]}>Il sera prélevé de votre portefeuille {configuration ? configuration.commission_course : 0} % du tarif de la course.</Text>
                     </View> */}
 
                     <View style={tw`mt-5 px-10`}>
@@ -178,16 +178,16 @@ const FinitionView: React.FC<FinitionViewProps> = ({ navigation, route }) => {
                     </View>
 
                     <View style={tw`mt-4`}>
-                        <Text style={tw`text-black font-bold`}>Conducteur:</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Conducteur:</Text>
                         <View style={tw`flex-row justify-between items-center`}>
-                            <Text style={tw`text-black`}>{conducteur.nom} {conducteur.prenom}</Text>
-                            <Text style={tw`text-black`}>{conducteur.tel}</Text>
+                            <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}]}>{conducteur.nom} {conducteur.prenom}</Text>
+                            <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}]}>{conducteur.tel}</Text>
                         </View>
                         <Pressable 
                             onPress={() => navigation.navigate('DashNotationConducteur', {conducteur: conducteur})}
                             style={tw`mt-3`}
                         >
-                            <Text style={tw`text-red-800`}>Notez votre conducteur</Text>
+                            <Text style={[tw`text-red-800`, {fontFamily: polices.times_new_roman}]}>Notez votre conducteur</Text>
                         </Pressable>
                     </View>
 

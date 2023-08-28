@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, StyleProp, ViewStyle } from 'react-native';
 import { ColorsEncr } from '../../assets/styles';
 import tw from 'twrnc';
 import { Icon } from '@rneui/base';
+import { polices } from '../../data/data';
 
 interface DrawerMenuProps {
     navigation?: any,
@@ -27,7 +28,7 @@ const DrawerMenu: React.FC<DrawerMenuProps> = ({ navigation, containerStyle, ico
                 name={iconName}
                 size={iconSize}
                 color={ ColorsEncr.main } />
-            <Text style={[ tw`px-4 text-xl ${disabled ? 'text-gray-300' : 'text-gray-500 text-black'} text-base`, {fontFamily: 'YanoneKaffeesatz-Medium'} ]}>{ textMenu }</Text>
+            <Text style={[ tw`px-4 text-xl ${disabled ? 'text-gray-300' : 'text-gray-500 text-black'} text-base`, {fontFamily: 'YanoneKaffeesatz-Medium'}, {fontFamily: polices.times_new_roman} ]}>{ textMenu }</Text>
         </TouchableOpacity>
     )
 }

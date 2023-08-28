@@ -155,8 +155,8 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                                 />
                             </TouchableOpacity>
                             <View style={tw`flex-1 pt-1 justify-between`}>
-                                <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}]}>{conducteur.nom.toUpperCase() + ' ' + conducteur.prenom}</Text>
-                                <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}]} onPress={() => callPhoneNumber(conducteur.tel)}>{conducteur.tel}</Text>
+                                <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>{conducteur.nom.toUpperCase() + ' ' + conducteur.prenom}</Text>
+                                <Text style={[tw`text-black`, {fontFamily:'Itim-Regular'}, {fontFamily: polices.times_new_roman}]} onPress={() => callPhoneNumber(conducteur.tel)}>{conducteur.tel}</Text>
                             </View>
                             <Rating
                                 readonly
@@ -171,7 +171,7 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                         <>
                             <WtCar1 width={60} style={tw`mr-2`} />
                             <View style={tw`flex-1 pt-1`}>
-                                <Text style={tw`text-black`}>{ 'Waataxi Service' }</Text>
+                                <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}]}>Waataxi Service</Text>
                             </View>
                         </>
                     }
@@ -180,11 +180,11 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                 <View style={tw`border-b border-gray-200 px-3 py-4`}>
                     <View style={[ tw`flex-row items-center mb-3` ]}>
                         <Icon type='font-awesome-5' name='map-marker-alt' color='rgb(22, 101, 52)' containerStyle={tw`mr-2 self-start`} />
-                        <Text style={[ tw`flex-1 text-gray-400` ]}>{course.adresse_depart}</Text>
+                        <Text style={[ tw`flex-1 text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_depart}</Text>
                     </View>
                     <View style={[ tw`flex-row items-center` ]}>
                         <Icon type='font-awesome-5' name='map-marker-alt' color={ColorsEncr.main} containerStyle={tw`mr-2 self-start`} />
-                        <Text style={[ tw`flex-1 text-gray-400` ]}>{course.adresse_arrive}</Text>
+                        <Text style={[ tw`flex-1 text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{course.adresse_arrive}</Text>
                     </View>
 
                     <View style={[ tw`flex-row justify-between px-2 mt-5` ]}>
@@ -196,12 +196,12 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                                 null
                             }
                             <Icon type='font-awesome-5' name='car-alt' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{course.nb_km_parcouru ? course.nb_km_parcouru : course.nb_km_prov} km</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{course.nb_km_parcouru ? course.nb_km_parcouru : course.nb_km_prov} km</Text>
                         </View>
                         {/* <View style={[ tw`flex-row items-center bg-orange-100 rounded-2xl py-1 px-3` ]}>
                             <Icon type='material-community' name='approximately-equal' size={20} iconStyle={{ color: ColorsEncr.main }} containerStyle={[ tw`mr-1` ]} />
                             <Icon type='material-community' name='run' size={20} iconStyle={{ color: ColorsEncr.main }} />
-                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main} ]}>{'1h 45m'}</Text>
+                            <Text style={[ tw`text-xs`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{'1h 45m'}</Text>
                         </View> */}
                     </View>
                 </View>
@@ -209,14 +209,14 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                 <View style={tw`flex-row justify-between border-b border-gray-200 px-3 py-4`}>
 
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold text-center`}>{ course.date_depart }</Text>
+                        <Text style={[tw`text-black font-bold text-center`, {fontFamily: polices.times_new_roman}]}>{ course.date_depart }</Text>
                         <Icon type='font-awesome-5' name='calendar-alt' color={ColorsEncr.main} />
                     </View>
 
                     <Divider orientation='vertical' />
 
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold text-center`}>{ course.heure_depart }</Text>
+                        <Text style={[tw`text-black font-bold text-center`, {fontFamily: polices.times_new_roman}]}>{ course.heure_depart }</Text>
                         <Icon type='font-awesome-5' name='history' color={ColorsEncr.main} />
                     </View>
 
@@ -225,7 +225,7 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                 <View style={tw`flex-row justify-between border-b border-gray-200 px-3 py-4`}>
 
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold`}>{course.nb_place} Passager(s)</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>{course.nb_place} Passager(s)</Text>
                         <Icon type='ant-design' name='user' color={ColorsEncr.main} />
                     </View>
 
@@ -234,13 +234,13 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                     {/* <View style={tw`flex-1 justify-between items-center`}>
                         <View style={[ tw`flex-row justify-center items-center` ]}>
                             <Icon type='material-community' name='approximately-equal' containerStyle={[ tw`mr-1` ]} />
-                            <Text style={tw`text-black font-bold`}>Prix</Text>
+                            <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Prix</Text>
                         </View>
-                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main} ]}>{ getCurrency(course.prix) } XOF</Text>
+                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{ getCurrency(course.prix) } XOF</Text>
                     </View> */}
                     <View style={tw`flex-1 justify-between items-center`}>
-                        <Text style={tw`text-black font-bold`}>Prix</Text>
-                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main} ]}>{getCurrency(course.prix)} XOF</Text>
+                        <Text style={[tw`text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Prix</Text>
+                        <Text style={[ tw`text-lg`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{getCurrency(course.prix)} XOF</Text>
                     </View>
 
                 </View>
@@ -251,9 +251,9 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                 ?
                     <>
                         <View style={tw`items-center`}>
-                            <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}]}>Recherche de Taxi...</Text>
+                            <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>Recherche de Taxi...</Text>
                             <Spinner isVisible={true} size={30} color={'black'} type='ThreeBounce' />
-                            <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}]}>Veuillez patienter! Un taxi plus proche de vous acceptera votre course et se rendra au point de départ au jour et heure indiquées.</Text>
+                            <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}, {fontFamily: polices.times_new_roman}]}>Veuillez patienter! Un taxi plus proche de vous acceptera votre course et se rendra au point de départ au jour et heure indiquées.</Text>
                         </View>
                         <View style={tw`flex-1 justify-center items-center py-10`}>
                             <Spinner isVisible={true} size={100} color={ColorsEncr.main} type='WanderingCubes' />
@@ -263,14 +263,14 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                     course.etat_course == 1
                     ?
                         <View style={tw`items-center`}>
-                            <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}]}>Réservation validée.</Text>
+                            <Text style={[tw`text-center text-black text-xl`, {fontFamily: 'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>Réservation validée.</Text>
                             <Spinner isVisible={true} size={30} color={course.suis_la == 0 ? 'black' : 'green'} type='ThreeBounce' />
                             {course.suis_la == 0
-                                ? <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}]}>Rendez-vous sur le point de départ au date et heure indiquées.</Text>
+                                ? <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}, {fontFamily: polices.times_new_roman}]}>Rendez-vous sur le point de départ au date et heure indiquées.</Text>
                                 :  
                                 <>
-                                    <Text style={[tw`text-center text-gray-500`, {fontFamily: 'MontserratAlternates-SemiBold'}]}>Votre taxi est arrivé.</Text>
-                                    <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}]}>Rendez-vous sur le point de départ.</Text>
+                                    <Text style={[tw`text-center text-gray-500`, {fontFamily: 'MontserratAlternates-SemiBold'}, {fontFamily: polices.times_new_roman}]}>Votre taxi est arrivé.</Text>
+                                    <Text style={[tw`text-center text-gray-500 mb-3`, {fontFamily: 'YatraOne-Regular'}, {fontFamily: polices.times_new_roman}]}>Rendez-vous sur le point de départ.</Text>
                                 </>
                             }
                         </View>
@@ -278,7 +278,7 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                         course.etat_course == 10
                         ?
                             <>
-                                <Text style={[tw`text-center text-black text-lg`, {fontFamily: 'Itim-Regular'}]}>Course en cours...</Text>
+                                <Text style={[tw`text-center text-black text-lg`, {fontFamily: 'Itim-Regular'}, {fontFamily: polices.times_new_roman}]}>Course en cours...</Text>
                                 <View style={[tw`items-center mb-3`, {}]}>
                                     <Image resizeMode='contain' source={require('../../../assets/images/gifs/icons8-fiat-500.gif')} style={[tw``, {width: 200, height: 100}]} />
                                 </View>
@@ -289,13 +289,13 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                                         <Image
                                             source={require('../../../assets/images/itineraire.png')}
                                             style={{width: 30, height: 30 }} />
-                                        <Text style={[tw`ml-2 text-gray-500 text-base text-center`, {fontFamily: polices.font1}]}>Suivre la course</Text>
+                                        <Text style={[tw`ml-2 text-gray-500 text-base text-center`, {fontFamily: polices.font1}, {fontFamily: polices.times_new_roman}]}>Suivre la course</Text>
                                     </Pressable>
                                 </View>
                             </>
                         :
                             <>
-                                <Text style={tw`text-center font-black text-black`}>Course Terminée</Text>
+                                <Text style={[tw`text-center font-black text-black`, {fontFamily: polices.times_new_roman}]}>Course Terminée</Text>
                                 <View style={[tw`items-center`, {}]}>
                                     <Image resizeMode='contain' source={require('../../../assets/images/icons8-taxi-stop-100.png')} style={[tw``, {width: 200, height: 100}]} />
                                 </View>
@@ -303,7 +303,7 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                                     <TouchableOpacity
                                         onPress={() => navigation.navigate('DashFinition', {course: course, category: 'reservation-course'})}
                                         style={[ tw`bg-orange-100 rounded-2xl py-1 px-3`, {width: 100} ]}>
-                                        <Text style={[ tw`text-sm text-center font-bold`, {color: ColorsEncr.main} ]}>A payer</Text>
+                                        <Text style={[ tw`text-sm text-center font-bold`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>A payer</Text>
                                     </TouchableOpacity>
                                 </View>
                             </>
@@ -318,7 +318,7 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
                         onPress={onCancel}
                         style={[ tw`justify-center items-center border rounded px-5`, {backgroundColor: ColorsEncr.main, height: 45, borderColor: ColorsEncr.main} ]}
                     >
-                        <Text style={[ tw`uppercase text-center font-medium text-black` ]}>Annuler</Text>
+                        <Text style={[ tw`uppercase text-center font-medium text-black`, {fontFamily: polices.times_new_roman} ]}>Annuler</Text>
                     </TouchableOpacity>
                 </View>
             )}

@@ -4,6 +4,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import tw from 'twrnc';
 import { Text } from '@rneui/base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { polices } from '../data/data';
 
 interface InputAuthFormProps {
     label?: string, 
@@ -34,7 +35,7 @@ const InputAuthForm: React.FC<InputAuthFormProps> = ({ label, labelStyle = {}, i
         <View style={ tw`mb-5` }>
             <View style={[ tw`border rounded-lg bg-white ${className}`, {elevation: 10, shadowColor: '#000000', shadowOffset: {width: 0, height: 10}, shadowRadius: 2, shadowOpacity: 0.5, borderColor: error ? '#ff2222' : isFocused ? '#f4f4f4' : formColor, paddingHorizontal: 15} ]}>
                 {label && (
-                    <Text style={[ tw`font-bold`, styles.label, labelStyle ]}>{label}</Text>
+                    <Text style={[ tw`font-bold`, {fontFamily: polices.times_new_roman}, styles.label, labelStyle ]}>{label}</Text>
                 )}
                 <View style={[ tw`border-0`, styles.inputContainer, {  } ]}>
                     {iconName && (
@@ -54,7 +55,7 @@ const InputAuthForm: React.FC<InputAuthFormProps> = ({ label, labelStyle = {}, i
                             setIsFocused(true)
                         }}
                         onBlur={() => setIsFocused(false)}
-                        style={[ tw`flex-1 border-0 text-cyan-800`, {}]}
+                        style={[ tw`flex-1 border-0 text-cyan-800`, {fontFamily: polices.times_new_roman}]}
                         secureTextEntry={showPassword}
                         {...props} />
                     {password && (
@@ -72,7 +73,7 @@ const InputAuthForm: React.FC<InputAuthFormProps> = ({ label, labelStyle = {}, i
                 )}
             </View>
             { error && (
-                <Text style={[ tw`text-black text-sm` ]}>{ error }</Text>
+                <Text style={[ tw`text-black text-sm`, {fontFamily: polices.times_new_roman} ]}>{ error }</Text>
             )}
         </View>
     )

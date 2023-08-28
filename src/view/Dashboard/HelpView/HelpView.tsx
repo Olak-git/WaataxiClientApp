@@ -11,7 +11,7 @@ import { fetchUri, toast, windowHeight } from '../../../functions/functions';
 import FlashMessage from '../../../components/FlashMessage';
 import { useSelector } from 'react-redux';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
-import { google_maps_apikey, waataxi_infos } from '../../../data/data';
+import { google_maps_apikey, polices, waataxi_infos } from '../../../data/data';
 import { openCoordonateOnMap, openUrl } from '../../../functions/helperFunction';
 import Geocoder from 'react-native-geocoding';
 
@@ -135,7 +135,7 @@ const HelpView: React.FC<HelpViewProps> = ({ navigation }) => {
 
                     <View style={[ tw`my-3` ]}>
                         <View style={tw`mb-4`}>
-                            <Text style={[ tw`text-center font-semibold text-gray-500 text-lg mb-3` ]}>En quoi pouvons-nous vous aider ?</Text>
+                            <Text style={[ tw`text-center font-semibold text-gray-500 text-lg mb-3`, {fontFamily: polices.times_new_roman} ]}>En quoi pouvons-nous vous aider ?</Text>
                             <View style={tw`px-30`}>
                                 <Divider color='gray' width={0.5} />
                             </View>
@@ -171,23 +171,23 @@ const HelpView: React.FC<HelpViewProps> = ({ navigation }) => {
                             onPress={onHandle}
                             activeOpacity={0.5}
                             style={[ tw`py-3 px-4 rounded`, {backgroundColor: ColorsEncr.main} ]}>
-                            <Text style={[ tw`ml-2 text-black text-base text-center` ]}>Envoyer</Text>
+                            <Text style={[ tw`ml-2 text-black text-base text-center`, {fontFamily: polices.times_new_roman} ]}>Envoyer</Text>
                         </TouchableOpacity>
                     </View>
 
                     <View style={tw`px-3`}>
-                        <Text style={tw`mb-3 text-black font-bold`}>Vous pouvez aussi nous joindre via les canaux ci-après:</Text>
+                        <Text style={[tw`mb-3 text-black font-bold`, {fontFamily: polices.times_new_roman}]}>Vous pouvez aussi nous joindre via les canaux ci-après:</Text>
                         <View style={tw`flex-row items-center mb-2`}>
                             <Icon type='material-icon' name='location-pin' color={ColorsEncr.main} />
-                            <Text style={tw`flex-1 text-black ml-2`} onPress={() => openCoordonateOnMap(geo.lat, geo.lng, waataxi_infos.address)}>{waataxi_infos.address}</Text>
+                            <Text style={[tw`flex-1 text-black ml-2`, {fontFamily: polices.times_new_roman}]} onPress={() => openCoordonateOnMap(geo.lat, geo.lng, waataxi_infos.address)}>{waataxi_infos.address}</Text>
                         </View>
                         <View style={tw`flex-row items-center mb-2`}>
                             <Icon type='material-community' name='email-newsletter' color={ColorsEncr.main} />
-                            <Text style={tw`flex-1 text-black ml-2`} onPress={() => openUrl(`mailto:${waataxi_infos.email}`)}>{waataxi_infos.email}</Text>
+                            <Text style={[tw`flex-1 text-black ml-2`, {fontFamily: polices.times_new_roman}]} onPress={() => openUrl(`mailto:${waataxi_infos.email}`)}>{waataxi_infos.email}</Text>
                         </View>
                         <View style={tw`flex-row items-center`}>
                             <Icon type='material-icon' name='phone' color={ColorsEncr.main} />
-                            <Text style={tw`flex-1 text-black ml-2`} onPress={() => openUrl(`tel:${waataxi_infos.phone}`)}>{waataxi_infos.phone}</Text>
+                            <Text style={[tw`flex-1 text-black ml-2`, {fontFamily: polices.times_new_roman}]} onPress={() => openUrl(`tel:${waataxi_infos.phone}`)}>{waataxi_infos.phone}</Text>
                         </View>
                     </View>
 

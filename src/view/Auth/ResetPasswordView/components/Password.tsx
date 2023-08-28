@@ -7,6 +7,7 @@ import { CommonActions, useNavigation } from '@react-navigation/native'
 import tw from 'twrnc'
 import { account, fetchUri, toast, validatePassword } from '../../../../functions/functions'
 import { Button } from 'react-native-paper'
+import { polices } from '../../../../data/data'
 
 interface PasswordProps {
     setConfirm: (a:boolean)=>void,
@@ -118,8 +119,8 @@ const Password: React.FC<PasswordProps> = ({ setConfirm, email, tel }) => {
             </View>
             <KeyboardAvoidingView behavior={Platform.OS=='ios'?'padding':'height'} style={tw`flex-1`}>
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={tw`pb-10`}>
-                    <Text style={[ tw`text-center text-base text-gray-500 mt-20 mb-2` ]}>Rénitialisation du mot de passe de</Text>
-                    <Text style={[ tw`text-center text-base text-black mb-5` ]}>{tel}</Text>
+                    <Text style={[ tw`text-center text-base text-gray-500 mt-20 mb-2`, {fontFamily: polices.times_new_roman} ]}>Rénitialisation du mot de passe de</Text>
+                    <Text style={[ tw`text-center text-base text-black mb-5`, {fontFamily: polices.times_new_roman} ]}>{tel}</Text>
                     
                     {/* <Text style={[ tw`text-center text-base text-black mb-5` ]}>Veuillez entrer votre adresse email</Text> */}
                     
@@ -150,11 +151,11 @@ const Password: React.FC<PasswordProps> = ({ setConfirm, email, tel }) => {
                             inputContainerStyle={[ tw`border rounded px-2`, {height: 55} ]}
                         />
 
-                        <Button onPress={onHandle} mode='outlined' loading={visible} disabled={visible} style={tw`mt-4`} contentStyle={tw`p-2`} color={ColorsEncr.main_sm}>
+                        <Button onPress={onHandle} mode='outlined' loading={visible} disabled={visible} style={tw`mt-4`} contentStyle={tw`p-2`} labelStyle={{ fontFamily: polices.times_new_roman }} color={ColorsEncr.main_sm}>
                             Enregistrer
                         </Button>
 
-                        <Button onPress={onCanceled} mode='contained' style={tw`mt-4`} contentStyle={tw`p-2`} color='rgb(185, 28, 28)'>
+                        <Button onPress={onCanceled} mode='contained' style={tw`mt-4`} contentStyle={tw`p-2`} labelStyle={{ fontFamily: polices.times_new_roman }} color='rgb(185, 28, 28)'>
                             annuler
                         </Button>
                     </View>

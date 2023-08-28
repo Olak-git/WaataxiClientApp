@@ -11,7 +11,7 @@ import { setUser } from '../../../../feature/user.slice';
 import { Logo } from '../../../../assets';
 import InputForm from '../../../../components/InputForm';
 import { Button, Chip, Snackbar } from 'react-native-paper';
-import { account } from '../../../../data/data';
+import { account, polices } from '../../../../data/data';
 import { setStopped, setWithPortefeuille } from '../../../../feature/init.slice';
 import { useNavigation } from '@react-navigation/native';
 
@@ -123,7 +123,7 @@ const AuthenticateView:React.FC<AuthenticateViewProps> = ({ phoneNumber, setConf
                             {/* <Logo /> */}
                             <Text style={[tw`text-black uppercase`, {fontSize: 45, fontFamily: 'PatrickHand-Regular'}]}>waa<Text style={{color: ColorsEncr.main}}>taxi</Text></Text>
                         </View>
-                        <Text style={[ tw`text-center px-5 text-black font-normal text-base mt-2 mb-5` ]}>Pour des raisons de sécurité, nous vérifions votre identité.</Text>
+                        <Text style={[ tw`text-center px-5 text-black font-normal text-base mt-2 mb-5`, {fontFamily: polices.times_new_roman} ]}>Pour des raisons de sécurité, nous vérifions votre identité.</Text>
                         <View style={[ tw`bg-white px-3 py-4` ]}>
                             <InputForm
                                 placeholder='Entrez votre mot de passe'
@@ -136,7 +136,7 @@ const AuthenticateView:React.FC<AuthenticateViewProps> = ({ phoneNumber, setConf
 
                             <View style={[ tw`flex-row justify-between items-center mt-3` ]}>
                                 <TouchableOpacity onPress={setTelNumber} style={[ tw`mb-2` ]}>
-                                    <Text style={[ tw`text-gray-500 text-sm` ]}>Changer de numéro</Text>
+                                    <Text style={[ tw`text-gray-500 text-sm`, {fontFamily: polices.times_new_roman} ]}>Changer de numéro</Text>
                                 </TouchableOpacity>
 
                                 {/* <TouchableOpacity style={[ tw`mb-2` ]}>
@@ -149,7 +149,8 @@ const AuthenticateView:React.FC<AuthenticateViewProps> = ({ phoneNumber, setConf
                                 color={ColorsEncr.main}
                                 mode='contained'
                                 contentStyle={[tw`p-2`]}
-                                style={tw`mt-5`}
+                                style={[tw`mt-5`]}
+                                labelStyle={[{fontFamily: polices.times_new_roman}]}
                             >Valider</Button>
 
                         </View>
@@ -160,7 +161,7 @@ const AuthenticateView:React.FC<AuthenticateViewProps> = ({ phoneNumber, setConf
                                 onPress={()=>navigation.navigate('ResetPassword', {tel: phoneNumber})} 
                                 style={[ tw`mb-2 mx-auto` ]}
                             >
-                                <Text style={[ tw`text-red-600 text-base` ]}>Mot de passe oublié ?</Text>
+                                <Text style={[ tw`text-red-600 text-base`, {fontFamily: polices.times_new_roman} ]}>Mot de passe oublié ?</Text>
                             </TouchableOpacity>
                         </View>
 

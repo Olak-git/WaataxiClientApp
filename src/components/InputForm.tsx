@@ -5,6 +5,7 @@ import tw from 'twrnc';
 // import { Text } from '@rneui/base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ColorsEncr } from '../assets/styles';
+import { polices } from '../data/data';
 
 interface InputFormProps {
     label?: string, 
@@ -45,7 +46,7 @@ const InputForm: React.FC<InputFormProps> = ({ label, labelStyle, iconName, left
     return (
         <View style={[ tw`mb-2`, containerStyle ]}>
             {label && (
-                <Text style={[ styles.label, labelStyle ]}>{label}</Text>
+                <Text style={[ styles.label, {fontFamily: polices.times_new_roman}, labelStyle ]}>{label}</Text>
             )}
             <View style={[ tw`bg-white`, styles.inputContainer, { borderColor: error ? '#ff2222' : isFocused ? '#f4f4f4' : formColor }, inputContainerStyle ]}>
                 {iconName 
@@ -60,7 +61,7 @@ const InputForm: React.FC<InputFormProps> = ({ label, labelStyle, iconName, left
                 }
                 <View style={[ tw`flex-row items-center flex-1`, {height: '100%'}, inputParentStyle ]}>
                     {codeCountry && (
-                        <Text style={[ tw`text-base text-black px-2` ]}>{ codeCountry }</Text>
+                        <Text style={[ tw`text-base text-black px-2`, {fontFamily: polices.times_new_roman} ]}>{ codeCountry }</Text>
                     )}
                 <TextInput 
                     // keyboardType=''
@@ -73,7 +74,7 @@ const InputForm: React.FC<InputFormProps> = ({ label, labelStyle, iconName, left
                         setIsFocused(true)
                     }}
                     onBlur={() => setIsFocused(false)}
-                    style={[ tw`flex-1 border-0 text-slate-500 ${Platform.OS == 'android' ? '' : 'px-2'}`, {height: '100%'}, inputStyle]}
+                    style={[ tw`flex-1 border-0 text-slate-500 ${Platform.OS == 'android' ? '' : 'px-2'}`, {height: '100%', fontFamily: polices.times_new_roman}, inputStyle]}
                     secureTextEntry={showPassword}
                     underlineColorAndroid="transparent"
                     {...props} />
@@ -90,12 +91,12 @@ const InputForm: React.FC<InputFormProps> = ({ label, labelStyle, iconName, left
             </View>
             {helper
                 ?
-                <Text style={[tw`text-black`, helperStyle]}>{ helper }</Text>
+                <Text style={[tw`text-black`, {fontFamily: polices.times_new_roman}, helperStyle]}>{ helper }</Text>
                 :
                 constructHelper
             }
             { error && (
-                <Text style={[ tw`text-orange-700 text-sm` ]}>{ error }</Text>
+                <Text style={[ tw`text-orange-700 text-sm`, {fontFamily: polices.times_new_roman} ]}>{ error }</Text>
             )}
         </View>
     )

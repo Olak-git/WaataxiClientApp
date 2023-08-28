@@ -4,6 +4,7 @@ import { TouchableWithoutFeedback, View, Text } from 'react-native';
 import { ColorsEncr } from '../assets/styles';
 import tw from 'twrnc';
 import { WtCar1 } from '../assets';
+import { polices } from '../data/data';
 
 interface BottomSheetRenderItemProps {
     getApproximativePrice: any,
@@ -27,10 +28,10 @@ export const BottomSheetRenderItem: React.FC<BottomSheetRenderItemProps> = ({ ge
                         <WtCar1 width={98} height={60} style={{  }} />
                         <View style={[ tw`flex-1 flex-row items-center px-2` ]}>
                             <View style={[ tw`flex-1` ]}>
-                                <Text style={[ tw`text-base text-black font-bold` ]}>{ item.intituler }</Text>
-                                <Text style={[ tw`text-xs text-slate-600` ]}>1km</Text>
+                                <Text style={[ tw`text-base text-black font-bold`, {fontFamily: polices.times_new_roman} ]}>{ item.intituler }</Text>
+                                <Text style={[ tw`text-xs text-slate-600`, {fontFamily: polices.times_new_roman} ]}>1km</Text>
                             </View>
-                            <Text style={[ tw`text-lg pl-2`, {color: ColorsEncr.main} ]}>{ item.tarif_course_km } XOF</Text>
+                            <Text style={[ tw`text-lg pl-2`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{ item.tarif_course_km } XOF</Text>
                         </View>
                     </View>
                 ) : (
@@ -44,10 +45,10 @@ export const BottomSheetRenderItem: React.FC<BottomSheetRenderItemProps> = ({ ge
                     <WtCar1 width={90} height={50} style={{ alignSelf: 'flex-start' }} />
                     <View style={[ tw`flex-1 flex-row items-center px-2` ]}>
                         <View style={[ tw`flex-1` ]}>
-                            <Text style={[ tw`text-base text-black font-bold` ]}>{ item.intituler }</Text>
-                            <Text style={[ tw`text-xs text-slate-600` ]}>1km</Text>
+                            <Text style={[ tw`text-base text-black font-bold`, {fontFamily: polices.times_new_roman} ]}>{ item.intituler }</Text>
+                            <Text style={[ tw`text-xs text-slate-600`, {fontFamily: polices.times_new_roman} ]}>1km</Text>
                         </View>
-                        <Text style={[ tw`text-lg pl-2`, {color: ColorsEncr.main} ]}>{ item.tarif_course_km } XOF</Text>
+                        <Text style={[ tw`text-lg pl-2`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman} ]}>{ item.tarif_course_km } XOF</Text>
                     </View>
                 </View>  
                     </>                    

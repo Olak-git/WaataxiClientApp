@@ -7,6 +7,7 @@ import { Icon } from '@rneui/themed';
 import tw from 'twrnc';
 import { WtCar1 } from '../assets';
 import { Avatar } from 'react-native-paper';
+import { polices } from '../data/data';
 
 interface RenderItemCourseInstantaneProps {
     item: any,
@@ -59,22 +60,22 @@ const RenderItemCourseInstantane: React.FC<RenderItemCourseInstantaneProps> = ({
             <Avatar.Image size={60} source={path} style={{backgroundColor: '#f2f2f2'}} />
             <View style={[ tw`flex-1 flex-row items-start justify-between ml-3` ]}>
                 <View style={[ tw`flex-1 border-0 border-white` ]}>
-                    <Text style={[ tw`text-black text-base font-medium`, {fontFamily:'Itim-Regular'} ]} numberOfLines={1} ellipsizeMode='tail'>{ item.conducteur ? (item.conducteur.nom + ' ' + item.conducteur.prenom) : 'Waataxi Service' }</Text>
+                    <Text style={[ tw`text-black text-base font-medium`, {fontFamily:'Itim-Regular'}, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{ item.conducteur ? (item.conducteur.nom + ' ' + item.conducteur.prenom) : 'Waataxi Service' }</Text>
                     <View style={[ tw`` ]}>
                         <View style={tw`flex-row mb-1`}>
                             <Icon type='font-awesome' name='circle-thin' size={15} color='gray' containerStyle={[tw``, {width: 20}]} />
-                            <Text style={[ tw`flex-1 text-gray-400 text-xs`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{ item.adresse_depart }</Text>
+                            <Text style={[ tw`flex-1 text-gray-400 text-xs`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{ item.adresse_depart }</Text>
                         </View>
                         <View style={tw`flex-row`}>
                             <Icon type='material-community' name={'map-marker-outline'} size={18} color='#ff2222' containerStyle={[tw``, {width: 20}]} />
-                            <Text style={[ tw`flex-1 text-gray-400 text-xs`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{ item.adresse_arrive }</Text>
+                            <Text style={[ tw`flex-1 text-gray-400 text-xs`, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{ item.adresse_arrive }</Text>
                         </View>
                     </View>
-                    <Text style={[ tw`text-sm pl-1`, {color: ColorsEncr.main} ]} numberOfLines={1} ellipsizeMode='tail'>{reservation?getLocalDate(item.date_depart):getLocalDate(item.dat)} {reservation?item.heure_depart.slice(0, 5):getLocalTime(item.dat)}</Text>
+                    <Text style={[ tw`text-sm pl-1`, {color: ColorsEncr.main, fontFamily: polices.times_new_roman}, {fontFamily: polices.times_new_roman} ]} numberOfLines={1} ellipsizeMode='tail'>{reservation?getLocalDate(item.date_depart):getLocalDate(item.dat)} {reservation?item.heure_depart.slice(0, 5):getLocalTime(item.dat)}</Text>
                     <Text style={[ tw`text-sm pl-1 ${color}`, {} ]} numberOfLines={1} ellipsizeMode='tail'>{etat}</Text>
                 </View>
                 <View style={[ tw`ml-3` ]}>
-                    <Text style={[ tw`font-medium text-base text-gray-400` ]}>{ getCurrency(item.prix) } F</Text>
+                    <Text style={[ tw`font-medium text-base text-gray-400`, {fontFamily: polices.times_new_roman} ]}>{ getCurrency(item.prix) } F</Text>
                     {disabled && (
                         <Icon type="material-community" name="key-chain" />
                     )}

@@ -2,6 +2,7 @@ import { View, Text, Modal, Pressable, TouchableOpacity, StatusBar } from 'react
 import React from 'react'
 import { Icon } from '@rneui/base'
 import tw from 'twrnc'
+import { polices } from '../../../../data/data'
 
 interface SignoutProps {
     visible: boolean,
@@ -20,8 +21,8 @@ const Signout: React.FC<SignoutProps> = ({visible, setVisible, onSignout}) => {
                 <Icon type='ant-design' name='close' size={30} color='white' />
             </Pressable>
             <View style={[ tw`bg-white justify-center items-center rounded-2xl p-3`, {height: 300, width: 300} ]}>
-                <View style={tw``}>
-                    <Text style={[ tw`text-center px-10 text-gray-700 font-normal text-sm mb-5` ]}>Souhaitez-vous vous déconnecter ?</Text>
+                <View style={[tw``, {minWidth: '90%'}]}>
+                    <Text style={[ tw`text-center px-10 text-gray-700 font-normal text-sm mb-5`, {fontFamily: polices.times_new_roman} ]}>Souhaitez-vous vous déconnecter ?</Text>
                     
                     <View style={[ tw`flex-row justify-between items-center`, {} ]}>
 
@@ -29,14 +30,14 @@ const Signout: React.FC<SignoutProps> = ({visible, setVisible, onSignout}) => {
                             onPress={onSignout}
                             style={[tw`rounded border py-2 px-3`, {width: 100}]}
                         >
-                            <Text style={tw`text-black text-center`}>Oui</Text>
+                            <Text style={[tw`text-black text-center`, {fontFamily: polices.times_new_roman}]}>Oui</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             onPress={() => setVisible(false)}
                             style={[tw`rounded border py-2 px-3`, {width: 100}]}
                         >
-                            <Text style={tw`text-black text-center`}>Annuler</Text>
+                            <Text style={[tw`text-black text-center`, {fontFamily: polices.times_new_roman}]}>Annuler</Text>
                         </TouchableOpacity>
 
                     </View>

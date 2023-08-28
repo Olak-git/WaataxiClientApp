@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TextInput, ActivityIndicator, Pressable, Text, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import tw from 'twrnc';
+import { polices } from '../data/data';
 
 interface SearchBarProps {
     containerStyle?: StyleProp<ViewStyle>,
@@ -46,7 +47,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ containerStyle, iconSearchName = 
                     onEndEditing={onEndEditing}
                     // defaultValue={value}
                     value={value}
-                    style={[ tw`flex-1 px-1 text-base text-gray-600`, inputStyle ]} />
+                    style={[ tw`flex-1 px-1 text-base text-gray-600`, {fontFamily: polices.times_new_roman}, inputStyle ]} />
                 {showLoading && (
                     <View style={[ tw``, {} ]}>
                         <ActivityIndicator 
@@ -68,7 +69,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ containerStyle, iconSearchName = 
             </View>
             {showCancel && (
                 <Pressable onPress={onCancel} style={[ tw`justify-center items-center px-3 ml-3`, {height: '100%'}, cancelStyle ]}>
-                    <Text style={[ cancelTextStyle ]}>{cancelText}</Text>
+                    <Text style={[ {fontFamily: polices.times_new_roman}, cancelTextStyle ]}>{cancelText}</Text>
                 </Pressable>
             )}
         </View>

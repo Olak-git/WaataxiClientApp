@@ -3,10 +3,11 @@ import { Icon } from '@rneui/base';
 import React from 'react';
 import { Platform, Pressable, Text, View } from 'react-native';
 import tw from 'twrnc';
+import { polices } from '../data/data';
 
 export const HeaderTitle: React.FC<{headerTitle?: string}> = ({ headerTitle }) => {
     return (
-        <Text style={[ tw`px-4 text-lg text-black`, {fontFamily: Platform.OS == 'android' ? 'IbarraRealNova-VariableFont_wght' : 'PatrickHand-Regular'} ]}>{ headerTitle }</Text>
+        <Text style={[ tw`px-4 text-lg text-black`, {fontFamily: Platform.OS == 'android' ? 'IbarraRealNova-VariableFont_wght' : 'PatrickHand-Regular'}, {fontFamily: polices.times_new_roman} ]}>{ headerTitle }</Text>
     )
 }
 

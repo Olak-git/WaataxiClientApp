@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Image, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import tw from 'twrnc';
 import { windowHeight, windowWidth } from '../../../functions/functions';
+import { polices } from '../../../data/data';
 
 
 interface ItemProps {
@@ -18,7 +19,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
                     style={ styles.item_image }
                     source={ item.image }
                     resizeMode='contain' />
-                <Text style={[ tw`text-lg font-medium text-center text-gray-600`, styles.item_title ]}>{ item.titre }</Text>
+                <Text style={[ tw`text-lg font-medium text-center text-gray-600`, {fontFamily: polices.times_new_roman}, styles.item_title ]}>{ item.titre }</Text>
             </View>
         </View>
     )
