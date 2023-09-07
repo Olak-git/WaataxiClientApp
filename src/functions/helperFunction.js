@@ -74,6 +74,89 @@ export const getSqlFormatTime = (date) => {
 
 export const formatChaineHid = (text, face, back) => text.slice(0, face) + text.slice(face, text.length-back).replace(/./g, '*') + text.slice(text.length-back, text.length);
 
+export const format_tel = (tel, _separate=' ') => {
+    let V='';
+    if(tel) {
+        let l = tel.length
+        let r2 = l%3
+        
+        if(r2!=0) {
+            V += tel.slice(0, r2) + _separate;
+        }
+        for (let index = r2; index < tel.length; index+=3) {
+            V += tel.slice(index, index+3) + _separate;
+        }
+    }
+    return V.charAt(V.length-1)==_separate ? V.slice(0, V.length-1) : V
+}
+
+export const clear_format_tel = (v, _separate=' ') => {
+    return v.replaceAll(_separate, '')
+}
+
+/**
+ * vérifie si la chaine(A) [ou la décomposition en plusieurs sous-chaines] de caractères est contenue dans le B
+ * @param {*} A : le mot recherché
+ * @param {*} B : le mot principal
+ * @returns boolean
+ */
+export const characters_exists = (A, B) => {
+    // A: le mot recherché
+    // B: le mot principal
+    let _A = translate_character(A)
+    let _B = translate_character(B)
+
+    if(A.startsWith("") && A.endsWith('"')) {
+
+        _A = _A.replace(/"/g, '');
+        return _B.includes(_A);
+
+    } else {
+
+        let C = _A.split(' ')
+        let include = true;
+        C.map(c => {
+            if(!_B.includes(c)) {
+                include = false
+            }
+        })
+
+        // console.log({ include, A: _A, B: _B });
+        return include;
+    }
+}
+
+/**
+ * Format une chaîne de caractères en prenant le soin de remplacer certains caractères par leur équivalent en UTF8
+ * @param {*} str 
+ * @returns string
+ */
+export const translate_character = (str) => {
+    let new_str = '';
+
+    // str = str.replace(/[äæ]/ig, 'ae');
+    // str = str.replace(/[å]/ig, 'aa');
+    // str = str.replace(/[öœ]/ig, 'oe');
+    // str = str.replace(/[ü]/ig, 'ue');
+    // str = str.replace(/[ß]/g, 'ss');
+
+    str = str.replace(/(ĳ)/ig, 'ij');
+    str = str.replace(/[àáâäæãåā]/ig, 'a');
+    str = str.replace(/[çćč]/ig, 'c');
+    str = str.replace(/[èéêëēėę]/ig, 'e');
+    str = str.replace(/[îïíīįì]/ig, 'i');
+    str = str.replace(/[ł]/ig, 'l');
+    str = str.replace(/[ñń]/ig, 'n');
+    str = str.replace(/[ôöòóœøōõ]/ig, 'o');
+    str = str.replace(/[ßśš]/ig, 's');
+    str = str.replace(/[ûüùúū]/ig, 'u');
+    str = str.replace(/[ÿ]/ig, 'y');
+    str = str.replace(/[žźż]/ig, 'z');
+
+    str = str.replace(/[£]/ig, '');
+
+    return str.toLowerCase();
+}
 
 export const clone = (obj) => Object.assign({}, obj);
 

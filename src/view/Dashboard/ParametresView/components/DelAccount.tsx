@@ -20,7 +20,7 @@ const DelAccount: React.FC<DelAccountProps> = ({visible, setVisible, onDelete}) 
                     <Icon type='ant-design' name='close' size={30} color='white' />
                 </Pressable>
                 <View style={[ tw`bg-white justify-center items-center rounded-2xl p-3`, {height: 300, width: 300} ]}>
-                    <View style={tw``}>
+                    <View style={[tw``, {minWidth: '90%'}]}>
                         <Text style={[ tw`text-center px-10 text-gray-700 font-normal text-sm mb-5`, {fontFamily: polices.times_new_roman} ]}>Souhaitez-vous supprimer votre compte ?</Text>
                         <Text style={[tw`text-black mb-5`, {textAlign: 'center', fontFamily: polices.times_new_roman}]}>La suppression de votre compte entraînera la suppression de vos données. Aucun autre compte ne pourra se créer avec vos références.</Text>
                         

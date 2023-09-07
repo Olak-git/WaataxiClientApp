@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import CountryPicker, { Country, CountryCode } from 'react-native-country-picker-modal'
 import { Icon } from '@rneui/base';
 import { polices } from '../../../../data/data';
+import { clear_format_tel, format_tel } from '../../../../functions/helperFunction';
 
 interface AuthTelNumberViewProps {
     setConfirm: any,
@@ -85,7 +86,8 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ setConfirm = ()=>{
         })
     }
 
-    const onHandleSetTel = (value: string) => {
+    const onHandleSetTel = async (value: string) => {
+        // value = await clear_format_tel(value)
         setPhone(value)
         const regExp = /^[0-9]+/g;
         // const regExp = /^[0-9]{8}/g;
@@ -158,6 +160,7 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ setConfirm = ()=>{
                             }
                             onChangeText={onHandleSetTel}
                             error={phoneError}
+                            // value={format_tel(phone)}
                         />
                         <View style={tw`flex-row`}>
                             <TouchableOpacity

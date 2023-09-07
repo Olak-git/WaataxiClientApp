@@ -16,6 +16,7 @@ import { clearStoreCourses, setStoreCourseInstantanee } from '../../../feature/c
 import { RNSpinner } from '../../../components/RNSpinner';
 import { useNavigation } from '@react-navigation/native';
 import { polices } from '../../../data/data';
+import { characters_exists } from '../../../functions/helperFunction';
 
 const timer = require('react-native-timer');
 
@@ -161,9 +162,11 @@ const HistoriqueCourseInstantanneeView: React.FC<HistoriqueCourseInstantanneeVie
                                 ? ctext.toUpperCase()
                                 : ''.toUpperCase();
                 const textData = text.toUpperCase();
-                return itemData.indexOf(textData) > -1;
+
+                return characters_exists(textData, itemData)
+                // return itemData.indexOf(textData) > -1;
             });
-            setCourseEmptyText('Aucun résultat trouvé');
+            setCourseEmptyText(`Aucun résultat trouvé pour "${text}"`);
             setCourses(newData);
             setSearch(text);
         } else {

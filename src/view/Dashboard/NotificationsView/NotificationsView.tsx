@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { WtCar1 } from '../../../assets';
 import { Icon } from '@rneui/themed';
-import { getLocalDate, getLocalTime } from '../../../functions/helperFunction';
+import { characters_exists, getLocalDate, getLocalTime } from '../../../functions/helperFunction';
 import SearchBar from '../../../components/SearchBar';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import { addNotification } from '../../../feature/notifications.slice';
@@ -90,9 +90,11 @@ const NotificationsView: React.FC<NotificationsViewProps> = ({ navigation }) => 
                                 ? ctext.toUpperCase()
                                 : ''.toUpperCase();
                 const textData = text.toUpperCase();
-                return itemData.indexOf(textData) > -1;
+
+                return characters_exists(textData, itemData)
+                // return itemData.indexOf(textData) > -1;
             });
-            setNotificationEmptyText('Aucun résultat trouvé');
+            setNotificationEmptyText(`Aucun résultat trouvé pour "${text}"`);
             setNotifications(newData);
             setSearch(text);
         } else {

@@ -11,7 +11,7 @@ import SearchBar from '../../../components/SearchBar';
 import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActivityLoading } from '../../../components/ActivityLoading';
-import { getLocalDate, getLocalTimeStr } from '../../../functions/helperFunction';
+import { characters_exists, getLocalDate, getLocalTimeStr } from '../../../functions/helperFunction';
 import RenderNewItemCourseCovoiturage from '../../../components/RenderNewItemCourseCovoiturage';
 import RenderItemCourseCovoiturage from '../../../components/RenderItemCourseCovoiturage';
 import { setStopped } from '../../../feature/init.slice';
@@ -288,7 +288,9 @@ const HistoriqueCovoiturageView: React.FC<HistoriqueCovoiturageViewProps> = ({ n
                                 ? ctext.toUpperCase()
                                 : ''.toUpperCase();
                 const textData = text.toUpperCase();
-                return itemData.indexOf(textData) > -1;
+
+                return characters_exists(textData, itemData)
+                // return itemData.indexOf(textData) > -1;
             });
 
             const newData2 = covoiturage.master.filter(function (item: any) {
@@ -299,7 +301,9 @@ const HistoriqueCovoiturageView: React.FC<HistoriqueCovoiturageViewProps> = ({ n
                                 ? ctext.toUpperCase()
                                 : ''.toUpperCase();
                 const textData = text.toUpperCase();
-                return itemData.indexOf(textData) > -1;
+
+                return characters_exists(textData, itemData)
+                // return itemData.indexOf(textData) > -1;
             });
             setSearch(text);
             onHandle({empty: 'Aucun résultat trouvé', data: newData2, search: text}, 'covoiturage');
@@ -328,7 +332,9 @@ const HistoriqueCovoiturageView: React.FC<HistoriqueCovoiturageViewProps> = ({ n
                                 ? ctext.toUpperCase()
                                 : ''.toUpperCase();
                 const textData = text.toUpperCase();
-                return itemData.indexOf(textData) > -1;
+
+                return characters_exists(textData, itemData)
+                // return itemData.indexOf(textData) > -1;
             });
             onHandle({empty: 'Aucun résultat trouvé', data: newData, search: text}, 'reservation');
         } else {
@@ -352,7 +358,9 @@ const HistoriqueCovoiturageView: React.FC<HistoriqueCovoiturageViewProps> = ({ n
                                 ? ctext.toUpperCase()
                                 : ''.toUpperCase();
                 const textData = text.toUpperCase();
-                return itemData.indexOf(textData) > -1;
+
+                return characters_exists(textData, itemData)
+                // return itemData.indexOf(textData) > -1;
             });
             onHandle({empty: 'Aucun résultat trouvé', data: newData, search: text}, 'covoiturage');
         } else {
