@@ -11,6 +11,7 @@ import { setUser } from '../../../feature/user.slice';
 import { CallingCode, CountryCode } from 'react-native-country-picker-modal';
 import { Root } from 'react-native-alert-notification';
 import { setPresentation } from '../../../feature/init.slice';
+import { Text } from 'react-native';
 
 interface AuthViewProps {
     navigation: any
