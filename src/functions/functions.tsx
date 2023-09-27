@@ -257,6 +257,6 @@ export const {width: screenWidth, height: screenHeight} = Dimensions.get('screen
 
 const PRODUCTION = true;
 
-export const baseUri = PRODUCTION ? 'https://app.waataxi.com' : 'http://192.168.8.101:8888/projects/app.waataxi.com';
+export const baseUri = PRODUCTION ? 'https://app.waataxi.com' : 'http://192.168.8.101:8888/projects/api.waataxi';
 
 export const fetchUri = baseUri + '/mobile/v2/request-passager.php';
