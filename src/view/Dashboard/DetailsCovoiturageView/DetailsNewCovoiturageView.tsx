@@ -5,15 +5,16 @@ import Base from '../../../components/Base';
 import Header from '../../../components/Header';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { Rating } from 'react-native-ratings';
 import Spinner from 'react-native-spinkit';
-import { callPhoneNumber, getLocalTimeStr, openUrl } from '../../../functions/helperFunction';
+import { callPhoneNumber, getErrorResponse, getLocalTimeStr, openUrl } from '../../../functions/helperFunction';
 import BottomButton from '../../../components/BottomButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../../feature/user.slice';
 import { ActivityIndicator } from 'react-native-paper';
 import { polices } from '../../../data/data';
+import { getDriverRates } from '../../../services/races';
 
 interface RowProps {
     iconType: string,
@@ -69,7 +70,30 @@ const DetailsNewCovoiturageView: React.FC<DetailsNewCovoiturageViewProps> = (pro
         formData.append('covoiturage', course.slug);
         formData.append('e-configuration', null);
         
-        fetch(fetchUri, {
+        // getDriverRates({ formData })
+        //     .then(json => {
+        //         setRefreshing(false);
+        //         console.log('JSON: ', json);
+        //         if(json.success) {
+        //             if(json.scores) {
+        //                 setRating(json.scores);
+        //             }
+        //             if(json.course) {
+        //                 // dispatch(setReload());
+        //                 setCourse(json.course);
+        //             }
+        //             setConfiguration(state => ({...state, ...json.configuration}));
+        //             dispatch(setUser({portefeuille: json.user.portefeuille}));
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(()=>{
+        //         setRefreshing(false)
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -97,6 +121,10 @@ const DetailsNewCovoiturageView: React.FC<DetailsNewCovoiturageViewProps> = (pro
         })
         .catch(error => {
             console.log('DetailsNewCovoiturageView Error: ', error);
+            getErrorResponse(error)
+        })
+        .finally(()=>{
+            setRefreshing(false)
         })
     }
 

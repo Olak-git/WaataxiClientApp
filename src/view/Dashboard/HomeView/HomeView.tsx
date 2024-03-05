@@ -4,19 +4,20 @@ import { DeviceEventEmitter, DrawerLayoutAndroid, FlatList, Image, Platform, Pre
 import Base from '../../../components/Base';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
-import { baseUri, fetchUri, getCurrency, toast, windowHeight, windowWidth } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency, toast, windowHeight, windowWidth } from '../../../functions/functions';
 import BottomNavs from '../../../components/BottomNavs';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteIndex, setUser } from '../../../feature/user.slice';
 import { Accueil, LogoDark, Wallet, WtCar } from '../../../assets';
 import { RefreshControl } from 'react-native-gesture-handler';
-import { clone } from '../../../functions/helperFunction';
+import { clone, getErrorResponse } from '../../../functions/helperFunction';
 import { polices, statusBarHeight } from '../../../data/data';
 import { setCount } from '../../../feature/notifications.slice';
 import { setStopped } from '../../../feature/init.slice';
 import { setWithPortefeuille } from '../../../feature/init.slice';
 import moment from 'moment';
 import Pubs from '../../../components/Pubs';
+import { refreshHomeScreen } from '../../../services/races';
 
 const timer = require('react-native-timer');
 
@@ -104,7 +105,72 @@ const HomeView: React.FC<HomeViewProps> = ({navigation}) => {
             formData.append('js', null)
             formData.append(`refresh`, null)
             formData.append('token', user.slug)
-            fetch(fetchUri, {
+
+            // refreshHomeScreen({ formData })
+            //     .then(json => {
+            //         // console.log('Annonces: ', json.annonces);
+            //         // console.log('response: ', json);
+            //         setRefresh(false);
+            //         if(json.success) {
+            //             let image = json.user.img;
+            //             const data = clone(json.user);
+            //             if(data.img) {
+            //                 data.img = `${baseUri}/assets/avatars/${image}`;
+            //             }
+            //             dispatch(setUser({...data}));
+                        
+            //             const length = json.annonces.length;
+            //             const images = [];
+            //             for (let index = 0; index < length; index++) {
+            //                 images.push({uri: `${baseUri}/assets/articles/${json.annonces[index].article}`});
+            //             }
+            //             setImages(images);
+
+            //             setAnnonces([...json.annonces]);
+            //             let c = 0;
+            //             const notifications = json.notifications;
+            //             notifications.map((v: any) => {
+            //                 if(notifies.indexOf(v.id) == -1) {
+            //                     c++;
+            //                 }
+            //             })
+            //             dispatch(setCount(c))
+            //             setCountNotifs(c);
+                        
+            //             if(json.with_portefeuille) {
+            //                 dispatch(setWithPortefeuille(json.with_portefeuille))
+            //             }
+
+            //             if(json.app_current_versions) {
+            //                 checkVersion(json.app_current_versions)
+            //             }
+            //         } else {
+            //             const errors = json.errors;
+            //             console.log('Errors: ', errors);
+            //             let txt = '';
+            //             if(typeof errors == 'object') {
+            //                 const l = Object.keys(errors).length - 1;
+            //                 let i = 0;
+            //                 for(let k in errors) {
+            //                     if(txt) txt += '\n';
+            //                     txt += '-' + k.replace(/_/g, ' ').replace(/(nb )|( prov)/g, '').replace(/km/g, 'distance') + ': ' + errors[k];
+            //                 }
+            //             } else {
+            //                 txt = errors;
+            //             }
+            //             console.log('Err: ', errors);
+            //             // setFlash({
+            //             //     text: txt,
+            //             //     type: 'error',
+            //             //     notification: true
+            //             // });
+            //         }
+            //     })
+            //     .finally(() => {
+            //         setRefresh(false);
+            //     })
+
+            fetch(apiv3 ? api_ref + '/refresh_home_screen.php' : fetchUri, {
                 method: 'POST',
                 body: formData
             })
@@ -171,6 +237,10 @@ const HomeView: React.FC<HomeViewProps> = ({navigation}) => {
             .catch(e => {
                 setRefresh(false);
                 console.warn('HomeView Error: ', e)
+                getErrorResponse(e)
+            })
+            .finally(() => {
+                setRefresh(false);
             })
         // }
     }

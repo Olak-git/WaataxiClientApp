@@ -6,16 +6,17 @@ import Base from '../../../components/Base';
 import Header from '../../../components/Header';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import BottomButton from '../../../components/BottomButton';
 import { WtCar1 } from '../../../assets';
 import { useDispatch, useSelector } from 'react-redux';
 import Spinner from 'react-native-spinkit';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { setReload } from '../../../feature/reload.slice';
-import { callPhoneNumber, openUrl } from '../../../functions/helperFunction';
+import { callPhoneNumber, getErrorResponse, openUrl } from '../../../functions/helperFunction';
 import { CourseTimingOut } from '../../../components/CourseTimingOut';
 import { polices } from '../../../data/data';
+import { cancelReservationRace, getDriverRates } from '../../../services/races';
 
 interface DetailsReservationViewProps {
     navigation: any,
@@ -47,7 +48,25 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
         formData.append('cancel-course-reservation', null);
         formData.append('course', course.slug);
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        // cancelReservationRace({ formData })
+        //     .then(json => {
+        //         if(json.success) {
+        //             dispatch(setReload());
+        //             setTimeout(() => {
+        //                 setVisible(false);
+        //                 navigation.goBack();
+        //             }, 1000);
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setVisible(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/cancel_reservation_race.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -70,6 +89,10 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
         .catch(error => {
             setVisible(false);
             console.log('DetailsReservationView Error1: ', error);
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setVisible(false);
         })
     }
 
@@ -83,7 +106,28 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
         }
         formData.append('token', user.slug);
         formData.append('reservation-course', course.slug);
-        fetch(fetchUri, {
+
+        // getDriverRates({ formData })
+        //     .then(json => {
+        //         setRefreshing(false);
+        //         if(json.success) {
+        //             if(json.scores) {
+        //                 setRating(json.scores);
+        //             }
+        //             if(json.course) {
+        //                 // dispatch(setReload());
+        //                 setCourse(json.course);
+        //             }
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setRefreshing(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -109,6 +153,10 @@ const DetailsReservationView: React.FC<DetailsReservationViewProps> = (props) =>
         .catch(error => {
             setRefreshing(false);
             console.log('DetailsReservationView Error2: ', error);
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setRefreshing(false);
         })
     }
 

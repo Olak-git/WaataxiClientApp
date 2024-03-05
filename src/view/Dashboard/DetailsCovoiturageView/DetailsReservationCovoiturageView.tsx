@@ -5,14 +5,15 @@ import Base from '../../../components/Base';
 import Header from '../../../components/Header';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { Rating } from 'react-native-ratings';
 import { useDispatch, useSelector } from 'react-redux';
 import Spinner from 'react-native-spinkit';
-import { openUrl } from '../../../functions/helperFunction';
+import { getErrorResponse, openUrl } from '../../../functions/helperFunction';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { setReload } from '../../../feature/reload.slice';
 import { polices } from '../../../data/data';
+import { cancelReservationCarsharing, getDriverRates } from '../../../services/races';
 
 interface RowProps {
     iconType: string,
@@ -67,7 +68,25 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
         formData.append('cancel-covoiturage-reservation', null);
         formData.append('course', course.slug);
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        // cancelReservationCarsharing({ formData })
+        //     .then(json => {
+        //         if(json.success) {
+        //             dispatch(setReload());
+        //             setTimeout(() => {
+        //                 setVisible(false);
+        //                 navigation.goBack();
+        //             }, 1000);
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setVisible(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/cancel_reservation_carsharing.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -90,6 +109,10 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
         .catch(error => {
             setVisible(false);
             console.log('DetailsReservationCovoiturageView Error1: ', error);
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setVisible(false);
         })
     }
 
@@ -99,7 +122,28 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
         formData.append('data-user', conducteur.slug);
         formData.append('token', user.slug);
         formData.append('reservation-covoiturage', course.slug);
-        fetch(fetchUri, {
+
+        // getDriverRates({ formData })
+        //     .then(json => {
+        //         setRefreshing(false);
+        //         if(json.success) {
+        //             if(json.scores) {
+        //                 setRating(json.scores);
+        //             }
+        //             if(json.course) {
+        //                 // dispatch(setReload());
+        //                 setCourse(json.course);
+        //             }
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(()=>{
+        //         setRefreshing(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -124,6 +168,10 @@ const DetailsReservationCovoiturageView: React.FC<DetailsReservationCovoiturageV
         })
         .catch(error => {
             console.log('DetailsReservationCovoiturageView Error2: ', error);
+            getErrorResponse(error)
+        })
+        .finally(()=>{
+            setRefreshing(false);
         })
     }
 

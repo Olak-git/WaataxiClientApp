@@ -6,14 +6,14 @@ import Base from '../../../components/Base';
 import Header from '../../../components/Header';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
-import { baseUri, fetchUri, getCurrency, getUser, toast } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency, getUser, toast } from '../../../functions/functions';
 import Spinner from 'react-native-spinkit';
 import { WtCar1 } from '../../../assets';
 import { useDispatch, useSelector } from 'react-redux';
 import FlashMessage from '../../../components/FlashMessage';
 import { setReload } from '../../../feature/reload.slice';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
-import { getErrorsToString, openUrl } from '../../../functions/helperFunction';
+import { getErrorResponse, getErrorsToString, openUrl } from '../../../functions/helperFunction';
 import { GestureHandlerRootView, TouchableWithoutFeedback, ScrollView as GHScrollView, FlatList as GHFlatlist } from 'react-native-gesture-handler';
 import RNBottomSheet, { BottomSheetRefProps } from '../../../components/RNBottomSheet';
 import { BottomSheetRender } from '../../../components/BottomSheetRender';
@@ -21,6 +21,7 @@ import { RNPModal } from '../../../components/RNPModal';
 import { Button } from 'react-native-paper';
 import { CourseTimingOut } from '../../../components/CourseTimingOut';
 import { polices } from '../../../data/data';
+import { cancelInstantRace, getDriverRates, getModelCars, updateModelCar } from '../../../services/races';
 
 const timer = require('react-native-timer');
 
@@ -59,7 +60,27 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
         formData.append('cancel-course', null);
         formData.append('token', user.slug);
         formData.append('course', course.slug);
-        fetch(fetchUri, {
+
+        // cancelInstantRace({ formData })
+        //     .then(json => {
+        //         if(json.success) {
+        //             dispatch(setReload());
+        //             setTimeout(() => {
+        //                 navigation.goBack();
+        //                 setVisible(false);
+        //             }, 2000)
+        //         } else {
+        //             setVisible(false);
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //             toast('DANGER', getErrorsToString(errors), false)
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setVisible(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/cancel_instant_race.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -84,6 +105,10 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
         .catch(error => {
             setVisible(false);
             console.log('DetailsCourseView Error1: ', error)
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setVisible(false);
         })
     }
 
@@ -97,7 +122,28 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
         }
         formData.append('token', user.slug);
         formData.append('course', course.slug);
-        fetch(fetchUri, {
+
+        // getDriverRates({ formData })
+        //     .then(json => {
+        //         setRefreshing(false);
+        //         if(json.success) {
+        //             if(json.scores) {
+        //                 setRating(json.scores);
+        //             }
+        //             if(json.course) {
+        //                 // dispatch(setReload());
+        //                 setCourse(json.course);
+        //             }
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setRefreshing(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -123,6 +169,10 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
         .catch(error => {
             setRefreshing(false);
             console.log('DetailsCourseView Error2: ', error);
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setRefreshing(false);
         })
     }
 
@@ -136,7 +186,27 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
         // @ts-ignore
         formData.append(`type_voiture`, typeVoitures[itemSelected].id);
         console.log('FormData: ', formData)
-        fetch(fetchUri, {
+
+        // updateModelCar({ formData })
+        //     .then(json => {
+        //         setVisible(false);
+        //         if(json.success) {
+        //             toast('SUCCESS', 'Vous avez modifié le type de voiture pour votre course.')
+        //             if(json.course) {
+        //                 setCourse(json.course);
+        //             }
+        //             setItemSelected(null)
+        //         } else {
+        //             const errors = json.errors;
+        //             toast('DANGER', getErrorsToString(errors), false)
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setVisible(false);
+        //     });
+
+        fetch(apiv3 ? api_ref + '/update_model_car.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -161,6 +231,10 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
         .catch(error => {
             setVisible(false);
             console.log('DetailsCourseView Error3: ', error)
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setVisible(false);
         });
     }
 
@@ -173,6 +247,21 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
         formData.append('js', null);
         formData.append('token', user.slug);
         formData.append('type_voitures', null);
+
+        // getModelCars({ formData })
+        //     .then(json => {
+        //         if(json.success) {
+        //             setShowBottomSheet(true)
+        //             setTypeVoitures([...json.types]);
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(()=>{
+                
+        //     })
+
         fetch(fetchUri, {
             method: 'POST',
             body: formData,
@@ -190,7 +279,13 @@ const DetailsCourseView: React.FC<DetailsCourseViewProps> = (props) => {
                 console.log(errors);
             }
         })
-        .catch(error => console.log('DetailsCourseView Error4: ', error))
+        .catch(error => {
+            console.log('DetailsCourseView Error4: ', error)
+            getErrorResponse(error)
+        })
+        .finally(()=>{
+                
+        })
     }
 
     const onRefresh = () => {

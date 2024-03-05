@@ -13,10 +13,11 @@ import { deleteUser, setUser } from '../../../feature/user.slice';
 import FilePicker, { types } from 'react-native-document-picker';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
-import { baseUri, fetchUri, format_size, toast, validateEmail } from '../../../functions/functions';
-import { clone, storagePermission } from '../../../functions/helperFunction';
+import { api_ref, apiv3, baseUri, fetchUri, format_size, toast, validateEmail } from '../../../functions/functions';
+import { clone, getErrorResponse, storagePermission } from '../../../functions/helperFunction';
 import FlashMessage from '../../../components/FlashMessage';
 import { polices } from '../../../data/data';
+import { editProfile } from '../../../services/races';
 
 const SectionData: React.FC<{
     iconType?: string,
@@ -170,7 +171,34 @@ const EditMyAccountView: React.FC<EditMyAccountViewProps> = ({ navigation }) => 
             if(Object.keys(inputs.img).length > 0) {
                 formData.append('img', inputs.img);
             }
-            fetch(fetchUri, {
+
+            // editProfile({ formData })
+            //     .then(async json => {
+            //         setShowModal(false);
+            //         if(json.success) {
+            //             console.log('User: ', json.user)
+            //             let image = json.user.img;
+            //             const data = clone(json.user);
+            //             if(data.img) {
+            //                 data.img = `${baseUri}/assets/avatars/${image}`;
+            //             }
+            //             await dispatch(setUser({...data}));
+            //             setAvatar(null)
+            //             setAvatar(null)
+            //             toast('SUCCESS', 'Compte modifié.')
+            //         } else {
+            //             const errors = json.errors;
+            //             console.log('Errors: ', errors);
+            //             for(let k in errors) {
+            //                 handleError(k, errors[k]);
+            //             }
+            //         }
+            //     })
+            //     .finally(() => {
+            //         setShowModal(false);
+            //     })
+
+            fetch(apiv3 ? api_ref + '/edit_profile.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -203,6 +231,10 @@ const EditMyAccountView: React.FC<EditMyAccountViewProps> = ({ navigation }) => 
             .catch(error => {
                 setShowModal(false);
                 console.log('EditMyAccountView Error: ', error)
+                getErrorResponse(error)
+            })
+            .finally(() => {
+                setShowModal(false);
             })
         }
     }

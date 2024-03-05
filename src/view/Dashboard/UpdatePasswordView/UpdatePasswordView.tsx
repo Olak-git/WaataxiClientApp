@@ -9,11 +9,12 @@ import { Logo } from '../../../assets';
 import { ColorsEncr } from '../../../assets/styles';
 import InputForm from '../../../components/InputForm';
 import { Button } from 'react-native-paper';
-import { baseUri, fetchUri, toast, validatePassword } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, toast, validatePassword } from '../../../functions/functions';
 import { useDispatch, useSelector } from 'react-redux';
-import { clone } from '../../../functions/helperFunction';
+import { clone, getErrorResponse } from '../../../functions/helperFunction';
 import { setUser } from '../../../feature/user.slice';
 import { polices } from '../../../data/data';
+import { updatePassword } from '../../../services/races';
 
 interface UpdatePasswordViewProps {
     navigation: any
@@ -86,7 +87,31 @@ const UpdatePasswordView:React.FC<UpdatePasswordViewProps> = ({ navigation }) =>
             formData.append('recent_password', inputs.recent_password);
             formData.append('password', inputs.password);
             formData.append('confirmation', inputs.confirmation);
-            fetch(fetchUri, {
+
+            // updatePassword({ formData })
+            //     .then(json => {
+            //         setVisible(false);
+            //         if(json.success) {
+            //             toast('SUCCESS', 'Votre mot de passe a bien été modifié.');
+            //             let image = json.user.img;
+            //             const data = clone(json.user);
+            //             if(data.img) {
+            //                 data.img = `${baseUri}/assets/avatars/${image}`;
+            //             }
+            //             dispatch(setUser({...data}));
+            //         } else {
+            //             const errors = json.errors;
+            //             console.log('Errors: ', errors);
+            //             for(let k in errors) {
+            //                 handleError(k, errors[k]);
+            //             }
+            //         }
+            //     })
+            //     .finally(() => {
+            //         setVisible(false);
+            //     })
+
+            fetch(apiv3 ? api_ref + '/update_password.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -115,6 +140,10 @@ const UpdatePasswordView:React.FC<UpdatePasswordViewProps> = ({ navigation }) =>
             .catch(error => {
                 setVisible(false);
                 console.log('UpdatePasswordView Error: ', error)
+                getErrorResponse(error)
+            })
+            .finally(() => {
+                setVisible(false);
             })
         }
     }

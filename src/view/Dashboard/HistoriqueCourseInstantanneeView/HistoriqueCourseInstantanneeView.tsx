@@ -6,7 +6,7 @@ import tw from 'twrnc';
 import { Icon } from '@rneui/base';
 import SearchBar from '../../../components/SearchBar';
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import BottomButton from '../../../components/BottomButton';
 import RenderItemCourseInstantane from '../../../components/RenderItemCourseInstantane';
@@ -16,7 +16,8 @@ import { clearStoreCourses, setStoreCourseInstantanee } from '../../../feature/c
 import { RNSpinner } from '../../../components/RNSpinner';
 import { useNavigation } from '@react-navigation/native';
 import { polices } from '../../../data/data';
-import { characters_exists } from '../../../functions/helperFunction';
+import { characters_exists, getErrorResponse } from '../../../functions/helperFunction';
+import { getInstantRaces } from '../../../services/races';
 
 const timer = require('react-native-timer');
 
@@ -99,7 +100,45 @@ const HistoriqueCourseInstantanneeView: React.FC<HistoriqueCourseInstantanneeVie
             formData.append('js', null);
             formData.append('token', user.slug);
             formData.append('courses', null);
-            fetch(fetchUri, {
+
+            // getInstantRaces({ formData })
+            //     .then(async json => {
+            //         setRefreshing(false);
+            //         if(json.success) {
+            //             if(history) {
+            //                 const _courses = [...json.courses]
+            //                 const newCourses = _courses.filter(function (item: any) {
+            //                     // Récupérer les courses terminées et/ou annulées
+            //                     return item.etat_course == 11 || item.etat_course == -1
+            //                 });
+
+            //                 setMasterCourses([...newCourses]);
+            //                 setCourses([...newCourses]);
+            //             } else {
+            //                 const _courses = [...json.courses]
+            //                 const newCourses = _courses.filter(function (item: any) {
+            //                     // Récupérer les courses terminées
+            //                     return item.etat_course != 11 && item.etat_course != -1
+            //                 });
+
+            //                 setMasterCourses([...newCourses]);
+            //                 setCourses([...newCourses]);
+
+            //                 dispatch(setStoreCourseInstantanee([...newCourses]))
+            //             }
+
+            //             setEndFetch(true);
+            //             // console.log('FINI')
+            //         } else {
+            //             const errors = json.errors;
+            //             console.log(errors);
+            //         }
+            //     })
+            //     .finally(()=>{
+                    
+            //     })
+
+            fetch(apiv3 ? api_ref + 'get_instant_races.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -139,7 +178,13 @@ const HistoriqueCourseInstantanneeView: React.FC<HistoriqueCourseInstantanneeVie
                     console.log(errors);
                 }
             })
-            .catch(error => console.log('HistoriqueCourseInstantanneeView Error: ', error))
+            .catch(error => {
+                console.log('HistoriqueCourseInstantanneeView Error: ', error)
+                getErrorResponse(error)
+            })
+            .finally(()=>{
+                    
+            })
         }
     }
 

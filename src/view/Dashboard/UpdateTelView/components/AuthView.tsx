@@ -7,12 +7,14 @@ import { CommonActions } from '@react-navigation/native';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 // import auth from '@react-native-firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUri } from '../../../../functions/functions';
+import { api_ref, apiv3, fetchUri } from '../../../../functions/functions';
 import { setUser } from '../../../../feature/user.slice';
 import { Logo } from '../../../../assets';
 import InputForm from '../../../../components/InputForm';
 import { Button } from 'react-native-paper';
 import { account, polices } from '../../../../data/data';
+import { signin } from '../../../../services/races';
+import { getErrorResponse } from '../../../../functions/helperFunction';
 
 interface AuthViewProps {
     setConfirm: any,
@@ -51,7 +53,33 @@ const AuthView:React.FC<AuthViewProps> = ({ setConfirm, errors, handleError, inp
             formData.append('signin[account]', account);
             formData.append('signin[password]', inputs.password);
             formData.append('signin[tel]', user.tel);
-            fetch(fetchUri, {
+
+            signin({ formData })
+                .then(json => {
+                    console.log(json)
+                    setLoading(false);
+                    setDisable(false);
+                    if(json.success) {
+                        const user = json.user;
+                        if(user) {
+                            setConfirm(true);
+                        } else {
+                            // registerScreen();
+                        }
+                    } else {
+                        const errors = json.errors;
+                        console.log('Errors: ', errors);
+                        for(let k in errors) {
+                            handleError(k, errors[k]);
+                        }
+                    }
+                })
+                .finally(() => {
+                    setLoading(false);
+                    setDisable(false);
+                })
+
+            fetch(apiv3 ? api_ref + '/signin.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -83,6 +111,11 @@ const AuthView:React.FC<AuthViewProps> = ({ setConfirm, errors, handleError, inp
                 setLoading(false);
                 setDisable(false);
                 console.log('AuthView Error: ', error)
+                getErrorResponse(error)
+            })
+            .finally(() => {
+                setLoading(false);
+                setDisable(false);
             })
         }
     }

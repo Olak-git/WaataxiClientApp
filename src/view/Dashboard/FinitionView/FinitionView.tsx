@@ -5,7 +5,7 @@ import MapView, { AnimatedRegion, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA, polices } from '../../../data/data';
 import tw from 'twrnc';
-import { locationPermission, getCurrentLocation } from '../../../functions/helperFunction';
+import { locationPermission, getCurrentLocation, getErrorResponse } from '../../../functions/helperFunction';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import Header from '../../../components/Header';
 import { Divider, Icon } from '@rneui/base';
@@ -14,13 +14,14 @@ import Geocoder from 'react-native-geocoding';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDialogCovoiturage } from '../../../feature/dialog.slice';
 import RNMarker from '../../../components/RNMarker';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 // import { setDisponibiliteCourse, setDisponibiliteReservation } from '../../../feature/init.slice';
 import Spinner from 'react-native-spinkit';
 import { RNDivider } from '../../../components/RNDivider';
 import { CommonActions } from '@react-navigation/native';
 import { setReload } from '../../../feature/reload.slice';
+import { getDriverRates } from '../../../services/races';
 // import { deleteCourse } from '../../../feature/course.slice';
 
 Geocoder.init(google_maps_apikey, {language : "fr"});
@@ -86,7 +87,25 @@ const FinitionView: React.FC<FinitionViewProps> = ({ navigation, route }) => {
             formData.append('reservation-covoiturage', course.slug);
         }
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        // getDriverRates({ formData })
+        //     .then(json => {
+        //         setEndFetch(true);
+        //         if(json.success) {
+        //             if(json.course) {
+        //                 // dispatch(setReload(''));
+        //                 setCourse(json.course);
+        //             }
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setEndFetch(true);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -109,6 +128,10 @@ const FinitionView: React.FC<FinitionViewProps> = ({ navigation, route }) => {
         .catch(error => {
             setEndFetch(true);
             console.log('FinitionView Error: ', error)
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setEndFetch(true);
         })
     }
 

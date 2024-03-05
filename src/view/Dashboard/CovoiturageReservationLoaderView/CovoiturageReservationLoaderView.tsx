@@ -4,12 +4,14 @@ import Base from '../../../components/Base';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
 import { Icon } from '@rneui/base';
-import { fetchUri, getCurrency, windowHeight, windowWidth } from '../../../functions/functions';
+import { api_ref, apiv3, fetchUri, getCurrency, windowHeight, windowWidth } from '../../../functions/functions';
 import Spinner from 'react-native-spinkit';
 import { RNDivider } from '../../../components/RNDivider';
 import { CommonActions } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { polices } from '../../../data/data';
+import { refreshRace } from '../../../services/races';
+import { getErrorResponse } from '../../../functions/helperFunction';
 
 const timer = require('react-native-timer');
 
@@ -50,7 +52,8 @@ const CovoiturageReservationLoaderView: React.FC<CovoiturageReservationLoaderVie
         formData.append('refresh-course', null);
         formData.append('token', user.slug);
         formData.append('reservation-covoiturage', course.slug);
-        fetch(fetchUri, {
+
+        fetch(apiv3 ? api_ref + '/refresh_race.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -71,6 +74,7 @@ const CovoiturageReservationLoaderView: React.FC<CovoiturageReservationLoaderVie
         })
         .catch(error => {
             console.log('CourseLoaderView Error1: ', error);
+            getErrorResponse(error)
         })
     }
 

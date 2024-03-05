@@ -7,13 +7,14 @@ import { ColorsEncr } from '../../../assets/styles';
 import { Divider, Icon } from '@rneui/base';
 import InputForm from '../../../components/InputForm';
 import TextareaForm from '../../../components/TextareaForm';
-import { fetchUri, toast, windowHeight } from '../../../functions/functions';
+import { api_ref, apiv3, fetchUri, toast, windowHeight } from '../../../functions/functions';
 import FlashMessage from '../../../components/FlashMessage';
 import { useSelector } from 'react-redux';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { google_maps_apikey, polices, waataxi_infos } from '../../../data/data';
-import { openCoordonateOnMap, openUrl } from '../../../functions/helperFunction';
+import { getErrorResponse, openCoordonateOnMap, openUrl } from '../../../functions/helperFunction';
 import Geocoder from 'react-native-geocoding';
+import { sendHelpMessage } from '../../../services/races';
 
 Geocoder.init(google_maps_apikey, {language : "fr"});
 
@@ -77,7 +78,30 @@ const HelpView: React.FC<HelpViewProps> = ({ navigation }) => {
             formData.append('account', 'passager');
             formData.append('help[objet]', inputs.objet);
             formData.append('help[message]', inputs.message);
-            fetch(fetchUri, {
+
+            // sendHelpMessage({ formData })
+            //     .then(json => {
+            //         setShowModal(false);
+            //         if(json.success) {
+            //             toast('SUCCESS', 'Message envoyé.');
+            //             handleOnChange('objet', '');
+            //             handleOnChange('message', '');
+            //         } else {
+            //             if(Platform.OS == 'android') {
+                            
+            //             }
+            //             const errors = json.errors;
+            //             console.log('Errors: ', errors);
+            //             for(let k in errors) {
+            //                 handleError(k, errors[k]);
+            //             }
+            //         }
+            //     })
+            //     .finally(() => {
+            //         setShowModal(false);
+            //     })
+
+            fetch(apiv3 ? api_ref + '/send_help_message.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -106,6 +130,10 @@ const HelpView: React.FC<HelpViewProps> = ({ navigation }) => {
             .catch(error => {
                 setShowModal(false);
                 console.log('HelpView Error1: ', error)
+                getErrorResponse(error)
+            })
+            .finally(() => {
+                setShowModal(false);
             })
         }
     }

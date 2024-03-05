@@ -4,12 +4,12 @@ import { Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, 
 import Base from '../../../components/Base';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
-import { baseUri, fetchUri, format_size, headers, toast, validateEmail, validatePassword, windowHeight } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, format_size, headers, toast, validateEmail, validatePassword, windowHeight } from '../../../functions/functions';
 import FilePicker, { types } from 'react-native-document-picker';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import InputForm from '../../../components/InputForm';
 import { Icon } from '@rneui/base';
-import { cameraPermission, clone, storagePermission } from '../../../functions/helperFunction';
+import { cameraPermission, clone, getErrorResponse, storagePermission } from '../../../functions/helperFunction';
 import { useDispatch, useSelector } from 'react-redux';
 import { Image } from '@rneui/themed/dist/Image';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
@@ -17,6 +17,7 @@ import { setUser } from '../../../feature/user.slice';
 import { Logo } from '../../../assets';
 import { otp_authentication, polices } from '../../../data/data';
 import { setStopped, setWithPortefeuille } from '../../../feature/init.slice';
+import { signup } from '../../../services/races';
 
 interface RegisterViewProps {
     navigation: any,
@@ -238,7 +239,8 @@ const RegisterView:React.FC<RegisterViewProps> = ({ navigation, route }) => {
             if(Object.keys(inputs.profil).length > 0) {
                 formData.append('img', inputs.profil);
             }
-            fetch(fetchUri, {
+
+            fetch(apiv3 ? api_ref + '/signup.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -249,7 +251,7 @@ const RegisterView:React.FC<RegisterViewProps> = ({ navigation, route }) => {
             .then(response => response.json())
             .then(json => {
                 console.log(json)
-                setShowModal(false);
+                // setShowModal(false);
                 if(json.success) {
                     let image = json.user.img;
                     const data = clone(json.user);
@@ -273,8 +275,11 @@ const RegisterView:React.FC<RegisterViewProps> = ({ navigation, route }) => {
                 }
             })
             .catch(error => {
-                setShowModal(false);
+                getErrorResponse(error)
                 console.log(error)
+            })
+            .finally(() => {
+                setShowModal(false);
             })
         }
     }

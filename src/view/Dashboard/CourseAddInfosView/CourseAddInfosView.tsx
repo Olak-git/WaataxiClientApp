@@ -9,18 +9,19 @@ import { Dialog, Skeleton } from '@rneui/themed';
 // import RNBottomSheet, { BottomSheetRefProps } from '../../../components/RNBottomSheet';
 import { GestureHandlerRootView, TouchableWithoutFeedback, ScrollView as GHScrollView, FlatList as GHFlatlist } from 'react-native-gesture-handler';
 import { BottomSheetRender } from '../../../components/BottomSheetRender';
-import { fetchUri, getCurrency, toast } from '../../../functions/functions';
+import { api_ref, apiv3, fetchUri, getCurrency, toast } from '../../../functions/functions';
 import { CommonActions } from '@react-navigation/native';
 import DatePicker from 'react-native-date-picker';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import RNBottomSheet, { BottomSheetRefProps } from '../../../components/RNBottomSheet';
-import { getErrorsToString, getSqlFormatDate, getSqlFormatDateTime, getSqlFormatTime } from '../../../functions/helperFunction';
+import { getErrorResponse, getErrorsToString, getSqlFormatDate, getSqlFormatDateTime, getSqlFormatTime } from '../../../functions/helperFunction';
 import { setUser } from '../../../feature/user.slice';
 import { setRefreshCoursesInstantanees, setRefreshReservations } from '../../../feature/init.slice';
 import moment from 'moment';
 import { polices } from '../../../data/data';
+import { getModelCars, newInstantRace, newReservationRace } from '../../../services/races';
 
 const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
 
@@ -107,7 +108,8 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
         formData.append('token', user.slug);
         formData.append('type_voitures', null);
         formData.append('action', action);
-        fetch(fetchUri, {
+
+        fetch(apiv3 ? api_ref + '/get_model_cars.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -127,7 +129,13 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
                 console.log(errors);
             }
         })
-        .catch(error => console.log('CourseAddInfos Error1: ', error))
+        .catch(error => {
+            getErrorResponse(error)
+            console.log('CourseAddInfos Error1: ', error)
+        })
+        .finally(() => {
+
+        })
     }
 
     const handleOnChange = (text: any, input: string) => {
@@ -194,8 +202,8 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
         }
     }
 
-    const callFnc = (formData: any) => {
-        fetch(fetchUri, {
+    const callFnc = (formData: any, uri: string) => {
+        fetch(apiv3 ? api_ref + `/${uri}` : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -222,10 +230,13 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
             }
         })
         .catch(error => {
-                setVisible(false);
-                console.log('CourseAddInfos Error2: ', error)
-            }
-        );
+            setVisible(false);
+            console.log('CourseAddInfos Error2: ', error)
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setVisible(false);
+        });
     }
 
     const onHandle = () => {
@@ -298,13 +309,13 @@ const CourseAddInfosView: React.FC<CourseAddInfosViewProps> = ({ navigation, rou
 
             if(action == 'course') {
                 formData.append('new-course', null);
-                callFnc(formData);
+                callFnc(formData, 'new_instant_race.php');
             } else if(action == 'reservation') {
                 formData.append('new-reservation-course', null);
                 formData.append('reservation[date_depart]', moment(course.date_depart).format('YYYY-MM-DD'));
                 formData.append('reservation[heure_depart]', moment(course.heure_depart).format('HH:mm'));
 
-                callFnc(formData);
+                callFnc(formData, 'new_reservation_race.php');
             }
             console.log('formData => ', formData)
         }

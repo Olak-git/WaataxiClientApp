@@ -7,7 +7,7 @@ import { ColorsEncr } from '../../../assets/styles';
 import { Icon } from '@rneui/base';
 import InputForm from '../../../components/InputForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUri, fetchUri, getCurrency, toast, windowWidth } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency, toast, windowWidth } from '../../../functions/functions';
 import { MtnMoney, Wallet } from '../../../assets';
 import WebView from 'react-native-webview';
 import { setUser } from '../../../feature/user.slice';
@@ -16,6 +16,7 @@ import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import FlashMessage from '../../../components/FlashMessage';
 import { getErrorsToString } from '../../../functions/helperFunction';
 import { polices } from '../../../data/data';
+import { updateWallet } from '../../../services/races';
 
 interface PortefeuilleViewProps {
     navigation: any
@@ -62,7 +63,25 @@ const PortefeuilleView: React.FC<PortefeuilleViewProps> = ({ navigation }) => {
         formData.append('token', user.slug)
         formData.append('montant', inputs.mnt)
         
-        fetch(fetchUri, {
+        // updateWallet({ formData })
+        //     .then(json => {
+        //         setVisible(false);
+        //         if(json.success) {
+        //             toast('SUCCESS', `Votre portefeuille a été crédité de ${inputs.mnt} FCFA`, false);
+        //             // @ts-ignore
+        //             const montant = parseFloat(user.portefeuille) + parseFloat(inputs.mnt);
+        //             dispatch(setUser({portefeuille: montant}));
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log('Errors: ', errors);
+        //             toast('DANGER', getErrorsToString(errors), false);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setVisible(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/update_wallet.php' : fetchUri, {
             method: 'POST',
             body: formData
         })
@@ -83,6 +102,9 @@ const PortefeuilleView: React.FC<PortefeuilleViewProps> = ({ navigation }) => {
         .catch(e => {
             setVisible(false);
             console.warn(e)
+        })
+        .finally(() => {
+            setVisible(false);
         })
     }
 

@@ -4,14 +4,15 @@ import { Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, 
 import Base from '../../../../components/Base';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../../assets/styles';
-import { account, baseUri, fetchUri, format_size, headers, toast, validateEmail, validatePassword, windowHeight } from '../../../../functions/functions';
+import { account, api_ref, apiv3, baseUri, fetchUri, format_size, headers, toast, validateEmail, validatePassword, windowHeight } from '../../../../functions/functions';
 import InputForm from '../../../../components/InputForm';
 import { Divider, Icon } from '@rneui/base';
 import { useDispatch, useSelector } from 'react-redux';
 import { ModalValidationForm } from '../../../../components/ModalValidationForm';
 import { Button, TextInput } from 'react-native-paper';
-import { customGenerateRandomNumber } from '../../../../functions/helperFunction';
+import { customGenerateRandomNumber, getErrorResponse } from '../../../../functions/helperFunction';
 import { polices } from '../../../../data/data';
+import { getNewCodeForAuthAccount } from '../../../../services/races';
 
 interface EmailProps {
     inputs: any,
@@ -67,9 +68,9 @@ const Email:React.FC<EmailProps> = ({ inputs, errors, handleOnChange, handleErro
             formData.append('reset_password[email]', inputs.email);
             formData.append('reset_password[tel]', inputs.tel);
             formData.append('reset_password[code]', code);
-
             console.log('DATA: ', formData);
-            fetch(fetchUri, {
+
+            fetch(apiv3 ? api_ref + '/get_new_code_for_auth_account.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 // headers: {
@@ -93,9 +94,11 @@ const Email:React.FC<EmailProps> = ({ inputs, errors, handleOnChange, handleErro
                         toast('DANGER', errors.user)
                     }
                 }
+                // setShowModal(false);
             })
             .catch(error => {
                 console.log(error)
+                getErrorResponse(error)
             })
             .finally(() => {
                 setShowModal(false);

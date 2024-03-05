@@ -7,7 +7,7 @@ import { ColorsEncr } from '../../../assets/styles';
 import { Icon } from '@rneui/base';
 import SearchBar from '../../../components/SearchBar';
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import BottomButton from '../../../components/BottomButton';
 import { WtCar1 } from '../../../assets';
@@ -18,7 +18,8 @@ import { setStoreReservation } from '../../../feature/courses.slice';
 import { RNSpinner } from '../../../components/RNSpinner';
 import { useNavigation } from '@react-navigation/native';
 import { polices } from '../../../data/data';
-import { characters_exists } from '../../../functions/helperFunction';
+import { characters_exists, getErrorResponse } from '../../../functions/helperFunction';
+import { getReservationsInstantRace } from '../../../services/races';
 
 const timer = require('react-native-timer');
 
@@ -103,7 +104,30 @@ const HistoriqueReservationView: React.FC<HistoriqueReservationViewProps> = ({ n
             formData.append('js', null);
             formData.append('token', user.slug);
             formData.append('reservations-course', null);
-            fetch(fetchUri, {
+
+            // getReservationsInstantRace({ formData })
+            //     .then(async json => {
+            //         setRefreshing(false);
+            //         if(json.success) {
+            //             await setMasterReservations([...json.reservations]);
+            //             await setReservations([...json.reservations]);
+            //             // console.log('json.min_tarif: ', json.min_tarif);
+            //             setMinTarif(json.min_tarif);
+            //             dispatch(setUser({portefeuille: json.user.portefeuille}));
+
+            //             dispatch(setStoreReservation([...json.reservations]))
+
+            //             setEndFetch(true);
+            //         } else {
+            //             const errors = json.errors;
+            //             console.log(errors);
+            //         }
+            //     })
+            //     .finally(()=>{
+                    
+            //     })
+
+            fetch(apiv3 ? api_ref + '/get_reservations_instant_race.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -128,7 +152,13 @@ const HistoriqueReservationView: React.FC<HistoriqueReservationViewProps> = ({ n
                     console.log(errors);
                 }
             })
-            .catch(error => console.log('HistoriqueReservationView Error: ', error))
+            .catch(error => {
+                console.log('HistoriqueReservationView Error: ', error)
+                getErrorResponse(error)
+            })
+            .finally(()=>{
+                    
+            })
         }
     }
 

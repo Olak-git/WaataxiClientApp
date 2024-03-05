@@ -7,7 +7,7 @@ import { ColorsEncr } from '../../../assets/styles';
 import { Divider, Icon } from '@rneui/base';
 import { Rating } from 'react-native-ratings';
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUri, fetchUri } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri } from '../../../functions/functions';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import { setReload } from '../../../feature/reload.slice';
@@ -15,8 +15,9 @@ import { rgbaColor } from 'react-native-reanimated/src/reanimated2/Colors';
 import { RNPModal } from '../../../components/RNPModal';
 import { ImageSource } from 'react-native-vector-icons/Icon';
 import ImageView from 'react-native-image-viewing';
-import { callPhoneNumber, openUrl } from '../../../functions/helperFunction';
+import { callPhoneNumber, getErrorResponse, openUrl } from '../../../functions/helperFunction';
 import { polices } from '../../../data/data';
+import { getDriverRates, updateDriverRate } from '../../../services/races';
 // import { Modal, Portal, Button, Provider } from 'react-native-paper';
 
 const SectionData: React.FC<{
@@ -75,7 +76,23 @@ const ProfilConducteurView: React.FC<ProfilConducteurViewProps> = ({ navigation,
         formData.append('token', user.slug);
         formData.append('to', conducteur.slug);
         formData.append('score', rating.unit);
-        fetch(fetchUri, {
+
+        // updateDriverRate({ formData })
+        //     .then(json => {
+        //         setShow(false);
+        //         if(json.success) {
+        //             setVisible(false);
+        //             dispatch(setReload());
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setShow(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/update_driver_rate.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -96,6 +113,10 @@ const ProfilConducteurView: React.FC<ProfilConducteurViewProps> = ({ navigation,
         .catch(error => {
             setShow(false);
             console.log('ProfilConducteurView Error1: ', error);
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setShow(false);
         })
     }
 
@@ -104,7 +125,22 @@ const ProfilConducteurView: React.FC<ProfilConducteurViewProps> = ({ navigation,
         formData.append('js', null);
         formData.append('data-user', conducteur.slug);
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        // getDriverRates({ formData })
+        //     .then(json => {
+        //         if(json.success) {
+        //             setRating(state => ({...state, total: json.scores, unit: json.score}));
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //         setEndFetch(true);
+        //     })
+        //     .finally(()=>{
+                
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -123,6 +159,10 @@ const ProfilConducteurView: React.FC<ProfilConducteurViewProps> = ({ navigation,
         })
         .catch(error => {
             console.log('ProfilConducteurView Error2: ', error);
+            getErrorResponse(error)
+        })
+        .finally(()=>{
+                
         })
     }
 

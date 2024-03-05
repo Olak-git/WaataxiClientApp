@@ -5,15 +5,16 @@ import Header, { HeaderTitle } from '../../../components/Header';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { WtCar1 } from '../../../assets';
 import { Icon } from '@rneui/themed';
-import { characters_exists, getLocalDate, getLocalTime } from '../../../functions/helperFunction';
+import { characters_exists, getErrorResponse, getLocalDate, getLocalTime } from '../../../functions/helperFunction';
 import SearchBar from '../../../components/SearchBar';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import { addNotification } from '../../../feature/notifications.slice';
 import { Divider } from '@rneui/base';
 import { polices } from '../../../data/data';
+import { get_notifications } from '../../../services/races';
 
 interface NotificationsViewProps {
     navigation: any
@@ -40,12 +41,32 @@ const NotificationsView: React.FC<NotificationsViewProps> = ({ navigation }) => 
     const [masterNotifications, setMasterNotifications] = useState<any>([]);
     const [notifications, setNotifications] = useState<any>([]);
 
+    const [notificationsReaded, setNotificationsReaded] = useState<any>([]);
+
     const getNotifications = () => {
         const formData = new FormData();
         formData.append('js', null);
         formData.append('token', user.slug);
         formData.append('notifications', null);
-        fetch(fetchUri, {
+
+        // get_notifications({ formData })
+        //     .then(json => {
+        //         setRefreshing(false);
+        //         if(json.success) {
+        //             console.log(json);
+        //             setNotifications([...json.notifications]);
+        //             setMasterNotifications([...json.notifications]);
+        //             setEndFetch(true);
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .finally(() => {
+        //         setRefreshing(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_notifications.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -56,10 +77,11 @@ const NotificationsView: React.FC<NotificationsViewProps> = ({ navigation }) => 
         .then(json => {
             setRefreshing(false);
             if(json.success) {
-                console.log(json);
+                // console.log(json);
                 setNotifications([...json.notifications]);
                 setMasterNotifications([...json.notifications]);
-                setEndFetch(true);
+                setNotificationsReaded([...json.notifications_readed]);
+                // setEndFetch(true);
             } else {
                 const errors = json.errors;
                 console.log(errors);
@@ -67,6 +89,10 @@ const NotificationsView: React.FC<NotificationsViewProps> = ({ navigation }) => 
         })
         .catch(error => {
             console.log('NotificationsView Error: ', error)
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setEndFetch(true);
             setRefreshing(false);
         })
     }
@@ -112,16 +138,21 @@ const NotificationsView: React.FC<NotificationsViewProps> = ({ navigation }) => 
         navigation.navigate('DashDetailsNotification', {notification: item});
     }
 
+    const item_has_readed = (key: number) => {
+        return notificationsReaded.includes(key);
+        return notifies.includes(key) !== -1
+    }
+
     // @ts-ignore
     const renderItem = ({item}) => {
         return (
             <TouchableOpacity
                 onPress={() => onHandle(item)}
                 style={[ tw`flex-row mb-3` ]}>
-                <Icon type='font-awesome' color={ColorsEncr.main} size={18} reverse reverseColor={notifies.indexOf(item.id) === -1 ? '#000000' : '#FFFFFF'} name={notifies.indexOf(item.id) === -1 ? 'envelope' : 'envelope-open'} />
+                <Icon type='font-awesome' color={ColorsEncr.main} size={18} reverse reverseColor={!item_has_readed(item.id) ? '#000000' : '#FFFFFF'} name={!item_has_readed(item.id) ? 'envelope' : 'envelope-open'} />
                 <View style={tw`ml-3 flex-1`}>
-                    <Text style={[tw`${notifies.indexOf(item.id) === -1 ? 'font-black text-black' : 'font-bold text-gray-600'}`, {fontFamily: 'YatraOne-Regular'}, {fontFamily: polices.times_new_roman}]} numberOfLines={1} ellipsizeMode='tail'>{item.intituler}</Text>
-                    <Text style={[tw`${notifies.indexOf(item.id) === -1 ? 'font-semibold text-black' : 'text-gray-600'}`, {fontFamily: polices.times_new_roman}]} numberOfLines={2} ellipsizeMode='tail'>{item.passager}</Text>
+                    <Text style={[tw`${!item_has_readed(item.id) ? 'font-black text-black' : 'font-bold text-gray-600'}`, {fontFamily: 'YatraOne-Regular'}, {fontFamily: polices.times_new_roman}]} numberOfLines={1} ellipsizeMode='tail'>{item.intituler}</Text>
+                    <Text style={[tw`${!item_has_readed(item.id) ? 'font-semibold text-black' : 'text-gray-600'}`, {fontFamily: polices.times_new_roman}]} numberOfLines={2} ellipsizeMode='tail'>{item.passager}</Text>
                     <Text style={[tw`mt-2 text-gray-400`, {fontFamily: polices.times_new_roman}]}>{getLocalDate(item.dat)}</Text>
                 </View>
             </TouchableOpacity>

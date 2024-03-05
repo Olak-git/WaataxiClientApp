@@ -6,7 +6,7 @@ import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
 import { CheckBox, Divider, Icon } from '@rneui/base';
 import RNBottomSheet, { BottomSheetRefProps } from '../../../components/RNBottomSheet';
-import { arrondir, fetchUri, getCurrency, toast } from '../../../functions/functions';
+import { api_ref, apiv3, arrondir, fetchUri, getCurrency, toast } from '../../../functions/functions';
 import {Picker} from '@react-native-picker/picker';
 import { RNDivider } from '../../../components/RNDivider';
 import { ActivityLoading } from '../../../components/ActivityLoading';
@@ -15,9 +15,10 @@ import FlashMessage from '../../../components/FlashMessage';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../../feature/user.slice';
-import { getErrorsToString } from '../../../functions/helperFunction';
+import { getErrorResponse, getErrorsToString } from '../../../functions/helperFunction';
 import { Root } from 'react-native-alert-notification';
 import { polices } from '../../../data/data';
+import { get_configuration, newReservationCarsharing } from '../../../services/races';
 
 const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
 
@@ -161,7 +162,7 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                 formData.append(`reservation[latlng_arrive][${kkey}]`, reservationCourse.latlng_arrive[kkey]);
             }
 
-            fetch(fetchUri, {
+            fetch(apiv3 ? api_ref + '/new_reservation_carsharing.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -170,7 +171,7 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
             })
             .then(response => response.json())
             .then(json => {
-                setVisible(false);
+                // setVisible(false);
                 if(json.success) {
                     toast('SUCCESS', 'Votre course a bien été enregistrée');
                     dispatch(setUser({portefeuille: json.user.portefeuille}));
@@ -187,10 +188,12 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                 }
             })
             .catch(error => {
-                    setVisible(false);
-                    console.log('CourseCovoiturageInfosView Error1: ', error)
-                }
-            );
+                console.log('CourseCovoiturageInfosView Error1: ', error)
+                getErrorResponse(error)
+            })
+            .finally(() => {
+                setVisible(false);
+            });
         }
     }
 
@@ -199,7 +202,8 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
         formData.append('js', null);
         formData.append('configuration', null);
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        fetch(apiv3 ? api_ref + '/get_configuration.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -215,10 +219,15 @@ const CourseCovoiturageInfosView: React.FC<CourseCovoiturageInfosViewProps> = ({
                 const errors = json.errors;
                 console.log(errors);
             }
-            setEndfetch(true);
+            // setEndfetch(true);
         })
         .catch(error => {
             console.log('CourseCovoiturageInfosView Error2: ', error);
+            getErrorResponse(error)
+        })
+        .finally(()=>{
+            if(!endfetch)
+                setEndfetch(true);
         })
     }
 

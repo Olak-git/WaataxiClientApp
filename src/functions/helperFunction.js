@@ -1,7 +1,7 @@
 // import { Dialog, Toast, ALERT_TYPE, Root } from 'react-native-alert-notification';
 import { Platform, PermissionsAndroid, Linking, Alert } from "react-native";
 import Geolocation from 'react-native-geolocation-service';
-import { getRandomInt } from "./functions";
+import { getRandomInt, toast } from "./functions";
 
 export const customGenerateRandomNumber = (length = 4) => (Math.random().toString(10) + '00000000000').substring(2, length+2)
 
@@ -349,6 +349,22 @@ export const openUrl = async (url) => {
 export const callPhoneNumber = (number) => {
     const phoneNumber = `${Platform.OS !== 'android' ? 'telprompt' : 'tel'}:${number}`;
     openUrl(phoneNumber);
+}
+
+export const getResponseJson = (response) => {
+    return response.json()
+}
+
+export const getErrorResponse = (error) => {
+    console.log({ ERROR: error.message });
+    if(error.message.toLowerCase()=='network request failed') {
+        // console.log('ADAGBOTO');
+        toast('DANGER', 'Connexion au serveur échouée.', false)
+    }
+}
+
+export const fetchOptions = {
+    
 }
 
 

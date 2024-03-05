@@ -5,8 +5,8 @@ import tw from 'twrnc';
 import { ColorsEncr } from '../../../../assets/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { ModalValidationForm } from '../../../../components/ModalValidationForm';
-import { baseUri, fetchUri } from '../../../../functions/functions';
-import { clone } from '../../../../functions/helperFunction';
+import { api_ref, apiv3, baseUri, fetchUri } from '../../../../functions/functions';
+import { clone, getErrorResponse } from '../../../../functions/helperFunction';
 import { setUser } from '../../../../feature/user.slice';
 import { Logo } from '../../../../assets';
 import InputForm from '../../../../components/InputForm';
@@ -14,6 +14,7 @@ import { Button, Chip, Snackbar } from 'react-native-paper';
 import { account, polices } from '../../../../data/data';
 import { setStopped, setWithPortefeuille } from '../../../../feature/init.slice';
 import { useNavigation } from '@react-navigation/native';
+import { signin } from '../../../../services/races';
 
 interface AuthenticateViewProps {
     phoneNumber: string,
@@ -66,7 +67,8 @@ const AuthenticateView:React.FC<AuthenticateViewProps> = ({ phoneNumber, setConf
             formData.append('signin[account]', account);
             formData.append('signin[password]', inputs.password);
             formData.append('signin[tel]', phoneNumber);
-            fetch(fetchUri, {
+
+            fetch(apiv3 ? api_ref + '/signin.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -77,7 +79,7 @@ const AuthenticateView:React.FC<AuthenticateViewProps> = ({ phoneNumber, setConf
             .then(response => response.json())
             .then(json => {
                 console.log(json)
-                setVisible(false);
+                // setVisible(false);
                 if(json.success) {
                     const user = json.user;
                     if(user) {
@@ -103,8 +105,11 @@ const AuthenticateView:React.FC<AuthenticateViewProps> = ({ phoneNumber, setConf
                 }
             })
             .catch(error => {
-                setVisible(false);
+                getErrorResponse(error)
                 console.log(error)
+            })
+            .finally(() => {
+                setVisible(false);
             })
         }
     }

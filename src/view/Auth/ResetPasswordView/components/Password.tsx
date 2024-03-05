@@ -5,9 +5,11 @@ import InputForm from '../../../../components/InputForm'
 import { Icon } from '@rneui/base'
 import { CommonActions, useNavigation } from '@react-navigation/native'
 import tw from 'twrnc'
-import { account, fetchUri, toast, validatePassword } from '../../../../functions/functions'
+import { account, api_ref, apiv3, fetchUri, toast, validatePassword } from '../../../../functions/functions'
 import { Button } from 'react-native-paper'
 import { polices } from '../../../../data/data'
+import { newPassword } from '../../../../services/races'
+import { getErrorResponse } from '../../../../functions/helperFunction'
 
 interface PasswordProps {
     setConfirm: (a:boolean)=>void,
@@ -81,7 +83,8 @@ const Password: React.FC<PasswordProps> = ({ setConfirm, email, tel }) => {
             formData.append('email', email);
             formData.append('password', inputs.password);
             formData.append('confirmation', inputs.confirmation);
-            fetch(fetchUri, {
+
+            fetch(apiv3 ? api_ref + '/new_password.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -102,6 +105,7 @@ const Password: React.FC<PasswordProps> = ({ setConfirm, email, tel }) => {
                 }
             })
             .catch(error => {
+                getErrorResponse(error)
                 console.log('UpdatePasswordView Error: ', error)
             })
             .finally(() => {

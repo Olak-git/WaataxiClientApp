@@ -8,10 +8,10 @@ import { GestureHandlerRootView, FlatList as GHFlatList, RefreshControl as GHRef
 import RNBottomSheet, { BottomSheetRefProps } from '../../../components/RNBottomSheet';
 import { RNDivider } from '../../../components/RNDivider';
 import SearchBar from '../../../components/SearchBar';
-import { baseUri, fetchUri, getCurrency } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency } from '../../../functions/functions';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActivityLoading } from '../../../components/ActivityLoading';
-import { characters_exists, getLocalDate, getLocalTimeStr } from '../../../functions/helperFunction';
+import { characters_exists, getErrorResponse, getLocalDate, getLocalTimeStr } from '../../../functions/helperFunction';
 import RenderNewItemCourseCovoiturage from '../../../components/RenderNewItemCourseCovoiturage';
 import RenderItemCourseCovoiturage from '../../../components/RenderItemCourseCovoiturage';
 import { setStopped } from '../../../feature/init.slice';
@@ -19,6 +19,7 @@ import { setStoreCovoiturage, setStoreReservationCovoiturage } from '../../../fe
 import { RNSpinner } from '../../../components/RNSpinner';
 import { useNavigation } from '@react-navigation/native';
 import { polices } from '../../../data/data';
+import { getReservationsAndNewCarsharing } from '../../../services/races';
 
 const timer = require('react-native-timer');
 
@@ -244,7 +245,31 @@ const HistoriqueCovoiturageView: React.FC<HistoriqueCovoiturageViewProps> = ({ n
             formData.append('covoiturages', null);
             formData.append('token', user.slug);
             // console.log(formData);
-            fetch(fetchUri, {
+
+            // getReservationsAndNewCarsharing({ formData })
+            //     .then(async json => {
+            //         onHandle({refreshing: false}, 'reservation');
+            //         onHandle({refreshing: false}, 'covoiturage');
+            //         setRefreshing(false)
+            //         // console.log(json)
+            //         if(json.success) {
+            //             await onHandle({data: [...json.reservations], master: [...json.reservations]}, 'reservation');
+            //             await onHandle({data: [...json.covoiturages], master: [...json.covoiturages]}, 'covoiturage');
+
+            //             dispatch(setStoreCovoiturage([...json.covoiturages]))
+            //             dispatch(setStoreReservationCovoiturage([...json.reservations]))
+                                            
+            //             setEndFetch(true);
+            //         } else {
+            //             const errors = json.errors;
+            //             console.log(errors);
+            //         }
+            //     })
+            //     .finally(()=>{
+                    
+            //     })
+
+            fetch(apiv3 ? api_ref + '/get_reservations_nnd_new_carsharing.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -270,7 +295,13 @@ const HistoriqueCovoiturageView: React.FC<HistoriqueCovoiturageViewProps> = ({ n
                     console.log(errors);
                 }
             })
-            .catch(error => console.log('HistoriqueCovoiturageView Error: ', error))
+            .catch(error => {
+                console.log('HistoriqueCovoiturageView Error: ', error)
+                getErrorResponse(error)
+            })
+            .finally(()=>{
+                    
+            })
         }
     }
 

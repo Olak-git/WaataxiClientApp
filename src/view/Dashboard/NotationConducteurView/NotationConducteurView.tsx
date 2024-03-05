@@ -9,7 +9,7 @@ import InputForm from '../../../components/InputForm';
 import TextareaForm from '../../../components/TextareaForm';
 import { Rating } from 'react-native-ratings';
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUri, fetchUri, toast } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, toast } from '../../../functions/functions';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import { setReload } from '../../../feature/reload.slice';
@@ -17,6 +17,8 @@ import { RNPModal } from '../../../components/RNPModal';
 import { ImageSource } from 'react-native-vector-icons/Icon';
 import ImageView from 'react-native-image-viewing';
 import { polices } from '../../../data/data';
+import { getDriverRates, updateDriverRate } from '../../../services/races';
+import { getErrorResponse } from '../../../functions/helperFunction';
 
 const SectionData: React.FC<{
     iconType?: string,
@@ -74,7 +76,25 @@ const NotationConducteurView: React.FC<NotationConducteurViewProps> = ({ navigat
         formData.append('token', user.slug);
         formData.append('to', conducteur.slug);
         formData.append('score', rating.unit);
-        fetch(fetchUri, {
+
+        // updateDriverRate({ formData })
+        //     .then(json => {
+        //         setShow(false);
+        //         if(json.success) {
+        //             setVisible(false);
+        //             let v = incr + 1;
+        //             setIncr(v);
+        //             toast('SUCCESS', 'Note attribuée.')
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //     })
+        //     .catch(() => {
+        //         setShow(false);
+        //     })
+
+        fetch(apiv3 ? api_ref + '/update_driver_rate.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -95,8 +115,11 @@ const NotationConducteurView: React.FC<NotationConducteurViewProps> = ({ navigat
             }
         })
         .catch(error => {
-            setShow(false);
             console.log('NotationConducteurView Error1: ', error);
+            getErrorResponse(error)
+        })
+        .finally(()=>{
+            setShow(false);
         })
     }
 
@@ -105,7 +128,22 @@ const NotationConducteurView: React.FC<NotationConducteurViewProps> = ({ navigat
         formData.append('js', null);
         formData.append('data-user', conducteur.slug);
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        // getDriverRates({ formData })
+        //     .then(json => {
+        //         if(json.success) {
+        //             setRating(state => ({...state, total: json.scores, unit: json.score}));
+        //         } else {
+        //             const errors = json.errors;
+        //             console.log(errors);
+        //         }
+        //         setEndFetch(true);
+        //     })
+        //     .finally(()=>{
+
+        //     })
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -124,6 +162,10 @@ const NotationConducteurView: React.FC<NotationConducteurViewProps> = ({ navigat
         })
         .catch(error => {
             console.log('NotationConducteurView Error2: ', error);
+            getErrorResponse(error)
+        })
+        .finally(()=>{
+
         })
     }
 

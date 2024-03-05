@@ -5,7 +5,7 @@ import MapView, { AnimatedRegion, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { google_maps_apikey, imageMapPath, LATITUDE_DELTA, LONGITUDE_DELTA, polices } from '../../../data/data';
 import tw from 'twrnc';
-import { locationPermission, getCurrentLocation } from '../../../functions/helperFunction';
+import { locationPermission, getCurrentLocation, getErrorResponse } from '../../../functions/helperFunction';
 import { ActivityLoading } from '../../../components/ActivityLoading';
 import Header from '../../../components/Header';
 import { Divider, Icon } from '@rneui/base';
@@ -14,10 +14,11 @@ import Geocoder from 'react-native-geocoding';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDialogCovoiturage } from '../../../feature/dialog.slice';
 import RNMarker from '../../../components/RNMarker';
-import { fetchUri } from '../../../functions/functions';
+import { api_ref, apiv3, fetchUri } from '../../../functions/functions';
 import { CommonActions } from '@react-navigation/native';
 import CompoMarker from '../../../components/CompoMarker';
 import CompoMarkerAnimated from '../../../components/CompoMarkerAnimated';
+import { getDriverRates } from '../../../services/races';
 
 Geocoder.init(google_maps_apikey, {language : "fr"});
 
@@ -246,7 +247,8 @@ const CurrentPositionView: React.FC<CurrentPositionViewProps> = ({ navigation, r
             formData.append('reservation-covoiturage', course.slug);
         }
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        fetch(apiv3 ? api_ref + '/get_driver_rates.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -269,6 +271,10 @@ const CurrentPositionView: React.FC<CurrentPositionViewProps> = ({ navigation, r
         .catch(error => {
             setEndFetch(true);
             console.log('CurrentPositionView Error3: ', error)
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setEndFetch(true);
         })
     }
 

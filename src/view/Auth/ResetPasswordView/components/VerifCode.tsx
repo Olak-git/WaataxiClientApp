@@ -5,8 +5,10 @@ import { ColorsEncr } from '../../../../assets/styles'
 import { Divider, Icon } from '@rneui/base'
 import tw from 'twrnc'
 import { Button } from 'react-native-paper'
-import { account, fetchUri, toast } from '../../../../functions/functions'
+import { account, api_ref, apiv3, fetchUri, toast } from '../../../../functions/functions'
 import { polices } from '../../../../data/data'
+import { getNewCodeForAuthAccount } from '../../../../services/races'
+import { getErrorResponse } from '../../../../functions/helperFunction'
 
 interface VerifCodeProps {
     inputs: any,
@@ -38,7 +40,8 @@ const VerifCode: React.FC<VerifCodeProps> = ({inputs, handleOnChange, pin_count,
             formData.append('reset_password[code]', code);
 
             console.log('DATA: ', formData);
-            fetch(fetchUri, {
+
+            fetch(apiv3 ? api_ref + '/get_new_code_for_auth_account.php' : fetchUri, {
                 method: 'POST',
                 body: formData,
             })
@@ -53,6 +56,7 @@ const VerifCode: React.FC<VerifCodeProps> = ({inputs, handleOnChange, pin_count,
                 }
             })
             .catch(error => {
+                getErrorResponse(error)
                 console.log(error)
             })
             .finally(() => {

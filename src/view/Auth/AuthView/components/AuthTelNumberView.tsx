@@ -3,12 +3,13 @@ import { Pressable, Text, TextInput, TouchableOpacity, View, StyleSheet, ScrollV
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../../assets/styles';
 import InputForm from '../../../../components/InputForm';
-import { baseUri, fetchUri, toast } from '../../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, toast } from '../../../../functions/functions';
 import { useDispatch } from 'react-redux';
 import CountryPicker, { Country, CountryCode } from 'react-native-country-picker-modal'
 import { Icon } from '@rneui/base';
 import { polices } from '../../../../data/data';
-import { clear_format_tel, format_tel } from '../../../../functions/helperFunction';
+import { clear_format_tel, format_tel, getErrorResponse } from '../../../../functions/helperFunction';
+import { checkAccount } from '../../../../services/races';
 
 interface AuthTelNumberViewProps {
     setConfirm: any,
@@ -47,7 +48,8 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ setConfirm = ()=>{
         const formData = new FormData();
         formData.append('js', null);
         formData.append('verify[tel]', `+${callingCode}${phone}`);
-        fetch(fetchUri, {
+
+        fetch(apiv3 ? api_ref + '/check_account.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -61,8 +63,8 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ setConfirm = ()=>{
         })
         .then(json => {
             console.log(json)
-            setProgress(false);
-            setDisable(false);
+            // setProgress(false);
+            // setDisable(false);
             if(json.success) {
                 const _user = json.user;
                 if(_user) {
@@ -79,10 +81,12 @@ const AuthTelNumberView:React.FC<AuthTelNumberViewProps> = ({ setConfirm = ()=>{
             }
         })
         .catch(error => {
-            console.log(error)
+            getErrorResponse(error)
+            toast('DANGER', JSON.stringify(error), true, 'Erreur');
+        })
+        .finally(() => {
             setProgress(false);
             setDisable(false);
-            toast('DANGER', JSON.stringify(error), true, 'Erreur');
         })
     }
 

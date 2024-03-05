@@ -4,7 +4,7 @@ import Base from '../../../components/Base';
 import tw from 'twrnc';
 import { ColorsEncr } from '../../../assets/styles';
 import { Divider, Icon } from '@rneui/base';
-import { baseUri, fetchUri, getCurrency, getDate, toast, windowHeight } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri, getCurrency, getDate, toast, windowHeight } from '../../../functions/functions';
 import Spinner from 'react-native-spinkit';
 import { RNDivider } from '../../../components/RNDivider';
 import { CommonActions } from '@react-navigation/native';
@@ -12,12 +12,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GestureHandlerRootView, TouchableWithoutFeedback, ScrollView as GHScrollView, FlatList as GHFlatlist } from 'react-native-gesture-handler';
 import RNBottomSheet, { BottomSheetRefProps } from '../../../components/RNBottomSheet';
 import { SheetRender } from './components/SheetRender';
-import { callPhoneNumber, getErrorsToString, openUrl } from '../../../functions/helperFunction';
+import { callPhoneNumber, getErrorResponse, getErrorsToString, openUrl } from '../../../functions/helperFunction';
 import { ModalValidationForm } from '../../../components/ModalValidationForm';
 import { setRefreshCoursesInstantanees, setRefreshReservations, setStopped } from '../../../feature/init.slice';
 import { BottomSheetRender } from '../../../components/BottomSheetRender';
 import Pubs from '../../../components/Pubs';
 import { polices } from '../../../data/data';
+import { refreshRace, updateModelCar } from '../../../services/races';
 
 const timer = require('react-native-timer');
 
@@ -80,7 +81,8 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
             formData.append('course', slug);
         }
         // console.log('FormData: ', formData);
-        fetch(fetchUri, {
+
+        fetch(apiv3 ? api_ref + '/refresh_race.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -106,6 +108,7 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
         })
         .catch(error => {
             console.log('CourseLoaderView Error1: ', error);
+            getErrorResponse(error)
         })
     }
 
@@ -119,7 +122,8 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
         // @ts-ignore
         formData.append(`type_voiture`, typeVoitures[itemSelected].id);
         console.log('FormData: ', formData)
-        fetch(fetchUri, {
+
+        fetch(apiv3 ? api_ref + '/update_model_car.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -128,7 +132,7 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
         })
         .then(response => response.json())
         .then(json => {
-            setVisible(false);
+            // setVisible(false);
             if(json.success) {
                 toast('SUCCESS', 'Vous avez modifié le type de voiture pour votre course.')
                 setItemSelected(null)
@@ -139,8 +143,11 @@ const CourseLoaderView: React.FC<CourseLoaderViewProps> = ({ navigation, route }
             }
         })
         .catch(error => {
-            setVisible(false);
             console.log('CourseLoaderView Error2: ', error)
+            getErrorResponse(error)
+        })
+        .finally(() => {
+            setVisible(false);
         });
     }
 

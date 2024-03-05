@@ -9,10 +9,12 @@ import InputForm from '../../../components/InputForm';
 import TextareaForm from '../../../components/TextareaForm';
 import { Rating } from 'react-native-ratings';
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUri, fetchUri } from '../../../functions/functions';
+import { api_ref, apiv3, baseUri, fetchUri } from '../../../functions/functions';
 import { ImageSource } from 'react-native-vector-icons/Icon';
 import ImageView from 'react-native-image-viewing';
 import { polices } from '../../../data/data';
+import { getUserRate } from '../../../services/races';
+import { getErrorResponse } from '../../../functions/helperFunction';
 
 const SectionData: React.FC<{
     iconType?: string,
@@ -48,7 +50,18 @@ const MyAccountView: React.FC<MyAccountViewProps> = ({ navigation }) => {
         formData.append('js', null);
         formData.append('rating-user', null);
         formData.append('token', user.slug);
-        fetch(fetchUri, {
+
+        getUserRate({ formData })
+            .then(json => {
+                if(json.success) {
+                    setRating(json.scores);
+                } else {
+                    const errors = json.errors;
+                    console.log(errors);
+                }
+            })
+
+        fetch(apiv3 ? api_ref + '/get_user_rate.php' : fetchUri, {
             method: 'POST',
             body: formData,
             headers: {
@@ -66,6 +79,7 @@ const MyAccountView: React.FC<MyAccountViewProps> = ({ navigation }) => {
         })
         .catch(error => {
             console.log('MyAccountView Error: ', error);
+            getErrorResponse(error)
         })
     }
 
